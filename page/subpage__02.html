@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Sera portfolio</title>
+<meta name="title" content="Sera portfolio">
+<meta name="author" content="lee sera">
+<meta name="description" content="Sera portfolio">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link href="../css/import.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div data-include-path="../gnb.html"></div>
+
+<main id="content">
+	<article class="sub_visual">
+		<span></span>
+		<div>
+			<h2>제목</h2>
+			<h3><em>main publishing</em><em>contents design</em></h3>
+		</div>
+	</article>
+	
+	<article class="concept">
+		<div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<h2>어린이 의회</h2>
+					<ul>
+						<li><strong>role</strong>메인 퍼블리싱(html/css,javascript)&amp;콘텐츠 디자인</li>
+						<li><strong>date</strong>2019.2.12. ~ 2.26.</li>
+						<li><strong>type</strong>국문</li>
+						<li><strong>note</strong>신입 디자이너의 디자인으로 퍼블리싱 함. 여백 및 폰트 크기가 뒤죽박죽이어서 여간 어려운게 아니었다.</li>
+					</ul>
+					<p class="btn"><a href="https://council.iksan.go.kr/child/index.iksan" target="_blank" title="새창으로 열기">web more</a></p>
+				</div>
+				<div class="swiper-slide">
+					<h2>익산시의회 외국어</h2>
+					<ul>
+						<li><strong>role</strong>메인 퍼블리싱(html/css,javascript)&amp;콘텐츠 디자인</li>
+						<li><strong>date</strong>2019.3.4. ~ 3.19.</li>
+						<li><strong>type</strong>외국어(영중일)</li>
+						<li><strong>note</strong>국문에서 변형된 디자인. 국문 디자인&amp;코딩이 자주 변경되어 독자적으로 만듦.</li>
+					</ul>
+					<p class="btn"><a href="https://council.iksan.go.kr/eng/index.iksan" target="_blank" title="새창으로 열기">web more</a></p>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</article>
+		
+	<article class="story">
+		<section class="codeBox">
+			<pre><code>
+&lt;ul class="introduce_org"&gt;
+  &lt;li class="org1"&gt; <em>//1단계</em>
+    &lt;span class="org_tit"&gt;의장&lt;/span&gt;
+    &lt;span class="org_tit"&gt;부의장&lt;/span&gt;
+    &lt;ul&gt;
+      &lt;li class="org2"&gt;&lt;span&gt;상임위원회&lt;/span&gt; <em>//2단계</em>
+        &lt;ul&gt;
+          &lt;li&gt;의회운영위원회&lt;/li&gt; <em>//3단계</em>
+          &lt;li&gt;기획행정위원회&lt;/li&gt; <em>//3단계</em>
+          &lt;li&gt;보건복지위원회&lt;/li&gt; <em>//3단계</em>
+          &lt;li&gt;산업건설위원회&lt;/li&gt; <em>//3단계</em>
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="org2"&gt;&lt;span&gt;특별위원회&lt;/span&gt; <em>//2단계</em>
+        &lt;ul&gt;
+          &lt;li&gt;예산결산위원회&lt;/li&gt; <em>//3단계</em>
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="org2"&gt;&lt;span&gt;사무국장&lt;/span&gt; <em>//2단계</em>
+        &lt;ul&gt;
+          &lt;li class="org_float1"&gt; <em>//3단계</em>
+            &lt;span&gt;전문위원&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;의정계&lt;/li&gt; <em>//3단계</em>
+          &lt;li&gt;의사계&lt;/li&gt; <em>//3단계</em>
+          &lt;li&gt;홍보자료계&lt;/li&gt; <em>//3단계</em>
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+			</code></pre>
+
+			<div>
+				<ul class="introduce_org">
+					<li class="org1"><span class="org_tit">의장</span><span class="org_tit">부의장</span>
+						<ul>
+							<li class="org2"><span>상임위원회</span>
+								<ul>
+									<li>의회운영위원회</li>
+									<li>기획행정위원회</li>
+									<li>보건복지위원회</li>
+									<li>산업건설위원회</li>
+								</ul>
+							</li>
+							<li class="org2"><span>특별위원회</span>
+								<ul>
+									<li>예산결산위원회</li>
+								</ul>
+							</li>
+							<li class="org2"><span>사무국장</span>
+								<ul>
+									<li class="org_float1"><span>전문위원</span></li>
+									<li>의정계</li>
+									<li>의사계</li>
+									<li>홍보자료계</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="storyTxt ">
+				<h4>계층구조에 맞는 조직도</h4>
+				<kbd>li</kbd>를 이용하여 계층 구조에 따라 조직도를 작업하여 웹 접근성을 높였다. 기존의 통 이미지에서 <kbd>:after, :before</kbd> 등 가상클래스를 이용하여 반응형으로 변화하는 조직도를 표현하였다.
+			</div>
+		</section>
+	</article>
+	<article class="story">
+		<figure class="colBox-6">
+			<span><img src="../images/content/img02-01.jpg" alt=""></span>
+			<span><img src="../images/content/img02-02.jpg" alt=""></span>
+			<figcaption><h4>콘텐츠 디자인</h4><strong>어린이&middot;청소년 의회</strong>어린이와 청소년들이 쉽게 다가갈 수 있도록 귀여운 일러스트를 사용하였다.<br><strong>외국어</strong>어느 언어를 붙여 넣어도 틀어지지 않게 만들었다. 접근성이 좋도록 이미지보다 <kbd>li</kbd>로 계층도를 만들었다.</figcaption>
+		</figure>
+	</article>
+</main>
+
+<aside></aside>
+
+
+<div data-include-path="../fnb.html"></div>
+
+<a href="javascript:void(0);" class="btnTop">Top</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../js/swiperMouse.js"></script>
+<script src="../js/include.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/subpage.js"></script>
+
+</body>
+</html>

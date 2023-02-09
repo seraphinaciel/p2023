@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Sera portfolio</title>
+<meta name="title" content="Sera portfolio">
+<meta name="author" content="lee sera">
+<meta name="description" content="Sera portfolio">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link href="../css/import.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div data-include-path="../gnb.html"></div>
+
+<main id="content">
+	<article class="sub_visual">
+		<span></span>
+		<div>
+			<h2>제목</h2>
+			<h3><em>main design</em><em>publishing</em></h3>
+		</div>
+	</article>
+
+	<article class="concept">
+		<div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<h2>대표</h2>
+					<ul>
+						<li><strong>role</strong>메인 디자인&amp;퍼블리싱(html/css,javascript)</li>
+						<li><strong>date</strong>2019.6.12. ~ 6.21. (draft)<br>2019.8.22. ~ 11.5.<br>(open : 20.1.5.)</li>
+						<li><strong>type</strong>국문, 반응형 웹, 웹 접근성 마크 획득</li>
+						<li><strong>concept</strong>
+							<dl>
+								<dt>메인컨셉</dt>
+								<dd>전북도민들이 몇 년이 지나도 직관적으로 이용할 수 있는 홈페이지</dd>
+								<dt>컬러</dt>
+								<dd>채도가 낮은 기존의 컬러에서 차분한 회색을 기본컬러로, 전북의 첨단 신성장을 뜻하는 푸른색(메인컬러)과 전북의 고유한 전통문화를 상징하는 붉은색(포인트 컬러)을 활용하여 보다 깔끔하게 표현.</dd>
+								<dt>UI/UX</dt>
+								<dd>기존의 단순한 그리드에서 벗어나 불규칙적인 그리드를 활용하였습니다.</dd>
+								<dd>기존의 단순한 그리드를 깨고 비대칭을 활용한 레이아웃으로 열린 전북을 표현.</dd>
+								<dd>내비게이션 개선, 자주 쓰는 페이지 등 정보를 효과적으로 노출하고, 모든 디바이스에서 최적화된 반응형으로 사용자의 편의성과 접근성을 높였다.</dd>
+								<dd>넓은 화면, 논리적인 컨텐츠 구성, 심플하며 명확한 아이콘을 제공하여 사용자가 홈페이지를 더 쉽고 직관적으로 이용하기를 기대.</dd>
+							</dl>
+						</li>
+					</ul>
+					<p class="btn"><a href="https://www.jeonbuk.go.kr/index.jeonbuk" target="_blank" title="새창으로 열기">web more</a></p>
+				</div>
+				<div class="swiper-slide">
+					<h2>도지사</h2>
+					<ul>
+						<li><strong>role</strong>퍼블리싱(html/css,javascript)&amp;콘텐츠 디자인</li>
+						<li><strong>date</strong>2019.9.3. ~ 11.5.</li>
+						<li><strong>type</strong>국문, 반응형 웹, 웹 접근성</li>
+						<li><strong>concept</strong>
+							<dl>
+								<dt>메인컨셉</dt>
+								<dd>신뢰와 믿음을 주는 도지사실</dd>
+								<dt>컬러</dt>
+								<dd>짙푸른 남색을 사용하여 묵직하고 진중한 느낌을 나타내어 도지사에 대한 신뢰를 높였다.</dd>
+								<dt>UI/UX</dt>
+								<dd>약속, 소통, 실행이라는 세가지 주제를 바탕으로 콘텐츠 풀어나갔다.</dd>
+								<dd>도지사에게 바란다를 메인에 노출하여 도민과 도지사간의 소통을 강조하였다.</dd>
+							</dl>
+						</li>
+					</ul>
+					<p class="btn"><a href="https://www.jeonbuk.go.kr/governor/index.jeonbuk" target="_blank" title="새창으로 열기">web more</a></p>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</article>
+		
+	<article class="story">
+		<section class="codeBox">
+		<pre><code>
+const imageArr = document.querySelectorAll(".gallery_list img")
+<em>//사진을 모두 가져온다.</em>
+const titleArr = document.querySelectorAll(".gallery_list p strong");
+<em>//제목을 모두 가져온다.</em>
+const layerViewDiv = document.getElementById("layerView");
+const viewImgTag = document.getElementById("viewImg");
+const viewTitle = document.getElementById("layerTitle");
+let num = 1;
+function viewLayer(num) {
+<em>//해당 목록을 누르면 이벤트가 시작된다.</em>
+  viewTitle.innerHTML = titleArr[num].innerText;
+  <em>//num번째 제목을 모달의 제목에 붙여 넣는다.</em>
+  viewImgTag.src = imageArr[num].src;
+  <em>//num번째 사진을 모달의 사진에 붙여 넣는다.</em>
+  viewImgTag.alt = titleArr[num].innerText;
+  <em>//num번째 제목을 모달창에 대체텍스트로  붙여 넣는다.</em>
+  layerViewDiv.className = layerViewDiv.className.replace("hide", "");
+  <em>//모달에 hide 클래스를 추가하여 숨김 처리 한다.</em>
+}
+function changeImg(plusNum) {
+  <em>//이전&다음 버튼을 누르면 실행된다</em>
+  num = parseInt(num + plusNum);
+  <em>//현재 num과 방금 실행된 버튼의 plusNum를 더하여 num에 숫자로 변환하여 넣는다</em>
+  if (num >= imageArr.length) num = 0;
+  <em>//num이 사진의 개수와 같거나 더 크다면 num을 0으로 초기화 한다.</em>
+  viewTitle.innerHTML = titleArr[num].innerText;
+  <em>//num번째 제목을 모달의 제목에 붙여 넣는다.</em>
+  viewImgTag.src = imageArr[num].src;
+  <em>//num번째 제목을 사진에 붙여 넣는다.</em>
+  viewImgTag.alt = titleArr[num].innerText;
+  <em>//num번째 제목을 대체텍스트로 붙여 넣는다.</em>
+}
+function closeViewLayer() {layerViewDiv.className += " hide";}
+  <em>//닫기 버튼을 누르면 모달에 hide 클래스를 추가하여 숨김 처리 한다.</em>
+		</code></pre>
+		<div class="modalBox">
+			<ul class="gallery_list">
+				<li>
+					<a href="#layerView" onclick="viewLayer('0');"><span><img src="https://www.jeonbuk.go.kr//upload_data/board_data/GALLERY_JEONBUK/thumbnail/163816051774120.png" alt="[2021 인권작품 공모전] 캘리그래피분야 아동·청소년부문"></span>
+					<p><strong>[2021 인권작품 공모전] 캘리그래피분야 아동·청소년부문</strong></p></a>
+				</li>
+				<li>
+					<a href="#layerView" onclick="viewLayer('1');"><span><img src="https://www.jeonbuk.go.kr//upload_data/board_data/GALLERY_JEONBUK/thumbnail/160852822029688.jpg" alt="새만금 제5공구 내부용지"></span>
+					<p><strong>새만금 제5공구 내부용지</strong></p></a>
+				</li>
+				<li>
+					<a href="#layerView" onclick="viewLayer('2');"><span><img src="https://www.jeonbuk.go.kr//upload_data/board_data/GALLERY_JEONBUK/thumbnail/160852818109304.jpg" alt="새만금 남북도로 일출"></span>
+					<p><strong>새만금 남북도로 일출</strong></p></a>
+				</li>
+			</ul>
+			<div class="gal_modal hide" id="layerView">
+				<strong id="layerTitle"></strong>
+				<div class="gal_box">
+					<div class="gal_imgbox mv_img"><img src="https://www.jeonbuk.go.kr/upload_data/board_data/GALLERY_JEONBUK/thumbnail/160852822029688.jpg" alt="" id="viewImg">
+						<p class="btn_set">
+							<a href="#" onclick="changeImg(-1);" class="prev">이전사진보기</a><a href="#" onclick="changeImg(1);" class="next">다음사진보기</a>
+						</p>
+					</div>
+					<p class="close_btnbox btn_set"><a href="#" onclick="closeViewLayer();" class="close">닫기</a></p>
+				</div>
+			</div>
+		</div>
+		<script>
+			const imageArr = document.querySelectorAll(".gallery_list img")
+			const titleArr = document.querySelectorAll(".gallery_list p strong");
+			const layerViewDiv = document.getElementById("layerView");
+			const viewImgTag = document.getElementById("viewImg");
+			const viewTitle = document.getElementById("layerTitle");
+			let num = 1;
+			function viewLayer(num) {
+				viewTitle.innerHTML = titleArr[num].innerText;
+				viewImgTag.src = imageArr[num].src;
+				viewImgTag.alt = titleArr[num].innerText;
+				layerViewDiv.className = layerViewDiv.className.replace("hide", "");
+		//		$(".gal_box .btn_set .prev").focus();
+			}
+			function changeImg(plusNum) {
+				num = parseInt(num + plusNum);
+				if (num >= imageArr.length) num = 0;
+				viewImgTag.src = imageArr[num].src;
+				viewImgTag.alt = titleArr[num].innerText;
+				viewTitle.innerHTML = titleArr[num].innerText;
+			}
+			function closeViewLayer() {layerViewDiv.className += " hide";}
+		</script>
+		<div class="storyTxt hide">
+			<h4>갤러리의 모달</h4>
+			갤러리의 게시물을 누르면 모들로 나온다. 게시판과 연동하는 거라 개발자가 작업했지만, 작업물을 보고 재해석하여 만들어 보았다.
+		</div>
+	</section>
+	</article>
+	
+	<article class="story">
+		<figure>
+			<span><img src="../images/content/img05-01.jpg" alt=""></span>
+			<span><img src="../images/content/img05-02.jpg" alt=""></span>
+			<figcaption><h4>전라북도청은 혼자 만들었다.</h4>
+			전라북도청, 군수실 등 시안과 콘텐츠 기획까지 어쩌다보니 거의 혼자 만들었다. 외국어, 생생TV, 전자북은 팀원들이 작업했다. 시안, 콘텐츠 기획, 콘텐츠 등록, 간단한 스크립트까지 3~4개월 정도 걸린 것 같다. 게시판 스킨을 만드는게 일이었는데, 어디에 붙여도 어우러지도록 되도록 간단하게 작업을 하였다.
+			<p class="btn"><a href="../images/content/img05-01.jpg" title="새창열림" target="_blank">PC 시안 자세히보기</a><a href="../images/content/img05-02.jpg" title="새창열림" target="_blank">mobile 시안 자세히보기</a></p></figcaption>
+		</figure>
+	</article>
+</main>
+
+<aside></aside>
+
+<div data-include-path="../fnb.html"></div>
+
+<a href="javascript:void(0);" class="btnTop">Top</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../js/swiperMouse.js"></script>
+<script src="../js/include.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/subpage.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+@charset "utf-8";
+
+/*page00	'장수군 승마레저파크'*/
+.faq .accordion{background-color:#f5f5f5;cursor:pointer;padding:15px 20px;width:100%;border:1px solid rgba(0,0,0,0);text-align:left;outline:none;font-size:16px;transition:.4s;}
+.faq .accordion.active,.faq .accordion:hover{border:1px solid;font-weight:bold;}
+.faq .accordion:after{content:'\002B';color:#777;font-weight:bold;float:right;margin-left:5px;}
+.faq .active:after{content:"\2212";}
+.faq .panel{padding:0 20px;background-color:floralwhite;max-height:0;overflow:hidden;transition:max-height .2s ease-out;}
+.faq .panel span{text-align:center;margin:10px 0 20px;}
+.faq .panel span a{display:inline-block;padding:10px 20px;margin:0 5px 7px 5px;background-color:#444547;text-align:center;transition:ease .5s;color:#fff;}
+.faq .panel span a:first-child{background-color:#05804a;}
+
+/*page02	'전라북도 농업기술원'*/
+.specialty{position:relative;}
+.specialty>img{display:none}
+.specialty li{margin-bottom: 20px; text-align:center;background:url(https://www.jbares.go.kr//images/sub/sub05/s5_off.gif) no-repeat top center;display:inline-block}
+.specialty a{display:block;}
+.specialty span{display:block;width: 100%; height:100%;margin:60px 0 0;border:3px solid #666;}
+.specialty strong{display:block;padding:10px 0;background: #666;color:#fff}
+.specialty .on{background:url(https://www.jbares.go.kr//images/sub/sub05/s5_on.gif) no-repeat top center;z-index:1;}
+.specialty .on span{border-color: #ef5f4b;}
+.specialty .on strong{background:#ef5f4b;background:#666;}
+@media all and (min-width:768px){
+.specialty{margin:0 auto;overflow-x:auto;height: 700px;}
+.specialty>img{max-width: inherit; display: block;}
+.specialty li{position:absolute;width:100px;}
+.specialty a{padding:10px 0 0;}
+.specialty span{display: none; border-radius:50%;border:3px solid #ef5f4b;}
+.specialty strong{padding:5px 0;padding-top: 50px;background: 0;color: #666;}
+.specialty .on{background:url(https://www.jbares.go.kr//images/sub/sub05/s5_on.gif) no-repeat top center;z-index:1;}
+.specialty .on span{height:100px;margin:60px 0 0;overflow: hidden;display: block}
+.specialty .on strong{display:block;padding:5px 0;margin:10px 0 0;background:#ef5f4b;color:#fff}
+.si01{top:140px;left:270px}
+.si02{top:50px;left:240px}
+.si03{top:60px;left: 110px;}
+.si04{top:150px;left: 170px;}
+.si05{top:280px;left:180px}
+.si06{top:370px;left:440px}
+.si07{top: 80px;left: 350px;}
+.si08{top: 240px;left:70px}
+.si09{top:370px;left: 60px;}
+.si10{top:60px;left: 580px;}
+.si11{top:230px;left: 500px;}
+.si12{top: 150px;left: 450px;}
+.si13{top: 260px;left: 350px;}
+.si14{top: 370px;left: 300px;}	
+}
+
+/*page03	'익산시의회'*/
+.introduce_org{max-width:800px;padding:30px;margin:20px auto 0;border:1px solid #dadada;text-align:center;position:relative}
+.introduce_org span{display:block;padding:10px;color:#fff;}
+.introduce_org .org_tit{max-width:200px;margin:0 auto 10px;position:relative}
+.introduce_org .org_tit:after{content:"";/* display:block; */width:1px;height:20px;background:#dadada;position:absolute;top:100%;left: calc(50% - 0px);}
+.introduce_org .org1>span{background:#E95134;}
+.introduce_org .org1>ul{margin:20px 0 0;}
+.introduce_org .org2>span{background:#00557c;color:#fff;}
+.introduce_org .org2{border:1px solid;margin:0 0 20px;position:relative;}
+.introduce_org .org2:after{content:"";display:block;width:1px;height:20px;background:#dadada;position:absolute;top:100%;left:50%;}
+.introduce_org .org2:last-child:after{width:0;}
+.introduce_org .org2 ul{padding:10px}
+.introduce_org .org2 li{line-height:24px;}
+.introduce_org .org_float1 span{max-width:80px;padding:5px;margin:0 auto;background:#dadada;color:#000;}
+@media all and (min-width:768px) {
+.introduce_org:after{content:"";display:block;clear:both;}
+.introduce_org .org1>ul{margin:40px 0 0;}
+.introduce_org .org2{width: calc(33.33% - 20px);margin: 0 10px;float:left;}
+.introduce_org .org2:before{content:"";display:block;width:calc(100% + 16px);height:1px;background:#dadada;position:absolute;top:-21px;left:0%;}
+.introduce_org .org2:after{top:-21px;}
+.introduce_org .org2:first-child:before{top:-21px;left:50%;}
+.introduce_org .org2:last-child:before{left:auto;right:50%}
+.introduce_org .org2:last-child:after{width:1px;}
+}
+
+
+/*page04	'고창군청'*/
+.gochang h4{text-align: center;padding:1rem}
+.gochang .member a{width:150px;line-height:38px;margin:0 auto;text-align:center;background:#fff;box-shadow:10px 10px 0 0 #0a1132;font-weight:600;color:#2b2c57;display: block}
+.gochang .btn_more{margin-top:2rem;text-align: center}
+.gochang .btn_more a{width:40px;height:0;padding-top: 40px;background:url(https://www.gochang.go.kr//images/04_assemblyman/main/icon.png) -51px -232px #354274;display:inline-block;overflow: hidden}
+.gochang .quicklink p{padding:10px 0 17px 30px;position:relative;text-align: center}
+.gochang .quicklink p:before{width:10px;height:10px;background:black;border-radius:50%;display:inline-block;position:absolute;top:15px;left:-5px;content:""}
+.gochang .quicklink p:after{display:block;clear:both;content:""}
+.gochang .quicklink strong{width:47%;margin:0 1.5em 0 0;font-size:1.125rem;line-height:24px;display:inline-block;word-break:keep-all;}
+.gochang .quicklink a{padding:4px 20px 20px;position:relative;display:inline-block}
+.gochang .quicklink i{height:22px;width:3px;background:green;position:absolute;top:0;}
+.gochang .quicklink i:before{height:3px;width:10px;content:'';background:inherit;position:absolute;top:0;left:0;}
+.gochang .quicklink i:after{height:3px;width:10px;content:'';background:inherit;position:absolute;left:0;bottom:0;}
+.gochang .quicklink .l{left:0;}
+.gochang .quicklink .r{left:auto;right:0;}
+.gochang .quicklink .r:before,.quicklink .r:after{left:auto;right:0;}
+.gochang .quicklink span{color:red;text-align:center;display:block;}
+@media all and (min-width:768px) {
+.gochang .quicklink>div{padding:40px 0 60px;max-width:1200px;margin:0 auto;}
+.gochang .quicklink .con_tit{border-bottom:1px solid}
+.gochang .quicklink p{width:240px;height:240px;padding:0;margin:2rem auto 0;}
+.gochang .quicklink p:before{top:0px;left:47%;transform:translate(0%, -50%)}
+.gochang .quicklink strong{width:100%;padding:35px 0;height:140px;float:none;text-align:center;box-sizing:border-box}
+.gochang .quicklink strong br{display:block;}/*no*/
+.gochang .quicklink a{float:none;}
+.gochang .quicklink .l{left:20px;}
+.gochang .quicklink .r{right:20px;}
+}
+@media all and (min-width:1024px) {
+.gochang .member a{animation:pop-up .5s both}
+.gochang .member a:hover{animation:pop-down .5s both}
+.gochang .btn_more a:hover{animation:jelly 0.9s both;}
+.gochang .quicklink strong{padding:35px 40px;position:relative;z-index:1}
+.gochang .quicklink a{padding:0;width:50px;height:50px;margin:0 auto;transition:width 0.45s cubic-bezier(0.770, 0.000, 0.175, 1.000);}
+.gochang .quicklink i,
+.gochang .quicklink i:before,
+.gochang .quicklink i:after,
+.gochang .quicklink span {transition:all 0.45s cubic-bezier(0.770, 0.000, 0.175, 1.000), background-color 0s;}
+.gochang .quicklink i {height:16px;width:2px;background:red;}
+.gochang .quicklink i:before{top:7px;height: 2px;width:8px;}
+.gochang .quicklink i:after{bottom:7px;height:2px;width:8px;}
+.gochang .quicklink .l{left:24px;}
+.gochang .quicklink .r{right:24px;}
+.gochang .quicklink span{opacity:0;filter:Alpha(opacity=0);}
+.gochang .quicklink p:hover strong{color:white;text-decoration:underline}
+.gochang .quicklink p:hover a{width:100%;}
+.gochang .quicklink p:hover i:before{top:0;height:2px;width:5px;}
+.gochang .quicklink p:hover i:after{bottom:0;height:2px;width:5px;}
+.gochang .quicklink p:hover .l{left:20%;}
+.gochang .quicklink p:hover .r{right:20%;}
+.gochang .quicklink p:hover span{opacity:1;filter:Alpha(opacity=100);}
+.gochang .quicklink p:before{transition:all ease-out 0.2s}
+.gochang .quicklink p:hover:before{width:200px;height:200px;left:8%;background:url("https://www.gochang.go.kr//images/05_biosphere_reserve/main/quicklink_img.png") no-repeat}
+}
+@keyframes pop-down{0%{box-shadow:10px 0 #0a1132,0 10px #0a1132;transform:translateX(0) translateY(0)}100%{box-shadow:10px 10px #0a1132,10px 10px #0a1132;transform:translateX(-8px) translateY(-8px)}}
+@keyframes pop-up{0%{box-shadow:10px 10px #0a1132,10px 10px #0a1132;transform:translateX(-8px) translateY(-8px)}100%{box-shadow:0px 0 #0a1132,0 0px #0a1132;transform:translateX(0) translateY(0)}}
+@keyframes jelly {0% {transform: scale3d(1, 1, 1);}30% {transform: scale3d(0.75, 1.25, 1);}40% {transform: scale3d(1.25, 0.75, 1);}50% {transform: scale3d(0.85, 1.15, 1);}65% {transform: scale3d(1.05, 0.95, 1);}75% {transform: scale3d(0.95, 1.05, 1);}100% {transform: scale3d(1, 1, 1);}}
+
+/*page05	'순창군청'*/
+
+/*page06	'전북도청'*/
+.modalBox{position: relative}
+.btn_set a{height:0;margin:0 1px 0 0;background:url(https://www.jeonbuk.go.kr//images/01_portal/common/icon_common.png);display:inline-block !important;overflow:hidden}
+.btn_set a:last-child{margin:0}
+.btn_set .prev{background-position:0px -104px;}
+.btn_set .stop{background-position:-37px -104px;}
+.btn_set .play{background-position:-71px -104px;}
+.btn_set .next{background-position:-143px -104px;}
+.btn_set .list{background-position:-109px -104px;}
+.gallery_list{width:100%;border-top:2px solid #123466;}
+.gallery_list li{border-bottom:1px solid #d7d7d7;line-height:1.25em;padding:15px 0;text-align:center;}
+.gallery_list li input{margin:0 0 10px;}
+.gallery_list span{display:block;}
+.gallery_list a{display:block}
+.gallery_list img{max-width:100%;}
+.gallery_list p{max-width:300px;margin:0 auto;font-size:.9333rem;}
+.gallery_list p strong{margin:20px; font-weight:500;font-size:1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;}
+.gal_modal{width:100%;padding:30px 10px;border-radius:15px;background:#002253;position:absolute;top:0%;left:50%;transform:translate(-50%,0);box-sizing:border-box}
+.gal_modal strong{margin-right:50px;height:70px;line-height:1.84;color:#fff;text-decoration:underline;font-size:1.2rem;font-weight:500;text-align:center;display:block;}
+.gal_modal .gal_box{position:relative}
+.gal_modal .gal_imgbox{margin:auto;text-align:center;position:relative;height:0;padding-top: 56.25%;overflow: hidden}
+.gal_modal .gal_imgbox img{max-width:100%;position: absolute;top:0;left:50%;transform: translate(-50%,-0%)}
+.gal_modal .gal_btn{position:absolute;}
+.gal_modal .btn_set a{width:36px;padding:36px 0 0;position:absolute;}
+.gal_modal .btn_set a:focus,.gal_modal .btn_set a:hover{background-color:rgba(0,0,0,1)}
+.gal_modal .close_btnbox{position:absolute;top:20px;right:0px}
+.gal_modal .close{background-color:#fff !important;border-radius:50%;background-position:-4px -237px;top:-100px;right:0;}
+.gal_modal .prev{background-position:0px -50px;background-color:rgba(0,0,0,.7);top:50%;left:-10px;transform:translate(0, -50%)}
+.gal_modal .next{background-position:-106px -50px;background-color:rgba(0,0,0,.7);top:50%;right:-10px;transform:translate(0, -50%)}
+.gal_modal ul{margin:20px 0;}
+.gal_modal li{padding:4px 20px 10px 170px;color:#fff;position:relative;}
+.gal_modal li span{width:150px;padding:4px 0;background:#556279;text-align:center;box-sizing:border-box;position:absolute;top:0;left:0;display:block;}
+@media all and (max-width:400px){
+.gal_modal .gal_imgbox img{width:100%;}
+}
+@media all and (min-width:768px){
+.gallery_list:after{content:"";display:block;clear:both;}
+.gallery_list li{width:calc(50% - 2px);float:left;border-left:1px solid #d7d7d7;}
+.gallery_list li:last-child,.gallery_list li:nth-child(2n){border-right:1px solid #d7d7d7;}
+.gallery_list span{width:300px;height:0;padding-top:56.25%; margin:0 auto;overflow:hidden;position:relative;background: red}
+.gallery_list img{position: absolute;top:0;left:0;}
+.gal_modal{width:90%;}
+.gal_modal ul{width:80%;margin:20px auto;}
+.gal_modal ul:after{display:block;clear:both;content:""}
+.gal_modal li{float:left;width:50%;box-sizing:border-box}
+}
+@media all and (min-width:1024px){
+.gallery_list{padding:20px 0;}
+.gallery_list li{padding:30px 10px;border:0;box-sizing:border-box;transition:.5s ease}
+.gallery_list li:last-child,.gallery_list li:nth-child(2n){border-right:0}
+.gallery_list span{width:100%;}
+/*.gallery_list img{max-width:110%}*/
+.gallery_list li:hover{background:#f4f4f8;transition:.5s ease}
+.gallery_list li:hover strong{text-decoration:underline}
+.gal_modal{padding:20px 30px;top:0}
+.gal_modal ul{margin:20px auto 50px;}
+}
+
+/*page07	'담양 대나무 축제'*/
+@font-face{font-family: 'DoHyeon';src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');font-weight: normal;font-style: normal;}  
+.t_info .v_date{font:3.75rem 'DoHyeon';color:#fff;text-align:center;text-shadow:0px 0px 12px rgba(0,0,0,.75)}
+.t_info .v_date span{display:inline-block;position:relative}
+.t_info .v_date .day{color:#f6ff00;}
+.t_info .v_date span:before{width:36px;height:36px;background:url(../images/content/img06-03.png) -276px -8px;display:block;position:absolute;content:""}
+.t_info .v_date .d:before{bottom:10px;left:-26px;}
+.t_info .v_date .day:before{top:-22px;right:-21px;transform:rotate(90deg);}
+@media all and (max-width:374px) {
+.t_info h2{font-size:2.6rem}
+.t_info .v_con{font-size:1rem;}
+}
+@media all and (min-width:768px){
+.t_info h2{font-size:5rem}
+.t_info h2 em{margin:0 0 25px;font-size:2.4375rem}
+.t_info .v_con{margin:48px auto 28px;}
+.t_info .v_con li:last-child{margin-left:35px}
+.t_info .v_date{font-size:6.25rem}
+.t_info .v_date .d:before{bottom:20px;}
+}
+@media all and (min-width:1200px){
+.t_info{max-width:1400px;padding:40px 0px 52px;margin:0 auto;}
+	.t_info .v_con{margin-top:20px;}
+}
+/*page08	'전남지원청'*/
+/*page09	'광주광역시 빅데이터'*/
+/*page10	'전북교육청'*/
+/*page12	'익산시 체육시설예약'*/
+
+/*page13	'비짓전주'*/
+.spotSlide{padding-top: 3rem;margin:auto;position: relative;overflow: hidden;width: 100vw;}
+.spotSlide .btn_circle{width:100%;display:flex;flex-wrap: wrap}
+.spotSlide .btn_circle button{padding:.5rem 1rem; background: powderblue;overflow:hidden;display: block;z-index:1}
+.spotSlide  .prev{top:0;right:70px;}
+.spotSlide  .next{top:0;}
+.spotSlide  .disable{opacity:.3}
+.spotSlide  button:hover,.spotSlide  button:focus{background-color:#efe9f3}
+.item_wrap{display:flex;/* flex-wrap: wrap; */width: 100%;}
+.item_wrap span{flex: 0 0 auto;width: 33.33%;}
+.item_wrap img{max-width: 100%}
+.item_wrap strong{text-align: center}
+@media all and (min-width:1280px){.spotSlide{width:1280px;}}
+
+
+/*page14	'임실군청'*/
+/*page15	'군산대 학과'*/

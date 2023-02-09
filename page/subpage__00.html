@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Sera portfolio</title>
+<meta name="title" content="Sera portfolio">
+<meta name="author" content="lee sera">
+<meta name="description" content="Sera portfolio">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+<link href="../css/import.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div data-include-path="../gnb.html"></div>
+
+<main id="content">
+	<article class="sub_visual">
+		<span></span>
+		<div>
+			<h2>제목</h2>
+			<h3><em>main design</em><em>publishing</em></h3>
+		</div>
+	</article>
+	<article class="concept">
+		<ul>
+			<li><strong>role</strong>메인 디자인, 퍼블리싱(html/css/javascript)</li>
+			<li><strong>date</strong>2018.01.12. ~ 04.30.</li>
+			<li><strong>type</strong>국문, 장수군청 산하 기관, 반응형 웹</li>
+			<li><strong>concept</strong>
+				<dl>
+					<dt>메인컨셉</dt>
+					<dd>말과 사람의 소통</dd>
+					<dt>컬러</dt>
+					<dd>장수군의 심볼컬러를 그대로 메인 컬러로 사용하여 장수군의 정체성을 확립하고 초록 들판까지 함께 상징</dd>
+					<dt>UI/UX</dt>
+					<dd>컨셉에 어울리도록 체험 유도를 극대화할 수 있는 사진을 채택하여 상단 비주얼영역을 넓고 크게 구성</dd>
+					<dd>하단 영역은 메트로 UI를 사용하여 트랜디한 UI 구조로 빠른 정보 이동이 쉽도록 구성</dd>
+					<dd>길 찾기 버튼 등 사용자의 편의를 고려</dd>
+				</dl>
+			</li>
+		</ul>
+		<p class="btn"><a href="" target="_blank" title="새창으로 열기">web more</a></p>
+	</article>
+	<article class="story">
+		<section class="codeBox">
+			<pre><code>
+const accordion = document.querySelectorAll(".accordion");
+<em>//마크업페이지에서 <kbd>.accordion</kbd>을 모두 찾아 accordion이라 칭한다.</em>
+  for (let i = 0; i < accordion.length; i++) {
+<em>//i가 0부터 시작되고, accordion의 길이보다 작을 때 1씩 증가</em>
+    accordion[i].addEventListener("click", function() {
+<em>//accordion을 클릭할 때마다 아래의 이벤트가 시작된다.</em>
+    this.classList.toggle("active");
+<em>//현재 클릭한 accordion에 클래스 active 추가</em>
+    const panel = this.nextElementSibling;
+<em>//현재 클릭한 accordion의 바로 다음 요소(여기에서는 <kbd>div</kbd>)를 가져와 panel이라 칭한다. </em>
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = '';
+<em>//panel의 높이값이 있을 경우, 높이값을 삭제한다.</em>
+    } else { 
+      panel.style.maxHeight = panel.scrollHeight + "px";
+<em>//panel의 높이값이 없을 경우, panel에 들어있는 컨텐츠의 전체 높이(패딩과 테두리 포함, 마진 제외)를 px로 입력한다.</em>
+  }
+});
+}
+			</code></pre>
+
+			<div class="faq">
+				<button class="accordion">자주묻는 질문 1</button>
+				<div class="panel">
+					<p><br>자주묻는 질문 1<br><br></p>
+					<span><a href="#">수정</a><a href="#">삭제</a></span>
+				</div>
+				<button class="accordion">자주묻는 질문  2</button>
+				<div class="panel">
+					<p><br>자주묻는 질문 <br><br></p>
+				</div>
+				<button class="accordion">자주묻는 질문  3</button>
+				<div class="panel" id="borderimg1">
+					<p><br>자주묻는 질문 <br><br></p>
+				</div>
+			</div>
+			<script>
+				const accordion = document.querySelectorAll(".accordion");
+				for (let i = 0; i < accordion.length; i++) {
+					accordion[i].addEventListener("click", function() {
+						this.classList.toggle("active");
+						const panel = this.nextElementSibling;
+						if (panel.style.maxHeight) {
+							panel.style.maxHeight = '';
+						} else { 
+							panel.style.maxHeight = panel.scrollHeight + "px";
+						}
+					});
+				}
+			</script> 
+
+			<div class="storyTxt">
+				<h4>자주찾는 질문의 아코디언 탭</h4>
+				나중에 추가된 게시판. 간단하게 처리 할 수 있어 보였기에 처리하였다. <kbd>button</kbd>의 개수만큼 내용이 나오며 <kbd>nextElementSibling</kbd>를 통해 <kbd>button</kbd>뒤의 <kbd>div.panel</kbd>만 가져왔다.
+			</div>
+		</section>
+	</article>
+	<article class="story">
+		<figure>
+			<span><img src="../images/content/img00-01.jpg" alt=""></span>
+			<span><img src="../images/content/img00-02.jpg" alt=""></span>
+			<figcaption>
+				<h4>최종 메인 시안</h4>
+				관공서 웹에이전시에 처음 들어와서 맡은 홈페이지. 처음으로 웹 접근성을 100% 다 맞춰서 작업하였다.
+			</figcaption>
+		</figure>
+	</article>
+</main>
+
+<aside></aside>
+<!-- href="#" onclick="return false;" 참고 : https://minimal-dev.tistory.com/28-->
+<div data-include-path="../fnb.html"></div>
+
+<a href="javascript:void(0);" class="btnTop">Top</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../js/swiperMouse.js"></script>
+<script src="../js/include.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/subpage.js"></script>
+
+</body>
+</html>

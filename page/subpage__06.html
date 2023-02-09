@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Sera portfolio</title>
+<meta name="title" content="Sera portfolio">
+<meta name="author" content="lee sera">
+<meta name="description" content="Sera portfolio">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link href="../css/import.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+<div data-include-path="../gnb.html"></div>
+
+<main id="content">
+	<article class="sub_visual">
+		<span></span>
+		<div>
+			<h2>제목</h2>
+			<h3><em>main design</em><em>publishing</em></h3>
+		</div>
+	</article>
+	<article class="concept">
+		<ul>
+			<li><strong>role</strong>메인 디자인, 퍼블리싱(html/css/javascript)</li>
+			<li><strong>date</strong>2020.11.2. ~ 22.5.9.</li>
+			<li><strong>type</strong>국문, 외국어(영중일스프), 관광거점도시 홍보형, 전주시 문화관광</li>
+			<li><strong>note</strong>전주가 방한 도시관광의 선도모델 육성을 위한 관광거점도시로 선정되어 만든 반응형 웹</li>
+		</ul>
+		<p class="btn"><a href="https://tour.jeonju.go.kr/index.jeonju#content" target="_blank" title="새창으로 열기">web more</a></p>
+	</article>
+	<article class="story">
+		<section class="codeBox">
+			<pre><code>
+$(document).ready(function(){
+  let move = 0;
+  <em>//게시물이 이동되는 값을 초기화!</em>
+  const elements = $(".item_wrap > span");
+  const moveAdd = (window.innerWidth / 3);
+  <em>//디바이스 너비 / 3</em>
+  const length = $(elements).length;
+  <em>//총 게시물 개수</em>
+  $(".btn_circle .prev").bind("click",function(){
+  <em>//prev 버튼을 클릭하면 아래의 이벤트가 발생된다.</em>
+  	if($(this).hasClass("disable"))return false;
+  	<em>//disable이 있다면 여기에서 멈춘다(이전 게시물이 없으므로 이벤트가 진행되지 않는다).</em>
+  	$(".btn_circle .next").removeClass("disable"); 
+  	<em>//next버튼을 클릭하면 현재 prev버튼에서 disable제거(이벤트 시작)</em>
+  	$(elements).filter(".on").removeClass("on").prev("span").addClass("on");
+  	<em>//현재 게시물에서 .on을 제거하고, 다음 게시물에 .on을 추가한다.</em>
+  	if($(elements).index($(elements).filter(".on")) == 0){
+  	<em>//이전 게시물이 없을 때 </em>
+  		$(".btn_circle .prev").addClass("disable");
+  		<em>//disable 추가</em>
+  	}
+  	move += moveAdd;
+  	<em>//버튼을 누를 때마다 1칸의 너비만큼 값이 더해진다.</em>
+  	$(".item_wrap").css("transform","translateX("+move+"px)");
+  	<em>//버튼을 누를 때마다 transform을 이용해 1칸의 너비만큼 이동된다.</em>
+  });
+  
+  $(".btn_circle .next").bind("click",function(){
+  	if($(this).hasClass("disable"))return false;
+  	$(".btn_circle .prev").removeClass("disable");
+  	$(elements).filter(".on").removeClass("on").next("span").addClass("on");
+  	if($(elements).index($(elements).filter(".on")) == (length-2)){
+  		$(".btn_circle .next").addClass("disable");
+  	} 
+  	move -= moveAdd;
+  	$(".item_wrap").css("transform","translateX("+move+"px)");
+  });
+})
+			</code></pre>
+
+			<div class="spotSlide">
+				<p class="btn_circle"><button class="prev disable">prev</button><button class="next">next</button></p>
+				<div class="item_wrap" style="transition: all 0.5s ease-out 0s; transform: translateX(0px);">
+					<span class="on">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide01.jpg" alt="">
+						<strong>골목갤러리</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide02.jpg" alt="">
+						<strong>서학동 사진관</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide03.jpg" alt="">
+						<strong>선재미술관</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide04.jpg" alt="">
+						<strong>예술공방촌</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide05.jpg" alt="">
+						<strong>벽화아트</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide06.jpg" alt="">
+						<strong>마당음악회</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide07.jpg" alt="">
+						<strong>야호 아이놀자</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide08.jpg" alt="">
+						<strong>예술학교</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide09.jpg" alt="">
+						<strong>희망 도시락 편지</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide10.jpg" alt="">
+						<strong>할매공방 패션쇼</strong>
+					</span>
+					<span class="">
+						<img src="/visitJeonju_2022/images/contents/arttownSlide11.jpg" alt="">
+						<strong>마스크 제작 기부</strong>
+					</span>
+				</div>
+			</div>
+			<script>
+				$(document).ready(function() {
+					let move = 0;
+					const elements = $(".item_wrap > span");
+					const moveAdd = window.innerWidth / 3;
+					const length = $(elements).length;
+					$(".btn_circle .prev").bind("click", function() {
+						if ($(this).hasClass("disable")) return false;
+						$(".btn_circle .next").removeClass("disable");
+						$(elements).filter(".on").removeClass("on").prev("span").addClass("on");
+						if ($(elements).index($(elements).filter(".on")) == 0) {
+							$(".btn_circle .prev").addClass("disable");
+						}
+						move += moveAdd;
+						$(".item_wrap").css("transform", "translateX(" + move + "px)");
+					});
+
+					$(".btn_circle .next").bind("click", function() {
+						if ($(this).hasClass("disable")) return false;
+						$(".btn_circle .prev").removeClass("disable");
+						$(elements).filter(".on").removeClass("on").next("span").addClass("on");
+						if ($(elements).index($(elements).filter(".on")) == (length - 2)) {
+							$(".btn_circle .next").addClass("disable");
+						}
+						move -= moveAdd;
+						$(".item_wrap").css("transform", "translateX(" + move + "px)");
+					});
+				})
+			</script>
+
+			<div class="storyTxt">
+				<h4>반응형 슬라이드</h4>
+				디바이스 크기에 따라 3칸으로 표출되고, 버튼을 누를때마다 1칸의 크기만큼 이동이 가능하다.
+				게시물이 없을 시 <kbd>button</kbd>에 <kbd>.disable</kbd>이 추가되어 이동이 불가능하다.<br>
+				<strong>보완점</strong>: 디바이스가 변할 때마다 새로고침을 해야 하는 번거로움이 있어 보완해야 한다.
+			</div>
+		</section>
+	</article>
+	<article class="story">		
+		<figure class="colBox-1">
+			<span><img src="../images/content/img07-01.jpg" alt=""></span>
+			<figcaption>
+				<h4>최종 메인 시안</h4>
+				<strong>1차 작업</strong> : 한옥마을 등 외국인 관광객들이 체감할 수 있는 전통문화 브랜드가 가장 확고한 도시라는 이유로 선정되었다. 이에 전주 한옥마을을 모티브로 아이콘도 그려보고, 처음 시도해보는 일러스트로 구성한 디자인이라 재미있었다.<br>
+				<strong>2차 작업</strong> : 요청사항 및 콘텐츠 기획, 담당자들의 잦은 교체와 중간에 거의 완성된 작업을 새로 해야 해서 어려웠다. 이걸 기회로 삼아 디자인 기획부터 앞으로 나아갈 방향에 대해 생각하는 시간을 가졌다. 개인적으로 비짓전주를 하면서 안팎으로 매우 성장했다고 생각한다.<br>
+				<strong>외국어</strong> : 외국인의 눈으로 볼 때 와닿을 수 있도록 폰트, 배치, 외국어 특화 메뉴에 신경을 많이 썼다. 5개 국어 글자 수가 가변적으로 변해도 무리가 없는 코딩을 하려고 노력했다.
+				<p class="btn"><a href="../images/content/img07-01.jpg" title="새창열림" target="_blank">PC 시안 자세히보기</a></p>
+			</figcaption>
+		</figure>
+	</article>
+
+</main>
+
+<aside></aside>
+
+<div data-include-path="../fnb.html"></div>
+
+<a href="javascript:void(0);" class="btnTop">Top</a>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../js/swiperMouse.js"></script>
+<script src="../js/include.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/subpage.js"></script>
+
+</body>
+</html>

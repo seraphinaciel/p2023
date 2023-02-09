@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Sera portfolio</title>
+<meta name="title" content="Sera portfolio">
+<meta name="author" content="lee sera">
+<meta name="description" content="Sera portfolio">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link href="../css/import.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div data-include-path="../gnb.html"></div>
+
+<main id="content">
+	<article class="sub_visual">
+		<span></span>
+		<div>
+			<h2>제목</h2>
+			<h3><em>main design</em><em>publishing</em></h3>
+		</div>
+	</article>
+	<article class="concept">
+		<ul>
+			<li><strong>role</strong>메인 디자인, 퍼블리싱(html/css/javascript)</li>
+			<li><strong>date</strong>2020.1.23. ~ 2.7. (draft)<br>2020.3.2. ~ 3.26.</li>
+			<li><strong>type</strong>국문, 담양군청 산하 기관, 반응형 웹, 축제 페이지</li>
+			<li><strong>concept</strong>
+				<dl>
+					<dt>메인컨셉</dt>
+					<dd>대나무 이미지를 전체 화면에 사용하여 대나무 숲에 들어온 듯한 느낌을 주었고, 대나무 축제의 정보를 한 번에 얻을 수 있도록 일정, 배치도, 행사프로그램, 자주찾는 질문을 버튼형식으로 넣었습니다. 전체적으로 탁 트여보이게 여백과 폰트, 이미지를 크게 사용하였습니다.</dd>
+					<dt>컬러</dt>
+					<dd>정적인 먹색을 기본으로 화려한 노랑색을 포인트 색으로 사용하였습니다.</dd>
+					<dt>UI/UX</dt>
+					<dd>축제소개/축제알아보기/오시는길/ 등 컨텐츠를 구분하여 세 번의 스크롤을 통해 사용자가 한 화면에서 내용을 쉽게 파악할 수 있도록 구성하였습니다. 또한 우측상단에 탭을 제공하여 주요 컨텐츠로의 이동이 용이하게 배치 하였습니다.</dd>
+				</dl>
+			</li>
+		</ul>
+		<p class="btn"><a href="http://www.bamboofestival.co.kr/index.do" target="_blank" title="새창으로 열기">web more</a></p>
+	</article>
+	<article class="story">
+		<section class="codeBox">
+		<pre><code>
+const clockTitle = document.querySelector(".day");
+<em>//day 클래스를 찾아서 clockTitle이라는 변수에 넣는다</em>
+function clockTimer() {
+  const cDate = new Date();
+  <em>//날짜 찾기</em>
+  const dDay = new Date("april 25, 2023");
+  <em>//기준 날짜를 dDay에 넣는다.</em>
+  const reDay = (dDay - cDate) / 1000; 
+  <em>//기준 날짜 - 현재날짜
+  밀리초 단위의 숫자 값으로 반환(312,000 day)하므로 1000 나누기</em>
+  const oneHour = 60 * 60; 
+  <em>//1시간을 초로 환산</em>
+  const calDay = String(Math.floor(reDay / (oneHour * 24))).padStart(2, "0");
+  <em>//구해진 디데이 값을 Math.floor를 사용하여 소수값을 버리고 정수만 가져온다. 
+  padStart를 이용해 1~9까지를 01~09 두자리로 로 표출한다.</em>
+  clockTitle.innerText = `${calDay}`;
+  <em>//.day에 디데이 값 넣기</em>
+}
+clockTimer();
+
+let start = 1;
+<em>//시작하는 숫자 = 1</em>
+const day = clockTitle.innerText;
+<em>//clockTimer로 구한 값을 day에 넣는다.</em>
+const tId = setInterval(countUp, 15);
+<em>//countUp 호출, 0.015초 </em>
+function countUp() {
+  start = start + 1;
+  <em>//1부터 원하는 시간(day)까지 1씩 증가</em>
+  if (start == day) {
+    clearInterval(tId);
+    <em>//원하는 시간(day)에 도달하면 타이머가 멈춘다.</em>
+  }
+  clockTitle.innerText = start
+  <em>//1부터 원하는 시간(day)까지 휘리링 효과 시작</em>
+}
+		</code></pre>
+
+		<div class="t_info">
+			<p class="v_date"><span class="d">D</span> - <span class="day"></span></p>
+		</div>
+		<script>
+			const clockTitle = document.querySelector(".day");
+
+			function clockTimer() {
+				const cDate = new Date();
+				const dDay = new Date("april 25, 2023");
+				const reDay = (dDay - cDate) / 1000;
+				const oneHour = 60 * 60;
+				const calDay = String(Math.floor(reDay / (oneHour * 24))).padStart(2, "0");
+				clockTitle.innerText = `${calDay}`;
+			}
+			clockTimer();
+			let start = 1;
+			const day = clockTitle.innerText;
+			const tId = setInterval(countUp, 15);
+
+			function countUp() {
+				start = start + 1;
+				if (start == day) {
+					clearInterval(tId);
+				}
+				clockTitle.innerText = start
+			}
+		</script>
+		<div class="storyTxt">
+			<h4>D-Day 구하기</h4>
+			축제이니 만큼 디데이가 중요해서 꼭 넣어야 했다. 숫자가 촤르륵 올라가는 효과를 주어 조금 더 생동감 있게 표현해 보았다.
+		</div>
+	</section>
+	</article>
+	<article class="story">
+		<figure class="colBox-6">
+			<span><img src="../images/content/img06-01.jpg" alt=""></span>
+			<span><img src="../images/content/img06-02.jpg" alt=""></span>
+			<figcaption>
+				<h4>더 크게 더 멋지게</h4>축제에 걸맞게 전체 화면을 사용하는데 중점을 주었다. 아리따움 폰트로 대나무를 형상화하였다. 
+				<br>아쉬운점은 그다지 많은 스크립트가 들어가는 사이트가 아니어서... 간단한 축제 사이트에다 코로나 때문에 오픈도 제대로 못해서 너무 아쉬웠다.
+				<p class="btn"><a href="../images/content/img06-01.jpg" title="새창열림" target="_blank">PC 시안 자세히보기</a><a href="../images/content/img06-02.jpg" title="새창열림" target="_blank">mobile 시안 자세히보기</a></p>
+			</figcaption>
+		</figure>
+	</article>
+</main>
+
+<aside></aside>
+
+<div data-include-path="../fnb.html"></div>
+
+<a href="javascript:void(0);" class="btnTop">Top</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../js/swiperMouse.js"></script>
+<script src="../js/include.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/subpage.js"></script>
+
+</body>
+</html>
