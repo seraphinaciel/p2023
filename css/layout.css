@@ -30,21 +30,31 @@ article {
 }
 
 footer {
-  min-height: 120px;
   background: white;
+  padding: 20px;
+}
+@media all and (min-width: 768px) {
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(100px, 1fr);
+    gap: 16px;
+  }
+}
+@media all and (min-width: 1280px) {
+  footer {
+    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
+  }
 }
 footer .fnb {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
   letter-spacing: 0;
   color: #333;
+}
+@media all and (min-width: 1280px) {
+  footer .fnb {
+    grid-column: 2/span 4;
+    align-self: center;
+  }
 }
 footer .fnb a {
   margin: 0 0.625rem;
@@ -119,13 +129,17 @@ footer .fnb svg {
   vertical-align: middle;
 }
 footer .copy {
-  width: 100%;
   text-transform: capitalize;
-  margin-top: 1rem;
   font-weight: 900;
   font-size: 1rem;
-  text-align: center;
+  text-align: right;
   letter-spacing: 0;
+}
+@media all and (min-width: 1280px) {
+  footer .copy {
+    grid-column: 6/-2;
+    align-self: center;
+  }
 }
 @media all and (min-width: 2000px) {
   footer .copy {
@@ -133,19 +147,6 @@ footer .copy {
   }
 }
 
-@media all and (min-width: 1300px) {
-  footer {
-    padding: 0 15vw;
-  }
-  footer .fnb a[class^=git] i {
-    width: 1.25vw;
-    height: 1.25vw;
-  }
-  footer .copy {
-    width: auto;
-    margin: 6px 0 0 auto;
-  }
-}
 .btnTop {
   position: fixed;
   right: 5vw;

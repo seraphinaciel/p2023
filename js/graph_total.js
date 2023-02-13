@@ -1,15 +1,19 @@
 (() => {
   const contentBody = document.querySelectorAll("#content > article");
 
+  const personality = document.querySelector(".personality"); // 패럴렉스가 시작될 엘리먼트
+
   let yOffset = 0; // window.pageYOffset 대신 쓸 변수
   let currentScene = 0; //현재 활성화된 씬(scroll-section)
 
   let scrollHeight;
   let scrollRealHeight; //실제 스크롤 해야 될 높이
   let sectionOffsetTop;
+  // let sectionOffsetBottom;
   let sectionScrollTop; //스크롤 백분율 값을 담을 변수
   let scrollPercent; //스크롤탑 / 스크롤 실제 길이로 구한 비율
   let percent; //scrollPercent * 100;
+  // let sectionIsMoving = false; // 섹션이 이동중인지 체크하는 변수
 
   let isMobile;
 
@@ -366,7 +370,7 @@
       const colli = document.createElement("li");
 
       proList.append(colli);
-      colli.innerHTML = `<a href="${projectName[num].link}" target="_blank" title="새창 열림">${projectName[num].title}</a>`;
+      colli.innerHTML = `<a href="${projectName[num].link}">${projectName[num].title}</a>`;
     }
   }
   /**
@@ -391,115 +395,101 @@
       }
     }
 
-    console.log(percent);
+    // console.log(percent);
 
     if (percent >= 0 && percent < 16.4) {
-      console.log("1");
-      graph(0, 1, 4);
-      graph(1, 1, 5);
-      graph(2, 1, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
+      graph(1);
+      graphText(1);
     } else if (percent >= 16.41 && percent < 29) {
-      console.log("2");
-      graph(0, 2, 4);
-      graph(1, 2, 5);
-      graph(2, 2, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(2, 4);
+      graph(2);
+      graphText(2);
     } else if (percent >= 30 && percent < 48) {
-      console.log("3");
-      graph(0, 3, 4);
-      graph(1, 3, 5);
-      graph(2, 3, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(3);
+      graph(3);
+      graphText(3);
     } else if (percent >= 49 && percent < 68) {
-      console.log("4");
-      graph(0, 4, 4);
-      graph(1, 4, 5);
-      graph(2, 4, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(4);
+      graph(4);
+      graphText(4);
     } else if (percent >= 68 && percent < 85) {
-      console.log("5");
-      graph(0, 3, 3);
-      graph(1, 5, 5);
-      graph(2, 5, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(5);
-    } else if (percent >= 85 && percent < 100) {
-      console.log("6");
-      graph(0, 3, 3);
-      graph(1, 4, 4);
-      graph(2, 6, 6);
-      graph(3, 1, 2);
-      graph(4, 1, 2);
-      // graphText(6);
-    } else if (percent >= 100) {
-      console.log("7");
-      graph(0, 3, 3);
-      graph(1, 4, 4);
-      graph(2, 6, 6);
-      graph(3, 2, 2);
-      graph(4, 2, 2);
-      // graphText(6);
+      graph(5);
+      graphText(5);
+    } else if (percent >= 85) {
+      graph(6);
+      graphText(6);
     } else {
-      console.log("hello");
-      graph(0, 0, 0);
-      graph(1, 0, 0);
-      graph(2, 0, 0);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(0);
+      graph(0);
+      graphText(0);
     }
   }
 
-  function graph(index, roundR, repeatR) {
+  function graphText(roundR) {
     const pie = document.querySelectorAll(".pie");
     const item = document.querySelectorAll(".pieName li");
 
-    let piePercent = pie[index].dataset.percent;
-    const color = pie[index].dataset.color;
-    const r = pie[index].dataset.rotate;
-    let piece = 0;
-    let piece2 = 0;
-    let cake = 0;
-    let cake2 = 0;
+    for (let i = 0; i < pie.length; i++) {
+      let piePercent = pie[i].dataset.percent;
+      let piece = 0;
+      let cake = 0;
 
-    piece = r / repeatR;
-    piece2 = piePercent / repeatR;
-    cake = piece * roundR;
-    cake2 = piece2 * roundR;
+      piece = (piePercent / 6).toFixed(2);
+      cake = piece * roundR;
 
-    // txt
-    let ratateNum = 0;
-    const graphAnimation = setInterval(() => {
-      if (repeatR === 0) {
-        clearInterval(graphAnimation);
-      }
-      item[index].dataset.percent = ratateNum;
-      ratateNum++ >= cake2 && clearInterval(graphAnimation);
-    }, 10);
+      let ratateNum = 0;
+      const graphAnimation = setInterval(() => {
+        item[i].dataset.percent = ratateNum;
+        ratateNum++ >= cake && clearInterval(graphAnimation);
+      }, 10);
+    }
+  }
 
-    // graph
-    let n = 0;
-    for (let k = 0; k < r; k++) {
-      if (repeatR === 0) {
-        pie[index].style.transform = `rotate(0deg)`;
-      }
-      if (n <= cake) {
-        n++;
-        pie[
-          index
-        ].style.background = `conic-gradient(${color} 0 0%, ${color} 0% 100% )`;
-        pie[index].style.transform = `rotate(${n}deg)`;
+  function graph(roundR) {
+    const pie = document.querySelectorAll(".pie");
+    const item = document.querySelectorAll(".pieName li");
+
+    for (let i = 0; i < pie.length; i++) {
+      const color = pie[i].dataset.color;
+
+      const r = pie[i].dataset.rotate;
+      let piece = 0;
+      let cake = 0;
+
+      piece = r / 6;
+      cake = piece * roundR;
+
+      let n = 0;
+      for (let k = 0; k < r; k++) {
+        if (n <= cake) {
+          n++;
+          pie[
+            i
+          ].style.background = `conic-gradient(${color} 0 0%, ${color} 0% 100% )`;
+          pie[i].style.transform = `rotate(${n}deg)`;
+        }
       }
     }
+
+    // pieSlice.forEach((g, k) => {
+    //   const dataDgree = g.dataset.degree;
+    //   let graphNum = 0;
+
+    //   const graphAnimation = setInterval(() => {
+    //     g.dataset.degree = graphNum;
+    //     g.style.transform = `rotate(${graphNum}deg)`;
+    //     graphNum++ >= dataDgree && clearInterval(graphAnimation);
+    //   }, 10);
+    // });
+    // pie.forEach((g, k) => {
+    //   const dataColor = g.dataset.color;
+    //   const dataRotate = g.dataset.rotate;
+
+    //   let ratateNum = 0;
+
+    //   const graphAniRotate = setInterval(() => {
+    //     g.style.background = `conic-gradient(${dataColor} 0 0%, ${dataColor} 0% 100% )`;
+
+    //     g.dataset.rotate = ratateNum;
+    //     ratateNum++ >= dataRotate && clearInterval(graphAniRotate);
+    //   }, 100);
+    // });
   }
 
   window,
@@ -508,6 +498,7 @@
        * init
        */
       function init() {
+        // graph();
         setLayout();
         projectListPrepend();
       }
