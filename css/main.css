@@ -1,3 +1,139 @@
+@-webkit-keyframes in-out-first {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 50px));
+            transform: translateY(calc(-50% + 50px));
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  70% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(calc(-50% - 50px));
+            transform: translateY(calc(-50% - 50px));
+  }
+}
+@keyframes in-out-first {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 50px));
+            transform: translateY(calc(-50% + 50px));
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  70% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(calc(-50% - 50px));
+            transform: translateY(calc(-50% - 50px));
+  }
+}
+@-webkit-keyframes in-out {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(calc(-50% + 50px));
+            transform: translateY(calc(-50% + 50px));
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  70% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(calc(-50% - 50px));
+            transform: translateY(calc(-50% - 50px));
+  }
+}
+@keyframes in-out {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(calc(-50% + 50px));
+            transform: translateY(calc(-50% + 50px));
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  70% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(-50% + 0px));
+            transform: translateY(calc(-50% + 0px));
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(calc(-50% - 50px));
+            transform: translateY(calc(-50% - 50px));
+  }
+}
+@-webkit-keyframes moving {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-15816px);
+            transform: translateX(-15816px);
+  }
+}
+@keyframes moving {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-15816px);
+            transform: translateX(-15816px);
+  }
+}
+@-webkit-keyframes in-out2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+    color: transparent;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    color: #1e1e1e;
+  }
+}
+@keyframes in-out2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+    color: transparent;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    color: #1e1e1e;
+  }
+}
 .title {
   width: 100%;
   height: 260vh;
@@ -17,22 +153,13 @@
 }
 .title div {
   position: fixed;
-  left: 20%;
+  left: 0;
   top: 0;
-  width: 60%;
+  right: 0;
+  width: 100%;
+  margin: auto;
+  max-width: 1700px;
   height: 100vh;
-  padding: 8.021% 1.625rem;
-  margin: 0 auto;
-}
-@media all and (min-width: 768px) {
-  .title div {
-    padding: 4vw 9.625vw;
-  }
-}
-@media all and (min-width: 1280px) {
-  .title div {
-    padding: 4vw 0;
-  }
 }
 .title div h2 {
   color: white;
@@ -65,62 +192,21 @@
     font-size: 6.6964285714rem;
   }
 }
-
-@-webkit-keyframes in-out {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(calc(-50% + 50px));
-            transform: translateY(calc(-50% + 50px));
-  }
-  30% {
-    opacity: 1;
-    -webkit-transform: translateY(calc(-50% + 0px));
-            transform: translateY(calc(-50% + 0px));
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: translateY(calc(-50% + 0px));
-            transform: translateY(calc(-50% + 0px));
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(calc(-50% - 50px));
-            transform: translateY(calc(-50% - 50px));
-  }
+.title div h2:first-child {
+  -webkit-animation-name: in-out-first;
+          animation-name: in-out-first;
 }
 
-@keyframes in-out {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(calc(-50% + 50px));
-            transform: translateY(calc(-50% + 50px));
-  }
-  30% {
-    opacity: 1;
-    -webkit-transform: translateY(calc(-50% + 0px));
-            transform: translateY(calc(-50% + 0px));
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: translateY(calc(-50% + 0px));
-            transform: translateY(calc(-50% + 0px));
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(calc(-50% - 50px));
-            transform: translateY(calc(-50% - 50px));
-  }
-}
 .introduce {
   background: #f8f8f8;
   height: 260vh;
-  padding: 1rem 1rem 20vh;
+  padding-bottom: 13.4vh;
 }
 @media all and (min-width: 768px) {
   .introduce {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(auto, 50px);
+    grid-template-rows: repeat(auto-fill, minmax(10%, 1fr));
     gap: 16px;
   }
 }
@@ -131,6 +217,7 @@
 }
 .introduce h2 {
   text-align: center;
+  margin: 5.625rem 0;
 }
 @media all and (min-width: 768px) {
   .introduce h2 {
@@ -146,14 +233,12 @@
   .introduce .text_box {
     top: 25%;
     grid-column: 1/3;
-    grid-row: 2/span 4;
   }
 }
 @media all and (min-width: 1280px) {
   .introduce .text_box {
     top: calc(50% - 200px);
-    grid-column: 2/span 3;
-    grid-row: 2/span 4;
+    grid-column: 3/span 3;
   }
 }
 .introduce .text_box p {
@@ -193,7 +278,6 @@
   .introduce .device_fix {
     top: 25%;
     grid-column: 3/-1;
-    grid-row: 2/span 4;
   }
 }
 @media all and (min-width: 1280px) {
@@ -303,8 +387,14 @@
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   text-align: center;
-  -webkit-animation: moving 30s linear infinite paused;
-          animation: moving 30s linear infinite paused;
+  -webkit-animation: moving 30s linear infinite;
+          animation: moving 30s linear infinite;
+}
+@media all and (min-width: 1280px) {
+  .personality .container .box {
+    -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+  }
 }
 .personality .container .box span {
   font-weight: 600;
@@ -312,7 +402,6 @@
   color: #e6e6e6;
   padding: 0 0.5em 0 0;
   display: block;
-  line-height: 80px;
 }
 @media all and (min-width: 768px) {
   .personality .container .box span {
@@ -334,32 +423,9 @@
           animation-play-state: running;
 }
 
-@-webkit-keyframes moving {
-  from {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  to {
-    -webkit-transform: translateX(-15816px);
-            transform: translateX(-15816px);
-  }
-}
-
-@keyframes moving {
-  from {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  to {
-    -webkit-transform: translateX(-15816px);
-            transform: translateX(-15816px);
-  }
-}
 .interest {
   background: #f8f8f8;
   overflow: hidden;
-  padding-top: 90px;
-  padding-bottom: 90px;
   -webkit-transition: background 0.5s;
   transition: background 0.5s;
 }
@@ -368,6 +434,7 @@
 }
 .interest h2 {
   text-align: center;
+  margin: 5.625rem 0;
 }
 @media all and (min-width: 768px) {
   .interest h2 {
@@ -375,28 +442,27 @@
   }
 }
 .interest ul {
-  padding: 10vh 0;
   position: relative;
 }
 .interest ul li {
   position: relative;
-  margin: 0px 20px;
 }
 @media all and (min-width: 768px) {
   .interest ul li {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, minmax(auto, 100px));
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, minmax(auto, 100px));
     gap: 16px;
   }
 }
 @media all and (min-width: 1280px) {
   .interest ul li {
     grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
+    grid-template-rows: repeat(4, minmax(auto, 100px));
   }
-}
-.interest ul li:first-child {
-  margin-top: 15vh;
+  .interest ul li:first-child {
+    margin-top: 16vh;
+  }
 }
 .interest ul li i {
   width: 30vw;
@@ -442,83 +508,159 @@
   transition: width 0.5s 0.2s;
 }
 .interest ul li figure figcaption {
-  font-family: "Montserrat";
-  font-weight: 300;
-  font-size: 1.5rem;
-  color: #000;
-  text-transform: uppercase;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
+.interest ul li figure figcaption span {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #000;
+  text-transform: uppercase;
+  padding: 0 0.5em;
+  background: bisque;
+}
 @media all and (min-width: 768px) {
-  .interest ul li figure figcaption {
+  .interest ul li figure figcaption span {
     font-size: 2rem;
   }
 }
 @media all and (min-width: 1280px) {
-  .interest ul li figure figcaption {
+  .interest ul li figure figcaption span {
     font-size: 3rem;
   }
 }
 @media all and (min-width: 2000px) {
-  .interest ul li figure figcaption {
+  .interest ul li figure figcaption span {
+    font-size: 4.2857142857rem;
+  }
+}
+@media all and (min-width: 768px) {
+  .interest ul li figure figcaption span {
+    padding: 0;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+}
+@media all and (min-width: 768px) and (min-width: 768px) {
+  .interest ul li figure figcaption span {
+    font-size: 2rem;
+  }
+}
+@media all and (min-width: 768px) and (min-width: 1280px) {
+  .interest ul li figure figcaption span {
+    font-size: 3rem;
+  }
+}
+@media all and (min-width: 768px) and (min-width: 2000px) {
+  .interest ul li figure figcaption span {
     font-size: 4.2857142857rem;
   }
 }
 @media all and (min-width: 1280px) {
-  .interest ul li figure.landing {
+  .interest ul li figure figcaption span {
+    position: absolute;
+    background: 0;
+  }
+}
+@media all and (min-width: 768px) {
+  .interest ul li .landing {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+}
+@media all and (min-width: 1280px) {
+  .interest ul li .landing {
     grid-column: 3/span 3;
     grid-row: 1/span 2;
   }
 }
-.interest ul li figure.landing span {
-  position: absolute;
-  top: 217px;
-  left: 307px;
+@media all and (min-width: 1280px) {
+  .interest ul li .landing span {
+    position: absolute;
+    top: 217px;
+    left: 307px;
+  }
+}
+@media all and (min-width: 768px) {
+  .interest ul li .figma {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
 }
 @media all and (min-width: 1280px) {
-  .interest ul li figure.figma {
+  .interest ul li .figma {
     grid-column: 1/span 3;
     grid-row: 2/span 2;
   }
 }
-.interest ul li figure.figma span {
-  -webkit-transform: rotateZ(90deg);
-          transform: rotateZ(90deg);
-  position: absolute;
-  top: calc(0% - 120px);
-  left: calc(0% + 131px);
-}
 @media all and (min-width: 1280px) {
-  .interest ul li figure.bootstrap {
-    grid-column: 9/span 3;
-    grid-row: 1/span 2;
+  .interest ul li .figma span {
+    -webkit-transform: rotateZ(90deg);
+            transform: rotateZ(90deg);
+    top: calc(0% - 120px);
+    left: calc(0% + 131px);
   }
 }
-.interest ul li figure.bootstrap span {
-  position: absolute;
-  top: -50px;
-  left: 160px;
+@media all and (min-width: 768px) {
+  .interest ul li .javascript {
+    grid-column: 2/-1;
+    grid-row: 3/4;
+  }
 }
 @media all and (min-width: 1280px) {
-  .interest ul li figure.javascript {
+  .interest ul li .javascript {
     grid-column: 10/span 3;
     grid-row: 2/span 2;
   }
 }
-.interest ul li figure.javascript span {
-  position: absolute;
-  top: 133px;
-  left: -170px;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+@media all and (min-width: 1280px) {
+  .interest ul li .javascript span {
+    top: 133px;
+    left: -170px;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+}
+@media all and (min-width: 768px) {
+  .interest ul li .bootstrap {
+    grid-column: 2/-1;
+    grid-row: 1/3;
+  }
+}
+@media all and (min-width: 1280px) {
+  .interest ul li .bootstrap {
+    grid-column: 9/span 3;
+    grid-row: 1/span 2;
+  }
+}
+@media all and (min-width: 1280px) {
+  .interest ul li .bootstrap span {
+    top: -50px;
+    left: 160px;
+  }
+}
+.interest ul li dl {
+  margin: 1.5em 0;
+}
+@media all and (min-width: 768px) {
+  .interest ul li dl.design {
+    grid-column: 2/span 1;
+    grid-row: 1/span 2;
+  }
 }
 @media all and (min-width: 1280px) {
   .interest ul li dl.design {
     grid-column: 7/span 3;
     grid-row: 2/span 2;
+  }
+}
+@media all and (min-width: 768px) {
+  .interest ul li dl.phublising {
+    grid-column: 1/span 1;
+    grid-row: 1/span 3;
   }
 }
 @media all and (min-width: 1280px) {
@@ -530,11 +672,12 @@
 .interest ul li dl dt {
   margin-bottom: 1rem;
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  text-transform: capitalize;
 }
 @media all and (min-width: 2000px) {
   .interest ul li dl dt {
-    font-size: 1.6071428571rem;
+    font-size: 1.7857142857rem;
   }
 }
 .interest ul li dl dd {
@@ -547,27 +690,36 @@
     font-size: 1.6071428571rem;
   }
 }
+.interest ul li dl dd::before {
+  content: "-";
+  padding-right: 0.5em;
+}
 
 .project {
-  padding: 20px;
+  padding-bottom: 10vh;
 }
 @media all and (min-width: 768px) {
-  .project {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  .project div:first-child {
+    height: 30vh;
+  }
+  .project div:last-child {
+    margin-top: 20vh;
+    padding-bottom: 1vh;
   }
 }
 @media all and (min-width: 1280px) {
   .project {
+    display: grid;
+    gap: 16px;
     grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
   }
-}
-.project div:first-child {
-  grid-column: 2/span 2;
-}
-.project div:last-child {
-  grid-column: 6/-1;
+  .project div:first-child {
+    height: auto;
+    grid-column: 3/span 2;
+  }
+  .project div:last-child {
+    grid-column: 6/-1;
+  }
 }
 .project p {
   position: sticky;
@@ -583,11 +735,15 @@
   }
 }
 .project ul {
-  margin: 80% 0 20%;
   opacity: 0;
   margin-right: 1rem;
   font-weight: 900;
   font-size: 3.5rem;
+}
+@media all and (min-width: 1280px) {
+  .project ul {
+    margin: 80% 0 20%;
+  }
 }
 @media all and (min-width: 768px) {
   .project ul {
@@ -610,7 +766,8 @@
 }
 .project ul li {
   text-align: right;
-  margin-top: 0.5em;
+  margin-top: 1em;
+  line-height: 1;
 }
 .project ul li:first-child {
   padding-top: -50%;
@@ -646,82 +803,106 @@
           transform: rotateY(-25deg) translateZ(0) scale(1.2) matrix(1, 0, 0, 1, -27, 21);
 }
 
-@-webkit-keyframes in-out2 {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-15%);
-            transform: translateY(-15%);
-    color: transparent;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    color: #1e1e1e;
-  }
-}
-
-@keyframes in-out2 {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-15%);
-            transform: translateY(-15%);
-    color: transparent;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    color: #1e1e1e;
-  }
-}
-.story {
-  padding: 20px;
+.storyGraph {
+  position: relative;
 }
 @media all and (min-width: 768px) {
-  .story {
+  .storyGraph {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
+  }
+  .storyGraph::before {
+    content: "";
+    width: 30vw;
+    height: 30vw;
+    background: transparent;
+    border-radius: 50%;
+    position: fixed;
+    top: -10vw;
+    left: -10vw;
+    z-index: 1;
+    -webkit-transition: background 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    transition: background 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  }
+  .storyGraph::after {
+    content: "";
+    width: 15vw;
+    height: 15vw;
+    border: 10px dashed transparent;
+    border-radius: 50%;
+    position: fixed;
+    top: 10vw;
+    left: -10vw;
+    z-index: 0;
+    -webkit-transition: all 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    transition: all 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  }
+  .storyGraph.active::before {
+    background-color: #efeeee;
+  }
+  .storyGraph.active::after {
+    border-color: #e9e9e9;
   }
 }
 @media all and (min-width: 1280px) {
-  .story {
+  .storyGraph {
     grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
   }
 }
-.story .history {
-  float: left;
+.storyGraph .history {
   font-weight: 400;
   font-size: 1rem;
+  z-index: 1;
 }
 @media all and (min-width: 2000px) {
-  .story .history {
+  .storyGraph .history {
     font-size: 1.4285714286rem;
   }
 }
-@media all and (min-width: 1280px) {
-  .story .history {
-    grid-column: 3/span 4;
+@media all and (min-width: 768px) {
+  .storyGraph .history {
+    grid-column: 1/span 2;
   }
 }
-.story .history li {
-  width: 50%;
-  padding: 100% 0 0%;
+@media all and (min-width: 1280px) {
+  .storyGraph .history {
+    grid-column: 3/span 3;
+  }
 }
-.story .history li:last-child {
-  padding-bottom: 50%;
+.storyGraph .history li {
+  padding-top: 1rem;
+  border-top: 1px dashed gray;
+  margin-bottom: 1rem;
 }
-.story .history li strong {
+@media all and (min-width: 768px) {
+  .storyGraph .history li {
+    padding: 100% 0 0%;
+    border: 0;
+  }
+  .storyGraph .history li:last-child {
+    padding-bottom: 50%;
+  }
+}
+.storyGraph .history li strong {
   margin-bottom: 1rem;
   display: block;
 }
-.story .history li em {
+.storyGraph .history li em {
   color: #656565;
   margin-bottom: 0.5rem;
   display: block;
 }
 
+.pieBox {
+  position: relative;
+  z-index: 1;
+}
+@media all and (min-width: 768px) {
+  .pieBox {
+    grid-column: 3/-1;
+  }
+}
 @media all and (min-width: 1280px) {
   .pieBox {
     grid-column: 7/-2;
@@ -732,20 +913,26 @@
   top: 30%;
   right: 0;
 }
-.pieBox .pieContainer {
+.pieBox div .pieContainer {
   width: 300px;
   height: 300px;
   position: relative;
-  margin: 0 0 0 auto;
+  margin: auto;
+  overflow: hidden;
 }
-.pieBox .pieContainer .pieSlice {
+@media all and (min-width: 1280px) {
+  .pieBox div .pieContainer {
+    margin: 0 0 0 auto;
+  }
+}
+.pieBox div .pieContainer .pieSlice {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 100%;
   clip: rect(0px, 300px, 300px, 150px);
 }
-.pieBox .pieContainer .pieSlice .pie {
+.pieBox div .pieContainer .pieSlice .pie {
   -webkit-transition: all 1s;
   transition: all 1s;
   position: absolute;
@@ -756,7 +943,7 @@
   -webkit-transform: rotate(100deg);
           transform: rotate(100deg);
 }
-.pieBox .pieContainer .innerCircle {
+.pieBox div .pieContainer .innerCircle {
   position: absolute;
   top: 10%;
   left: 10%;
@@ -765,50 +952,57 @@
   background-color: #f8f8f8;
   border-radius: 100%;
 }
-.pieBox .pieContainer .innerCircle .content {
+.pieBox .content {
   position: absolute;
   top: 50%;
-  left: -80%;
+  left: 55%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  text-align: center;
 }
-.pieBox .pieContainer .innerCircle .content .pieName {
+@media all and (min-width: 1280px) {
+  .pieBox .content {
+    top: 40px;
+    left: 0;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+.pieBox .content .pieName {
   font-weight: 400;
   font-size: 0.875rem;
   text-align: left;
 }
 @media all and (min-width: 2000px) {
-  .pieBox .pieContainer .innerCircle .content .pieName {
+  .pieBox .content .pieName {
     font-size: 1.25rem;
   }
 }
-.pieBox .pieContainer .innerCircle .content .pieName li {
+.pieBox .content .pieName li {
   line-height: 1;
   margin-bottom: 14px;
 }
-.pieBox .pieContainer .innerCircle .content .pieName li::after {
+.pieBox .content .pieName li::after {
   content: attr(data-percent) "%";
   font-weight: 900;
   font-size: 0.9375rem;
   padding-left: 10px;
 }
 @media all and (min-width: 768px) {
-  .pieBox .pieContainer .innerCircle .content .pieName li::after {
+  .pieBox .content .pieName li::after {
     font-size: 1.25rem;
   }
 }
 @media all and (min-width: 1280px) {
-  .pieBox .pieContainer .innerCircle .content .pieName li::after {
+  .pieBox .content .pieName li::after {
     font-size: 1.875rem;
   }
 }
 @media all and (min-width: 2000px) {
-  .pieBox .pieContainer .innerCircle .content .pieName li::after {
+  .pieBox .content .pieName li::after {
     font-size: 2.6785714286rem;
   }
 }
-.pieBox .pieContainer .innerCircle .content .pieName li i {
+.pieBox .content .pieName li i {
   width: 1rem;
   height: 1rem;
   display: inline-block;
@@ -816,19 +1010,19 @@
   border-radius: 50%;
   vertical-align: middle;
 }
-.pieBox .pieContainer .innerCircle .content .pieName li:nth-of-type(1) i {
+.pieBox .content .pieName li:nth-of-type(1) i {
   background-color: #1b458b;
 }
-.pieBox .pieContainer .innerCircle .content .pieName li:nth-of-type(2) i {
+.pieBox .content .pieName li:nth-of-type(2) i {
   background-color: #0a0;
 }
-.pieBox .pieContainer .innerCircle .content .pieName li:nth-of-type(3) i {
+.pieBox .content .pieName li:nth-of-type(3) i {
   background-color: #f80;
 }
-.pieBox .pieContainer .innerCircle .content .pieName li:nth-of-type(4) i {
+.pieBox .content .pieName li:nth-of-type(4) i {
   background-color: #08f;
 }
-.pieBox .pieContainer .innerCircle .content .pieName li:nth-of-type(5) i {
+.pieBox .content .pieName li:nth-of-type(5) i {
   background-color: #a04;
 }
 

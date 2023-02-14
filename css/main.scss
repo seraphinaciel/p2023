@@ -20,21 +20,13 @@
 
   div {
     position: fixed;
-    left: 20%;
+    left: 0;
     top: 0;
-    width: 60%;
+    right: 0;
+    width: 100%;
+    margin: auto;
+    max-width: 1700px;
     height: 100vh;
-    padding: 8.021% 1.625rem;
-
-    @include tablet {
-      padding: 4vw 9.625vw;
-    }
-
-    @include pc {
-      padding: 4vw 0;
-    }
-
-    margin: 0 auto;
 
     h2 {
       color: white;
@@ -48,41 +40,22 @@
       @include fontSizeStyle(4.6875rem, 600);
       animation: in-out 1s linear forwards paused;
       animation-delay: calc(var(--progress) * -1s);
+      &:first-child {
+        animation-name: in-out-first;
+      }
     }
-  }
-}
-
-@keyframes in-out {
-  0% {
-    opacity: 0;
-    transform: translateY(calc(-50% + 50px));
-  }
-
-  30% {
-    opacity: 1;
-    transform: translateY(calc(-50% + 0px));
-  }
-
-  70% {
-    opacity: 1;
-    transform: translateY(calc(-50% + 0px));
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(calc(-50% - 50px));
   }
 }
 
 .introduce {
   background: #f8f8f8;
   height: 260vh;
-  padding: 1rem 1rem 20vh;
+  padding-bottom: 13.4vh;
 
   @include tablet {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(auto, 50px);
+    grid-template-rows: repeat(auto-fill, minmax(10%, 1fr));
     gap: 16px;
   }
 
@@ -92,6 +65,7 @@
 
   h2 {
     text-align: center;
+    margin: 5.625rem 0;
 
     @include tablet {
       grid-column: 1/-1;
@@ -106,13 +80,11 @@
     @include tablet {
       top: 25%;
       grid-column: 1/3;
-      grid-row: 2 / span 4;
     }
 
     @include pc {
       top: calc(50% - 200px);
-      grid-column: 2 / span 3;
-      grid-row: 2 / span 4;
+      grid-column: 3 / span 3;
     }
 
     p {
@@ -146,7 +118,6 @@
     @include tablet {
       top: 25%;
       grid-column: 3/-1;
-      grid-row: 2 / span 4;
     }
 
     @include pc {
@@ -229,14 +200,15 @@
       flex-flow: row nowrap;
       flex: 0 0 auto;
       text-align: center;
-      animation: moving 30s linear infinite paused;
-
+      animation: moving 30s linear infinite;
+      @include pc {
+        animation-play-state: paused;
+      }
       span {
         @include fontSizeStyle(7.8125rem, 600);
         color: #e6e6e6;
         padding: 0 0.5em 0 0;
         display: block;
-        line-height: 80px;
       }
     }
   }
@@ -245,20 +217,9 @@
   }
 }
 
-@keyframes moving {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-5272px * 3));
-  }
-}
-
 .interest {
   background: #f8f8f8;
   overflow: hidden;
-  padding-top: 90px;
-  padding-bottom: 90px;
   transition: background 0.5s;
   &.active {
     background: bisque;
@@ -266,29 +227,29 @@
 
   h2 {
     text-align: center;
+    margin: 5.625rem 0;
     @include tablet {
       grid-column: 1/-1;
     }
   }
   ul {
-    padding: 10vh 0;
     position: relative;
 
     li {
       position: relative;
-      margin: 0px 20px;
       @include tablet {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, minmax(auto, 100px));
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, minmax(auto, 100px));
         gap: 16px;
       }
 
       @include pc {
         grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
-      }
-      &:first-child {
-        margin-top: 15vh;
+        grid-template-rows: repeat(4, minmax(auto, 100px));
+        &:first-child {
+          margin-top: 16vh;
+        }
       }
 
       i {
@@ -329,70 +290,112 @@
           }
         }
         figcaption {
-          font-family: "Montserrat";
-          @include fontSizeStyle(3rem, 300);
-          color: #000;
-          text-transform: uppercase;
           position: absolute;
           top: 0;
           left: 0;
           z-index: 1;
-        }
-        &.landing {
-          @include pc {
-            grid-column: 3 / span 3;
-            grid-row: 1 / span 2;
-          }
           span {
+            font-family: "Montserrat";
+            @include fontSizeStyle(3rem, 600);
+            color: #000;
+            text-transform: uppercase;
+            padding: 0 0.5em;
+            background: bisque;
+            @include tablet {
+              padding: 0;
+              @include fontSizeStyle(3rem, 300);
+            }
+            @include pc {
+              position: absolute;
+              background: 0;
+            }
+          }
+        }
+      }
+      .landing {
+        @include tablet {
+          grid-column: 1 / 2;
+          grid-row: 1 / 3;
+        }
+        @include pc {
+          grid-column: 3 / span 3;
+          grid-row: 1 / span 2;
+        }
+        span {
+          @include pc {
             position: absolute;
             top: 217px;
             left: 307px;
           }
         }
-        &.figma {
+      }
+      .figma {
+        @include tablet {
+          grid-column: 1 / 2;
+          grid-row: 3 / 4;
+        }
+        @include pc {
+          grid-column: 1 / span 3;
+          grid-row: 2 / span 2;
+        }
+        span {
           @include pc {
-            grid-column: 1 / span 3;
-            grid-row: 2 / span 2;
-          }
-          span {
             transform: rotateZ(90deg);
-            position: absolute;
             top: calc(0% - 120px);
             left: calc(0% + 131px);
           }
         }
-        &.bootstrap {
-          @include pc {
-            grid-column: 9 / span 3;
-            grid-row: 1 / span 2;
-          }
-          span {
-            position: absolute;
-            top: -50px;
-            left: 160px;
-          }
+      }
+      .javascript {
+        @include tablet {
+          grid-column: 2 / -1;
+          grid-row: 3 / 4;
         }
-        &.javascript {
+        @include pc {
+          grid-column: 10 / span 3;
+          grid-row: 2 / span 2;
+        }
+        span {
           @include pc {
-            grid-column: 10 / span 3;
-            grid-row: 2 / span 2;
-          }
-          span {
-            position: absolute;
             top: 133px;
             left: -170px;
             transform: rotate(-90deg);
           }
         }
       }
+      .bootstrap {
+        @include tablet {
+          grid-column: 2 / -1;
+          grid-row: 1 / 3;
+        }
+        @include pc {
+          grid-column: 9 / span 3;
+          grid-row: 1 / span 2;
+        }
+        span {
+          @include pc {
+            top: -50px;
+            left: 160px;
+          }
+        }
+      }
       dl {
+        margin: 1.5em 0;
         &.design {
+          @include tablet {
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 2;
+          }
           @include pc {
             grid-column: 7 / span 3;
             grid-row: 2 / span 2;
           }
         }
         &.phublising {
+          @include tablet {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 3;
+          }
           @include pc {
             grid-column: 4 / span 4;
             grid-row: 2 / span 3;
@@ -400,11 +403,16 @@
         }
         dt {
           margin-bottom: 1rem;
-          @include fontSizeStyle(1.125rem, 600);
+          @include fontSizeStyle(1.25rem, 600);
+          text-transform: capitalize;
         }
         dd {
           line-height: 2;
           @include fontSizeStyle(1.125rem);
+          &::before {
+            content: "-";
+            padding-right: 0.5em;
+          }
         }
       }
     }
@@ -412,21 +420,25 @@
 }
 
 .project {
-  padding: 20px;
+  padding-bottom: 10vh;
   @include tablet {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  @include pc {
-    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
-  }
-  div {
-    &:first-child {
-      grid-column: 2 / span 2;
+    div:first-child {
+      height: 30vh;
     }
-    &:last-child {
+    div:last-child {
+      margin-top: 20vh;
+      padding-bottom: 1vh;
+    }
+  }
+  @include pc {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
+    div:first-child {
+      height: auto;
+      grid-column: 3 / span 2;
+    }
+    div:last-child {
       grid-column: 6/-1;
     }
   }
@@ -438,7 +450,9 @@
     @include fontSizeStyle(1.125rem);
   }
   ul {
-    margin: 80% 0 20%;
+    @include pc {
+      margin: 80% 0 20%;
+    }
     opacity: 0;
     margin-right: 1rem;
     @include fontSizeStyle(7rem, 900);
@@ -449,7 +463,8 @@
 
     li {
       text-align: right;
-      margin-top: 0.5em;
+      margin-top: 1em;
+      line-height: 1;
       &:first-child {
         padding-top: -50%;
       }
@@ -481,44 +496,69 @@
     }
   }
 }
-@keyframes in-out2 {
-  0% {
-    opacity: 0;
-    transform: translateY(-15%);
-    color: transparent;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    color: #1e1e1e;
-  }
-}
 
-.story {
-  padding: 20px;
+.storyGraph {
+  position: relative;
   @include tablet {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    // grid-auto-rows: minmax(auto, 100px);
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
+    &::before {
+      content: "";
+      width: 30vw;
+      height: 30vw;
+      background: transparent;
+      border-radius: 50%;
+      position: fixed;
+      top: -10vw;
+      left: -10vw;
+      z-index: 1;
+      transition: background 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    }
+    &::after {
+      content: "";
+      width: 15vw;
+      height: 15vw;
+      border: 10px dashed transparent;
+      border-radius: 50%;
+      position: fixed;
+      top: 10vw;
+      left: -10vw;
+      z-index: 0;
+      transition: all 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    }
+    &.active::before {
+      background-color: #efeeee;
+    }
+    &.active::after {
+      border-color: #e9e9e9;
+    }
   }
 
   @include pc {
     grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
   }
-  .history {
-    float: left;
 
+  .history {
     @include fontSizeStyle(1rem, 400);
+    z-index: 1;
+    @include tablet {
+      grid-column: 1 / span 2;
+    }
     @include pc {
-      grid-column: 3 / span 4;
+      grid-column: 3 / span 3;
     }
 
     li {
-      width: 50%;
-      padding: 100% 0 0%;
-      &:last-child {
-        padding-bottom: 50%;
+      padding-top: 1rem;
+      border-top: 1px dashed gray;
+      margin-bottom: 1rem;
+      @include tablet {
+        padding: 100% 0 0%;
+        border: 0;
+        &:last-child {
+          padding-bottom: 50%;
+        }
       }
       strong {
         margin-bottom: 1rem;
@@ -534,6 +574,12 @@
 }
 
 .pieBox {
+  position: relative;
+  z-index: 1;
+  @include tablet {
+    grid-column: 3 / -1;
+  }
+
   @include pc {
     grid-column: 7 / -2;
   }
@@ -541,78 +587,86 @@
     position: sticky;
     top: 30%;
     right: 0;
-  }
-  .pieContainer {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    margin: 0 0 0 auto;
+    .pieContainer {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+      @include pc {
+        margin: 0 0 0 auto;
+      }
 
-    .pieSlice {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 100%;
-      clip: rect(0px, 300px, 300px, 150px);
-      .pie {
-        transition: all 1s;
+      .pieSlice {
         position: absolute;
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
         border-radius: 100%;
-        clip: rect(0px, 150px, 300px, 0px);
-        transform: rotate(100deg);
+        clip: rect(0px, 300px, 300px, 150px);
+        .pie {
+          transition: all 1s;
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          border-radius: 100%;
+          clip: rect(0px, 150px, 300px, 0px);
+          transform: rotate(100deg);
+        }
+      }
+      .innerCircle {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        background-color: #f8f8f8;
+        border-radius: 100%;
       }
     }
-    .innerCircle {
-      position: absolute;
-      top: 10%;
-      left: 10%;
-      width: 80%;
-      height: 80%;
-      background-color: #f8f8f8;
-      border-radius: 100%;
-      .content {
-        position: absolute;
-        top: 50%;
-        left: -80%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        .pieName {
-          @include fontSizeStyle(0.875rem);
-          text-align: left;
-          li {
-            line-height: 1;
-            margin-bottom: 14px;
-            &::after {
-              content: attr(data-percent) "%";
-              @include fontSizeStyle(1.875rem, 900);
-              padding-left: 10px;
-            }
-            i {
-              width: 1rem;
-              height: 1rem;
-              display: inline-block;
-              margin-right: 10px;
-              border-radius: 50%;
-              vertical-align: middle;
-            }
-            &:nth-of-type(1) i {
-              background-color: #1b458b;
-            }
-            &:nth-of-type(2) i {
-              background-color: #0a0;
-            }
-            &:nth-of-type(3) i {
-              background-color: #f80;
-            }
-            &:nth-of-type(4) i {
-              background-color: #08f;
-            }
-            &:nth-of-type(5) i {
-              background-color: #a04;
-            }
-          }
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    @include pc {
+      top: 40px;
+      left: 0;
+      transform: translate(0);
+    }
+    .pieName {
+      @include fontSizeStyle(0.875rem);
+      text-align: left;
+      li {
+        line-height: 1;
+        margin-bottom: 14px;
+        &::after {
+          content: attr(data-percent) "%";
+          @include fontSizeStyle(1.875rem, 900);
+          padding-left: 10px;
+        }
+        i {
+          width: 1rem;
+          height: 1rem;
+          display: inline-block;
+          margin-right: 10px;
+          border-radius: 50%;
+          vertical-align: middle;
+        }
+        &:nth-of-type(1) i {
+          background-color: #1b458b;
+        }
+        &:nth-of-type(2) i {
+          background-color: #0a0;
+        }
+        &:nth-of-type(3) i {
+          background-color: #f80;
+        }
+        &:nth-of-type(4) i {
+          background-color: #08f;
+        }
+        &:nth-of-type(5) i {
+          background-color: #a04;
         }
       }
     }

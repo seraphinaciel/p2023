@@ -22,21 +22,26 @@ header {
 article {
   background-color: #f8f8f8;
   margin: 0 auto;
+  padding: 0 1.25rem;
   position: relative;
+  box-sizing: border-box;
+  @include tablet {
+    padding: 0 3rem;
+  }
+  @include pc {
+    padding: 0 1.25rem;
+  }
 }
 
 footer {
   background: white;
+  text-align: center;
   padding: 20px;
-  @include tablet {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(100px, 1fr);
-    gap: 16px;
-  }
-
   @include pc {
+    display: grid;
+    grid-template-rows: minmax(100px, 1fr);
     grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
+    gap: 16px;
   }
   .fnb {
     @include pc {
@@ -108,14 +113,14 @@ footer {
     }
   }
   .copy {
+    text-transform: capitalize;
+    @include fontSizeStyle($weight: 900);
+    letter-spacing: 0;
     @include pc {
       grid-column: 6 / -2;
       align-self: center;
+      text-align: right;
     }
-    text-transform: capitalize;
-    @include fontSizeStyle($weight: 900);
-    text-align: right;
-    letter-spacing: 0;
   }
 }
 
