@@ -28,6 +28,23 @@
 
     // 스크롤시 현재 섹션 id 바디에 붙임
     document.body.setAttribute("id", `show-scene-${currentScene}`);
+
+    if (currentScene === 3 || scrollPercent > 1.6) {
+      document.querySelector(".interest").classList.add("active");
+    } else {
+      document.querySelector(".interest").classList.remove("active");
+    }
+    if (currentScene === 4 || percent >= 230) {
+      document.querySelector(".project ul").classList.add("active");
+    } else {
+      document.querySelector(".project ul").classList.remove("active");
+    }
+    if (currentScene === 5 || percent >= 0) {
+      document.querySelector(".storyGraph").classList.add("active");
+    } else {
+      document.querySelector(".storyGraph").classList.remove("active");
+    }
+
     scrollFunc();
   }
 
@@ -50,7 +67,7 @@
     scrollPercent = sectionScrollTop / scrollRealHeight;
     percent = scrollPercent * 100;
 
-    isMobile = window.innerWidth <= 1024 ? true : false;
+    isMobile = window.innerWidth <= 768 ? true : false;
   }
 
   /**
@@ -62,9 +79,11 @@
       ((document.querySelector(".title").offsetHeight - window.innerHeight) /
         2);
     const gap = 1;
-    document.querySelectorAll(".title h2").forEach(function (arr, index) {
-      arr.style = "--progress:" + Math.max(0, titleMove - index * gap) + "";
-    });
+    if (currentScene === 0) {
+      document.querySelectorAll(".title h2").forEach(function (arr, index) {
+        arr.style = "--progress:" + Math.max(0, titleMove - index * gap) + "";
+      });
+    }
   }
 
   /**
@@ -163,7 +182,7 @@
     let parallaxThisTop; // 패럴렉스가 시작될 위치 값을 구함
     let parallaxPercent; // 패럴렉스 백분율 값을 담을 변수 선언
     let parallaxMoveDistance; // 패럴렉스 요소가 움직일 거리를 담을 변수 선언
-    const parallaxSpeed = 3000; // 패럴렉스 요소의 스피드
+    const parallaxSpeed = 2900; // 패럴렉스 요소의 스피드
     const parallaxStartValue = 1000; // 패럴렉스 요소가 1000 위치에서 시작하도록 설정
 
     parallaxOffsetTop =
@@ -178,12 +197,6 @@
         parallaxStartValue - parallaxStartValue * (parallaxPercent / 100)
       )
     );
-
-    if (currentScene === 3 || scrollPercent > 1.2) {
-      document.querySelector(".interest").classList.add("active");
-    } else {
-      document.querySelector(".interest").classList.remove("active");
-    }
 
     // action
     parallaxList[0].style.transform =
@@ -216,14 +229,6 @@
   function sProject() {
     const proBody = document.querySelector(".project");
     const proList = proBody.querySelectorAll("li");
-
-    if (currentScene === 4 || percent >= 230) {
-      proBody.classList.add("active");
-      proBody.querySelector("ul").classList.add("active");
-    } else {
-      proBody.classList.remove("active");
-      proBody.querySelector("ul").classList.remove("active");
-    }
 
     let proSize,
       totalSize = 0;
@@ -369,16 +374,16 @@
       colli.innerHTML = `<a href="${projectName[num].link}" target="_blank" title="새창 열림">${projectName[num].title}</a>`;
     }
   }
+
   /**
    * graph
    */
-
   function sGraph() {
     const history = document.querySelector(".history");
     setProperty(history);
 
+    // 그래프 바깥 그리기
     const pieSlice = document.querySelectorAll(".pieSlice");
-
     for (let i = 0; i < pieSlice.length; i++) {
       const d = pieSlice[i].dataset.degree;
       let n = 0;
@@ -391,75 +396,56 @@
       }
     }
 
-    console.log(percent);
-
-    if (percent >= 0 && percent < 16.4) {
-      console.log("1");
-      graph(0, 1, 4);
-      graph(1, 1, 5);
-      graph(2, 1, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-    } else if (percent >= 16.41 && percent < 29) {
-      console.log("2");
-      graph(0, 2, 4);
-      graph(1, 2, 5);
-      graph(2, 2, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(2, 4);
-    } else if (percent >= 30 && percent < 48) {
-      console.log("3");
-      graph(0, 3, 4);
-      graph(1, 3, 5);
-      graph(2, 3, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(3);
-    } else if (percent >= 49 && percent < 68) {
-      console.log("4");
-      graph(0, 4, 4);
-      graph(1, 4, 5);
-      graph(2, 4, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(4);
-    } else if (percent >= 68 && percent < 85) {
-      console.log("5");
-      graph(0, 3, 3);
-      graph(1, 5, 5);
-      graph(2, 5, 6);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(5);
-    } else if (percent >= 85 && percent < 100) {
-      console.log("6");
-      graph(0, 3, 3);
-      graph(1, 4, 4);
+    // history 스크롤링 시 그래프 색 칠하기 부르기
+    if (isMobile) {
+      graph(0, 6, 6);
+      graph(1, 6, 6);
       graph(2, 6, 6);
-      graph(3, 1, 2);
-      graph(4, 1, 2);
-      // graphText(6);
-    } else if (percent >= 100) {
-      console.log("7");
-      graph(0, 3, 3);
-      graph(1, 4, 4);
-      graph(2, 6, 6);
-      graph(3, 2, 2);
-      graph(4, 2, 2);
-      // graphText(6);
+      graph(3, 6, 6);
+      graph(4, 6, 6);
     } else {
-      console.log("hello");
-      graph(0, 0, 0);
-      graph(1, 0, 0);
-      graph(2, 0, 0);
-      graph(3, 0, 0);
-      graph(4, 0, 0);
-      // graphText(0);
+      calcGG(0, 4);
+      calcGG(1, 5);
+      calcGG(2, 6);
+      calcGG(3, 2);
+      calcGG(4, 2);
     }
   }
 
-  function graph(index, roundR, repeatR) {
+  //history 스크롤링 시 그래프 색 칠하기
+  function calcGG(index, end) {
+    const array = [0, 16, 34, 50, 65, 85, 100];
+
+    for (let arrIndex = 0; arrIndex < array.length; arrIndex++) {
+      let starting = 1;
+
+      starting = starting + arrIndex;
+
+      let i = 5;
+      if (percent < 4) {
+        graph(index, 0, 0);
+      } else if (percent > array[arrIndex] && percent < array[arrIndex + 1]) {
+        if (index < 3) {
+          graph(index, starting, end);
+        }
+        if (index >= 3 && starting < 5) {
+          graph(index, 0, end);
+        }
+        if (index >= 3 && starting >= 5) {
+          graph(index, starting - i, end);
+        }
+      } else if (percent >= array[array.length - 1]) {
+        if (index >= 3 && starting >= 5) {
+          graph(index, starting - i, end);
+        }
+      }
+
+      starting++;
+    }
+  }
+
+  // 그래프 색 칠하기
+  function graph(index, start, end) {
     const pie = document.querySelectorAll(".pie");
     const item = document.querySelectorAll(".pieName li");
 
@@ -471,15 +457,15 @@
     let cake = 0;
     let cake2 = 0;
 
-    piece = r / repeatR;
-    piece2 = piePercent / repeatR;
-    cake = piece * roundR;
-    cake2 = piece2 * roundR;
+    piece = r / end;
+    piece2 = piePercent / end;
+    cake = piece * start;
+    cake2 = piece2 * start;
 
     // txt
     let ratateNum = 0;
     const graphAnimation = setInterval(() => {
-      if (repeatR === 0) {
+      if (end === 0) {
         clearInterval(graphAnimation);
       }
       item[index].dataset.percent = ratateNum;
@@ -489,7 +475,7 @@
     // graph
     let n = 0;
     for (let k = 0; k < r; k++) {
-      if (repeatR === 0) {
+      if (start === 0) {
         pie[index].style.transform = `rotate(0deg)`;
       }
       if (n <= cake) {
