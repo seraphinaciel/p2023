@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import "variable", "_mixin";
 
 .title {
@@ -65,11 +64,19 @@
   }
 
   h2 {
-    text-align: center;
     margin: 5.625rem 0;
-
+    @include fontSizeStyle(3rem, 400);
+    letter-spacing: -0.05em;
+    text-transform: capitalize;
+    opacity: 0.2;
     @include tablet {
       grid-column: 1/-1;
+    }
+    @include pc {
+      transform: rotate(-90deg);
+      position: absolute;
+      top: 20%;
+      left: 0;
     }
   }
 
@@ -170,7 +177,7 @@
         figure {
           @include slideWidth;
           position: relative;
-          animation: in-out2 1s linear forwards;
+          animation: fade_in 1s linear forwards;
 
           img {
             max-width: 100%;
@@ -227,8 +234,11 @@
   }
 
   h2 {
-    text-align: center;
     margin: 5.625rem 0;
+    @include fontSizeStyle(3rem, 400);
+    letter-spacing: -0.05em;
+    text-transform: capitalize;
+    opacity: 0.2;
     @include tablet {
       grid-column: 1/-1;
     }
@@ -286,7 +296,7 @@
           }
           &:hover::before {
             width: 100%;
-            @include bgColor(background, cMain, 0.5);
+            @include bgColor(background, cBlack, 0.94);
             transition: width 0.5s 0.2s;
           }
         }
@@ -451,27 +461,29 @@
     @include fontSizeStyle(1.125rem);
   }
   ul {
+    margin-bottom: 10rem;
     @include pc {
-      margin: 80% 0 20%;
+      margin-top: 30%;
     }
     opacity: 0;
     margin-right: 1rem;
     @include fontSizeStyle(7rem, 900);
 
     &.active {
-      animation: in-out2 1s linear forwards;
+      animation: fade_in 1s linear forwards;
     }
 
     li {
       text-align: right;
       margin-top: 1em;
       line-height: 1;
+      animation: fade_in 1s linear forwards;
       &:first-child {
         padding-top: -50%;
       }
       a {
         transform: rotateY(-25deg) translateZ(0) scale(1.2)
-          matrix(1, -0.2, 0, 1, -24, 24);
+          matrix(1, -0.2, 0, 1, -34, 24);
         transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
         transform-style: preserve-3d;
         display: inline-block;
@@ -491,737 +503,44 @@
           -webkit-text-stroke: 2px #000;
           -webkit-text-fill-color: transparent;
           transform: rotateY(-25deg) translateZ(0) scale(1.2)
-            matrix(1, 0, 0, 1, -27, 21);
+            matrix(1, 0, 0, 1, -40, 21);
         }
       }
+    }
+  }
+  button {
+    padding: 1rem;
+    margin: 0 auto;
+    background: #1e1e1e;
+    color: #f8f8f8;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    font-family: "Montserrat";
+    @include fontSizeStyle(1.125rem, 900);
+    text-transform: uppercase;
+    display: block;
+    @include tablet {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    &:not([disabled]):hover {
+      background: 0;
+      color: #1e1e1e;
+      box-shadow: 0 1px 9px rgba(0, 0, 0, 0.2);
+    }
+
+    &[disabled] {
+      background: #f8f8f8 !important;
+      cursor: default;
     }
   }
 }
 
 .storyGraph {
   position: relative;
-  @include tablet {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    &::before {
-      content: "";
-      width: 30vw;
-      height: 30vw;
-      background: transparent;
-      border-radius: 50%;
-      position: fixed;
-      top: -10vw;
-      left: -10vw;
-      z-index: 1;
-      transition: background 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-    }
-    &::after {
-      content: "";
-      width: 15vw;
-      height: 15vw;
-      border: 10px dashed transparent;
-      border-radius: 50%;
-      position: fixed;
-      top: 10vw;
-      left: -10vw;
-      z-index: 0;
-      transition: all 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-    }
-    &.active::before {
-      background-color: #efeeee;
-    }
-    &.active::after {
-      border-color: #e9e9e9;
-    }
-  }
-
-  @include pc {
-    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
-  }
-
-  .history {
-    @include fontSizeStyle(1rem, 400);
-    z-index: 1;
-    @include tablet {
-      grid-column: 1 / span 2;
-    }
-    @include pc {
-      grid-column: 3 / span 3;
-    }
-
-    li {
-      padding-top: 1rem;
-      border-top: 1px dashed gray;
-      margin-bottom: 1rem;
-      @include tablet {
-        padding: 100% 0 0%;
-        border: 0;
-        &:last-child {
-          padding-bottom: 50%;
-        }
-      }
-      strong {
-        margin-bottom: 1rem;
-        display: block;
-      }
-      em {
-        color: #656565;
-        margin-bottom: 0.5rem;
-        display: block;
-      }
-    }
-  }
-}
-
-.pieBox {
-  position: relative;
-  z-index: 1;
-  @include tablet {
-    grid-column: 3 / -1;
-  }
-
-  @include pc {
-    grid-column: 7 / -2;
-  }
-  div {
-    position: sticky;
-    top: 30%;
-    right: 0;
-    .pieContainer {
-      width: 300px;
-      height: 300px;
-      position: relative;
-      margin: auto;
-      overflow: hidden;
-      @include pc {
-        margin: 0 0 0 auto;
-      }
-
-      .pieSlice {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-        clip: rect(0px, 300px, 300px, 150px);
-        .pie {
-          transition: all 1s;
-          position: absolute;
-          width: 300px;
-          height: 300px;
-          border-radius: 100%;
-          clip: rect(0px, 150px, 300px, 0px);
-          transform: rotate(100deg);
-        }
-      }
-      .innerCircle {
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        width: 80%;
-        height: 80%;
-        background-color: #f8f8f8;
-        border-radius: 100%;
-      }
-    }
-  }
-  .content {
-    position: absolute;
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    @include pc {
-      top: 40px;
-      left: 0;
-      transform: translate(0);
-    }
-    .pieName {
-      @include fontSizeStyle(0.875rem);
-      text-align: left;
-      li {
-        line-height: 1;
-        margin-bottom: 14px;
-        &::after {
-          content: attr(data-percent) "%";
-          @include fontSizeStyle(1.875rem, 900);
-          padding-left: 10px;
-        }
-        i {
-          width: 1rem;
-          height: 1rem;
-          display: inline-block;
-          margin-right: 10px;
-          border-radius: 50%;
-          vertical-align: middle;
-        }
-        &:nth-of-type(1) i {
-          background-color: #1b458b;
-        }
-        &:nth-of-type(2) i {
-          background-color: #0a0;
-        }
-        &:nth-of-type(3) i {
-          background-color: #f80;
-        }
-        &:nth-of-type(4) i {
-          background-color: #08f;
-        }
-        &:nth-of-type(5) i {
-          background-color: #a04;
-        }
-      }
-    }
-  }
-}
-
-.overlap .img_device {
-  position: relative;
-  z-index: 50;
-  width: 300px;
-  margin: 0 auto;
-}
-.overlap .bg_change {
-  width: 100%;
-  height: 100%;
-}
-.overlap .img_device::before,
-.overlap .img_device::after,
-.overlap .img_device a::before,
-.overlap .img_device a::after {
-  width: 0;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-}
-.overlap .img_device:hover::before {
-  width: 100%;
-  background: #000;
-  transition: width 0.5s 0.2s;
-}
-.overlap .img_device:hover::after {
-  width: 100%;
-  background-color: #272727;
-  transition: width 0.5s 0.7s;
-}
-.overlap .img_device:hover a::before {
-  width: 100%;
-  background: #c2bada;
-  transition: width 0.5s 1.2s;
-  z-index: 1;
-}
-.bg_clip {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border: 1px solid;
-  clip-path: circle(50% at 50% 50%);
-  background-color: cornflowerblue;
-}
-=======
-@import "variable", "_mixin";
-
-.title {
-  width: 100%;
-  height: 260vh;
-  background-color: rgba(54, 54, 54, 0.7);
-  position: relative;
-
-  &::before {
-    width: 100%;
-    height: 100%;
-    background: url(../images/main/title.jpg) center no-repeat;
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    content: "";
-  }
-
-  div {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    width: 100%;
-    margin: auto;
-    max-width: 1700px;
-    height: 100vh;
-
-    h2 {
-      color: white;
-      font-weight: 500;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      @include fontSizeStyle(4.6875rem, 600);
-      animation: in-out 1s linear forwards paused;
-      animation-delay: calc(var(--progress) * -1s);
-      &:first-child {
-        animation-name: in-out-first;
-      }
-    }
-  }
-}
-
-.introduce {
-  background: #f8f8f8;
-  height: 260vh;
-  padding-bottom: 13.4vh;
-
-  @include tablet {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(auto-fill, minmax(10%, 1fr));
-    gap: 16px;
-  }
-
-  @include pc {
-    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
-  }
-
-  h2 {
-    text-align: center;
-    margin: 5.625rem 0;
-
-    @include tablet {
-      grid-column: 1/-1;
-    }
-  }
-
-  .text_box {
-    position: sticky;
-    top: 90px;
-    left: 0;
-
-    @include tablet {
-      top: 25%;
-      grid-column: 1/3;
-    }
-
-    @include pc {
-      top: calc(50% - 200px);
-      grid-column: 3 / span 3;
-    }
-
-    p {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      transition: opacity 0.5s;
-      text-align: center;
-      @include fontSizeStyle(1.125rem);
-      line-height: 2;
-
-      &.active {
-        opacity: 1;
-      }
-
-      @include tablet {
-        text-align: left;
-      }
-    }
-  }
-
-  .device_fix {
-    position: sticky;
-    top: calc(70vh - 0px);
-    left: 0;
-    right: 0;
-    width: 100%;
-
-    @include tablet {
-      top: 25%;
-      grid-column: 3/-1;
-    }
-
-    @include pc {
-      grid-column: 7/-2;
-    }
-
-    $SLIDE_WIDTH: 80vw;
-
-    @mixin slideWidth {
-      width: $SLIDE_WIDTH;
-
-      @include tablet {
-        width: $SLIDE_WIDTH * 0.5625;
-      }
-
-      @include pc {
-        width: $SLIDE_WIDTH * 0.5;
-      }
-    }
-
-    @mixin slideWidthCalc {
-      width: calc($SLIDE_WIDTH * 3);
-
-      @include tablet {
-        width: calc($SLIDE_WIDTH * 3);
-      }
-
-      @include pc {
-        width: calc($SLIDE_WIDTH * 3);
-      }
-    }
-
-    .slide_wrap {
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      @include slideWidth;
-
-      .slide {
-        @include slideWidthCalc;
-        height: 100%;
-        transition: transform 0.5s;
-        display: flex;
-        flex-direction: row;
-
-        figure {
-          @include slideWidth;
-          position: relative;
-          animation: in-out2 1s linear forwards;
-
-          img {
-            max-width: 100%;
-          }
-        }
-      }
-    }
-  }
-}
-
-.personality {
-  width: 100%;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 1s ease;
-  overflow: hidden;
-  background: white;
-  position: relative;
-
-  .container {
-    width: 100%;
-    display: flex;
-
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      flex: 0 0 auto;
-      text-align: center;
-      animation: moving 30s linear infinite;
-      @include pc {
-        animation-play-state: paused;
-      }
-      span {
-        @include fontSizeStyle(7.8125rem, 600);
-        color: #e6e6e6;
-        padding: 0 0.5em 0 0;
-        display: block;
-      }
-    }
-  }
-  &:hover .box {
-    animation-play-state: running;
-  }
-}
-
-.interest {
-  background: #f8f8f8;
-  overflow: hidden;
   transition: background 0.5s;
-  &.active {
-    background: bisque;
-  }
 
-  h2 {
-    text-align: center;
-    margin: 5.625rem 0;
-    @include tablet {
-      grid-column: 1/-1;
-    }
-  }
-  ul {
-    position: relative;
-
-    li {
-      position: relative;
-      @include tablet {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, minmax(auto, 100px));
-        gap: 16px;
-      }
-
-      @include pc {
-        grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
-        grid-template-rows: repeat(4, minmax(auto, 100px));
-        &:first-child {
-          margin-top: 16vh;
-        }
-      }
-
-      i {
-        width: 30vw;
-        height: 30vw;
-        background-color: beige;
-        border-radius: 50%;
-        display: block;
-        position: absolute;
-        top: -40%;
-        right: 0;
-      }
-      figure {
-        z-index: 20;
-        a {
-          overflow: hidden;
-          position: relative;
-          img {
-            transition: transform 0.5s ease;
-          }
-          &:hover img {
-            transform: scale(1.2) rotate(-0.01deg);
-          }
-          &::before {
-            width: 0%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            content: "";
-          }
-          &:hover::before {
-            width: 100%;
-            @include bgColor(background, cMain, 0.5);
-            transition: width 0.5s 0.2s;
-          }
-        }
-        figcaption {
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-          span {
-            font-family: "Montserrat";
-            @include fontSizeStyle(3rem, 600);
-            color: #000;
-            text-transform: uppercase;
-            padding: 0 0.5em;
-            background: bisque;
-            @include tablet {
-              padding: 0;
-              @include fontSizeStyle(3rem, 300);
-            }
-            @include pc {
-              position: absolute;
-              background: 0;
-            }
-          }
-        }
-      }
-      .landing {
-        @include tablet {
-          grid-column: 1 / 2;
-          grid-row: 1 / 3;
-        }
-        @include pc {
-          grid-column: 3 / span 3;
-          grid-row: 1 / span 2;
-        }
-        span {
-          @include pc {
-            position: absolute;
-            top: 217px;
-            left: 307px;
-          }
-        }
-      }
-      .figma {
-        @include tablet {
-          grid-column: 1 / 2;
-          grid-row: 3 / 4;
-        }
-        @include pc {
-          grid-column: 1 / span 3;
-          grid-row: 2 / span 2;
-        }
-        span {
-          @include pc {
-            transform: rotateZ(90deg);
-            top: calc(0% - 120px);
-            left: calc(0% + 131px);
-          }
-        }
-      }
-      .javascript {
-        @include tablet {
-          grid-column: 2 / -1;
-          grid-row: 3 / 4;
-        }
-        @include pc {
-          grid-column: 10 / span 3;
-          grid-row: 2 / span 2;
-        }
-        span {
-          @include pc {
-            top: 133px;
-            left: -170px;
-            transform: rotate(-90deg);
-          }
-        }
-      }
-      .bootstrap {
-        @include tablet {
-          grid-column: 2 / -1;
-          grid-row: 1 / 3;
-        }
-        @include pc {
-          grid-column: 9 / span 3;
-          grid-row: 1 / span 2;
-        }
-        span {
-          @include pc {
-            top: -50px;
-            left: 160px;
-          }
-        }
-      }
-      dl {
-        margin: 1.5em 0;
-        &.design {
-          @include tablet {
-            grid-column: 2 / span 1;
-            grid-row: 1 / span 2;
-          }
-          @include pc {
-            grid-column: 7 / span 3;
-            grid-row: 2 / span 2;
-          }
-        }
-        &.phublising {
-          @include tablet {
-            grid-column: 1 / span 1;
-            grid-row: 1 / span 3;
-          }
-          @include pc {
-            grid-column: 4 / span 4;
-            grid-row: 2 / span 3;
-          }
-        }
-        dt {
-          margin-bottom: 1rem;
-          @include fontSizeStyle(1.25rem, 600);
-          text-transform: capitalize;
-        }
-        dd {
-          line-height: 2;
-          @include fontSizeStyle(1.125rem);
-          &::before {
-            content: "-";
-            padding-right: 0.5em;
-          }
-        }
-      }
-    }
-  }
-}
-
-.project {
-  padding-bottom: 10vh;
-  @include tablet {
-    div:first-child {
-      height: 30vh;
-    }
-    div:last-child {
-      margin-top: 20vh;
-      padding-bottom: 1vh;
-    }
-  }
-  @include pc {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
-    div:first-child {
-      height: auto;
-      grid-column: 3 / span 2;
-    }
-    div:last-child {
-      grid-column: 6/-1;
-    }
-  }
-  p {
-    position: sticky;
-    top: 50%;
-    left: 0;
-    line-height: 2;
-    @include fontSizeStyle(1.125rem);
-  }
-  ul {
-    @include pc {
-      margin: 80% 0 20%;
-    }
-    opacity: 0;
-    margin-right: 1rem;
-    @include fontSizeStyle(7rem, 900);
-
-    &.active {
-      animation: in-out2 1s linear forwards;
-    }
-
-    li {
-      text-align: right;
-      margin-top: 1em;
-      line-height: 1;
-      &:first-child {
-        padding-top: -50%;
-      }
-      a {
-        transform: rotateY(-25deg) translateZ(0) scale(1.2)
-          matrix(1, -0.2, 0, 1, -24, 24);
-        transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transform-style: preserve-3d;
-        display: inline-block;
-        position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0.23em;
-          margin-left: -0.25em;
-          width: 1px;
-          height: 0.85em;
-          background-color: #000;
-          transform: rotate(25deg);
-          pointer-events: none;
-        }
-        &:hover {
-          -webkit-text-stroke: 2px #000;
-          -webkit-text-fill-color: transparent;
-          transform: rotateY(-25deg) translateZ(0) scale(1.2)
-            matrix(1, 0, 0, 1, -27, 21);
-        }
-      }
-    }
-  }
-}
-
-.storyGraph {
-  position: relative;
   @include tablet {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -1250,12 +569,6 @@
       z-index: 0;
       transition: all 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19);
     }
-    &.active::before {
-      background-color: #efeeee;
-    }
-    &.active::after {
-      border-color: #e9e9e9;
-    }
   }
 
   @include pc {
@@ -1263,7 +576,6 @@
   }
 
   .history {
-    @include fontSizeStyle(1rem, 400);
     z-index: 1;
     @include tablet {
       grid-column: 1 / span 2;
@@ -1276,6 +588,8 @@
       padding-top: 1rem;
       border-top: 1px dashed gray;
       margin-bottom: 1rem;
+      line-height: 1.86;
+      @include fontSizeStyle(1.125rem);
       @include tablet {
         padding: 100% 0 0%;
         border: 0;
@@ -1286,75 +600,79 @@
       strong {
         margin-bottom: 1rem;
         display: block;
+        @include fontSizeStyle(2rem, 500);
       }
       em {
         color: #656565;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         display: block;
       }
     }
   }
-}
+  .pieBox {
+    position: relative;
+    z-index: 1;
+    @include tablet {
+      grid-column: 3 / -1;
+    }
 
-.pieBox {
-  position: relative;
-  z-index: 1;
-  @include tablet {
-    grid-column: 3 / -1;
+    @include pc {
+      grid-column: 7 / -2;
+    }
+    & > div {
+      position: sticky;
+      top: 30%;
+      right: 0;
+    }
   }
-
-  @include pc {
-    grid-column: 7 / -2;
-  }
-  div {
-    position: sticky;
-    top: 30%;
-    right: 0;
-    .pieContainer {
-      width: 300px;
-      height: 300px;
-      position: relative;
-      margin: auto;
-      overflow: hidden;
-      @include pc {
-        margin: 0 0 0 auto;
-      }
-
-      .pieSlice {
+  .pieContainer {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    @include pc {
+      margin: 0 0 0 auto;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background-color: #f8f8f8;
+      border-radius: 100%;
+      transition: background 0.5s;
+      z-index: 1;
+    }
+    .pieSlice {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      clip: rect(0px, 300px, 300px, 150px);
+      .pie {
+        transition: all 1s;
         position: absolute;
-        width: 100%;
-        height: 100%;
+        width: 300px;
+        height: 300px;
         border-radius: 100%;
-        clip: rect(0px, 300px, 300px, 150px);
-        .pie {
-          transition: all 1s;
-          position: absolute;
-          width: 300px;
-          height: 300px;
-          border-radius: 100%;
-          clip: rect(0px, 150px, 300px, 0px);
-          transform: rotate(100deg);
-        }
-      }
-      .innerCircle {
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        width: 80%;
-        height: 80%;
-        background-color: #f8f8f8;
-        border-radius: 100%;
+        clip: rect(0px, 150px, 300px, 0px);
+        transform: rotate(100deg);
       }
     }
   }
-  .content {
+
+  .colorSign {
     position: absolute;
     top: 50%;
-    left: 55%;
+    left: 50%;
     transform: translate(-50%, -50%);
     @include pc {
       top: 40px;
-      left: 0;
+      left: auto;
+      right: 360px;
       transform: translate(0);
     }
     .pieName {
@@ -1363,6 +681,7 @@
       li {
         line-height: 1;
         margin-bottom: 14px;
+        text-transform: capitalize;
         &::after {
           content: attr(data-percent) "%";
           @include fontSizeStyle(1.875rem, 900);
@@ -1375,23 +694,32 @@
           margin-right: 10px;
           border-radius: 50%;
           vertical-align: middle;
-        }
-        &:nth-of-type(1) i {
-          background-color: #1b458b;
-        }
-        &:nth-of-type(2) i {
-          background-color: #0a0;
-        }
-        &:nth-of-type(3) i {
-          background-color: #f80;
-        }
-        &:nth-of-type(4) i {
-          background-color: #08f;
-        }
-        &:nth-of-type(5) i {
-          background-color: #a04;
+          background: var(--bgColor);
         }
       }
+    }
+  }
+  &.active {
+    // background-color: #c2bada;
+    background-color: #1e1e1e;
+    @include tablet {
+      &.active::before {
+        background: rgba(51, 51, 51, 0.123);
+      }
+      &.active::after {
+        border-color: #2727275d;
+      }
+    }
+    .history li,
+    .pieName li {
+      font-weight: 300;
+      color: darkgrey;
+    }
+    .history strong {
+      color: #fff;
+    }
+    .pieContainer::before {
+      background-color: #1e1e1e;
     }
   }
 }
@@ -1442,4 +770,3 @@
   clip-path: circle(50% at 50% 50%);
   background-color: cornflowerblue;
 }
->>>>>>> cfd9af2c84a206875ba7ba0a0839c1cdec6a7a94

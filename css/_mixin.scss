@@ -9,43 +9,70 @@ $minWide: 2000px;
   }
 }
 
-@mixin pc{
+@mixin pc {
   @media all and (min-width: $minPc) {
     // $text-mult: 1;
     @content;
   }
 }
 
-@mixin wide{
+@mixin wide {
   @media all and (min-width: $minWide) {
     // $text-mult: 0.5;
     @content;
   }
 }
 
-@mixin fontSizeStyle($size:1rem, $weight:400) {
-  
-  font-weight: $weight; 
+@mixin fontSizeStyle($size: 1rem, $weight: 400) {
+  font-weight: $weight;
 
-  @if $size >= 0.625rem and $size < 1.875rem {font-size:calc($size / 1);}
-
-  @else{
-    font-size:calc($size / 2);
-    @include tablet {font-size:calc($size / 1.5);}  
-    @include pc {font-size:calc($size / 1);}
+  @if $size >= 0.625rem and $size < 1.875rem {
+    font-size: calc($size / 1);
+  } @else {
+    font-size: calc($size / 2);
+    @include tablet {
+      font-size: calc($size / 1.5);
+    }
+    @include pc {
+      font-size: calc($size / 1);
+    }
   }
 
-  @include wide {font-size:calc($size / 0.7);}
+  @include wide {
+    font-size: calc($size / 0.7);
+  }
 }
 
 @mixin bgColor($style, $name, $a) {
-    @if $name == "cPoint" {#{$style} : rgba(255,203,0,$a);}
-    @else if $name == "cMain"{#{$style} : rgba(190,52,85,$a);}
-    @else if $name == "cMainLight"{#{$style} : rgba(19,229,71,$a);}
-    @else if $name == "cMainDark"{#{$style} : rgba(19,161,81,$a);}
-    @else if $name == "cSub"{#{$style} : rgba(28,204,228,$a);}
+  @if $name == "cPoint" {
+    #{$style}: rgba(255, 203, 0, $a);
+  } @else if $name == "cMain" {
+    #{$style}: rgba(4, 207, 92, $a);
+  } @else if $name == "cRed" {
+    #{$style}: rgba(187, 38, 73, $a);
+  } @else if $name == "cMainLight" {
+    #{$style}: rgba(19, 229, 71, $a);
+  } @else if $name == "cMainDark" {
+    #{$style}: rgba(19, 161, 81, $a);
+  } @else if $name == "cSub" {
+    #{$style}: rgba(28, 204, 228, $a);
+  } @else if $name == "cBlack" {
+    #{$style}: rgba(37, 37, 37, $a);
+  } @else if $name == "cWhite" {
+    #{$style}: rgba(248, 248, 248, $a);
+  }
 }
 
-@mixin imgSize($style, $width, $ratio1, $ratio2){
-  #{$style} : calc($width / $ratio1 * $ratio2);
+/* 
+#EDCDC2
+#E5CCAF
+#D4CACD
+#BB2649
+#BFAF92
+#B7A990
+#B3B1A1
+#BFCAD6
+ */
+@mixin imgSize($style, $width, $ratio1, $ratio2) {
+  #{$style}: calc($width / $ratio1 * $ratio2);
 }
