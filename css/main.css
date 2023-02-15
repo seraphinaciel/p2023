@@ -637,7 +637,7 @@
 @media all and (min-width: 1280px) {
   .interest ul li .landing span {
     position: absolute;
-    top: 217px;
+    top: 287px;
     left: 307px;
   }
 }
@@ -657,7 +657,7 @@
   .interest ul li .figma span {
     -webkit-transform: rotateZ(90deg);
             transform: rotateZ(90deg);
-    top: calc(0% - 120px);
+    top: 70px;
     left: calc(0% + 131px);
   }
 }

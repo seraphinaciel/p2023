@@ -335,7 +335,7 @@
         span {
           @include pc {
             position: absolute;
-            top: 217px;
+            top: 287px;
             left: 307px;
           }
         }
@@ -352,7 +352,7 @@
         span {
           @include pc {
             transform: rotateZ(90deg);
-            top: calc(0% - 120px);
+            top: 70px;
             left: calc(0% + 131px);
           }
         }
