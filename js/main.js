@@ -267,21 +267,25 @@
 
   function projectListBox(pageIndex) {
     const projectName = [
-      { title: "비짓전주", type: "신규 사업", link: "/page/subpage__06.html" },
+      {
+        title: "비짓전주",
+        type: "신규 사업",
+        link: "/p2023/page/subpage__06.html",
+      },
       {
         title: "담양 대나무 축제",
         type: "신규 사업",
-        link: "/page/subpage__05.html",
+        link: "/p2023/page/subpage__05.html",
       },
       {
         title: "전북도청",
         type: "5개 통합사업",
-        link: "/page/subpage__04.html",
+        link: "/p2023/page/subpage__04.html",
       },
       {
         title: "고창군청",
         type: "18개 통합사업",
-        link: "/page/subpage__03.html",
+        link: "/p2023/page/subpage__03.html",
       },
 
       {
@@ -347,7 +351,7 @@
       {
         title: "익산시의회",
         type: "개편 사업",
-        link: "/page/subpage__02.html",
+        link: "/p2023/page/subpage__02.html",
       },
       {
         title: "전라북도 농업기술원",
@@ -357,7 +361,7 @@
       {
         title: "장수군 승마레저파크",
         type: "개편 사업",
-        link: "/page/subpage__00.html",
+        link: "/p2023/page/subpage__00.html",
       },
       {
         title: "남원 사이버 장터",
