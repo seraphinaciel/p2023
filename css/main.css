@@ -92,8 +92,8 @@
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-15816px);
-            transform: translateX(-15816px);
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
   }
 }
 @keyframes moving {
@@ -102,8 +102,8 @@
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-15816px);
-            transform: translateX(-15816px);
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
   }
 }
 @-webkit-keyframes fade_in {
@@ -226,7 +226,7 @@
   }
 }
 .introduce h2 {
-  margin: 5.625rem 0;
+  padding: 5.625rem 0;
   font-weight: 400;
   font-size: 1.5rem;
   letter-spacing: -0.05em;
@@ -425,8 +425,8 @@
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   text-align: center;
-  -webkit-animation: moving 30s linear infinite;
-          animation: moving 30s linear infinite;
+  -webkit-animation: moving 10s linear infinite;
+          animation: moving 10s linear infinite;
 }
 @media all and (min-width: 1280px) {
   .personality .container .box {

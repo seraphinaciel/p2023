@@ -1,15 +1,19 @@
 (() => {
   const contentBody = document.querySelectorAll("#content > article");
 
+  const personality = document.querySelector(".personality"); // 패럴렉스가 시작될 엘리먼트
+
   let yOffset = 0; // window.pageYOffset 대신 쓸 변수
   let currentScene = 0; //현재 활성화된 씬(scroll-section)
 
   let scrollHeight;
   let scrollRealHeight; //실제 스크롤 해야 될 높이
   let sectionOffsetTop;
+  // let sectionOffsetBottom;
   let sectionScrollTop; //스크롤 백분율 값을 담을 변수
   let scrollPercent; //스크롤탑 / 스크롤 실제 길이로 구한 비율
   let percent; //scrollPercent * 100;
+  // let sectionIsMoving = false; // 섹션이 이동중인지 체크하는 변수
 
   let isMobile;
 
@@ -28,7 +32,6 @@
 
     // 스크롤시 현재 섹션 id 바디에 붙임
     document.body.setAttribute("id", `show-scene-${currentScene}`);
-
     scrollFunc();
   }
 
@@ -42,6 +45,7 @@
 
   function setProperty(sectionName) {
     //스크롤 시 변할 값을 셋팅하는 함수
+
     scrollHeight = sectionName.offsetHeight;
     sectionOffsetTop = sectionName.getBoundingClientRect().top + yOffset; // 패럴렉스가 시작될 요소의 상단 위치 값
     scrollRealHeight = scrollHeight - window.innerHeight;
@@ -50,35 +54,21 @@
     scrollPercent = sectionScrollTop / scrollRealHeight;
     percent = scrollPercent * 100;
 
-    isMobile = window.innerWidth <= 768 ? true : false;
-  }
-
-  function scrollLocation(sectionName, percent, pointNum) {
-    if (percent > pointNum) {
-      sectionName.classList.add("active");
-    } else {
-      sectionName.classList.remove("active");
-    }
+    isMobile = window.innerWidth <= 1024 ? true : false;
   }
 
   /**
-   * title & header
+   * title
    */
   function sTitle() {
-    const title = document.querySelector(".title");
-    const header = document.querySelector("header");
-
-    setProperty(title);
-    scrollLocation(header, percent, 100);
-
-    const titleMove = yOffset / ((title.offsetHeight - window.innerHeight) / 2);
-
+    const titleMove =
+      yOffset /
+      ((document.querySelector(".title").offsetHeight - window.innerHeight) /
+        2);
     const gap = 1;
-    if (currentScene === 0) {
-      document.querySelectorAll(".title h2").forEach(function (arr, index) {
-        arr.style = "--progress:" + Math.max(0, titleMove - index * gap) + "";
-      });
-    }
+    document.querySelectorAll(".title h2").forEach(function (arr, index) {
+      arr.style = "--progress:" + Math.max(0, titleMove - index * gap) + "";
+    });
   }
 
   /**
@@ -145,11 +135,6 @@
   /**
    * banner slider
    */
-  function personalityMoving() {
-    const moving = document.querySelector(".personality");
-    moving.style = `--moving : ${document.querySelector(".box").scrollWidth}px`;
-  }
-
   const s1 = new personalityBox("#personality");
   function personalityBox() {
     const personality = document.querySelector(".personality");
@@ -173,22 +158,6 @@
    * interest
    */
   function sInterest() {
-    const interest = document.querySelector(".interest");
-    setProperty(interest);
-    scrollLocation(interest, percent, -200);
-
-    let parallaxSpeed = 0; // 패럴렉스 요소의 스피드
-
-    if (isMobile) {
-      parallaxSpeed = 2600;
-      parallaxScroll(parallaxSpeed);
-    } else {
-      parallaxSpeed = 2900;
-      parallaxScroll(parallaxSpeed);
-    }
-  }
-
-  function parallaxScroll(parallaxSpeed) {
     // 스크롤 시 계속 호출 될 모션 함수 선언
     const parallaxList = document.querySelectorAll(".interest li > *"); // 변수에 페럴렉스에 반응할 이미지 리스트를 지정
     const parallaxTxtList = document.querySelectorAll(
@@ -198,7 +167,9 @@
     let parallaxThisTop; // 패럴렉스가 시작될 위치 값을 구함
     let parallaxPercent; // 패럴렉스 백분율 값을 담을 변수 선언
     let parallaxMoveDistance; // 패럴렉스 요소가 움직일 거리를 담을 변수 선언
+    const parallaxSpeed = 3000; // 패럴렉스 요소의 스피드
     const parallaxStartValue = 1000; // 패럴렉스 요소가 1000 위치에서 시작하도록 설정
+
     parallaxOffsetTop =
       document.querySelector(".introduce").getBoundingClientRect().top +
       yOffset; // 패럴렉스가 시작될 요소의 상단 위치 값
@@ -212,9 +183,15 @@
       )
     );
 
+    if (currentScene === 3 || scrollPercent > 1.2) {
+      document.querySelector(".interest").classList.add("active");
+    } else {
+      document.querySelector(".interest").classList.remove("active");
+    }
+
     // action
     parallaxList[0].style.transform =
-      "translate(0, " + parallaxMoveDistance * -4.7 + "px)";
+      "translate(0, " + parallaxMoveDistance * -2.7 + "px)";
     parallaxList[1].style.transform =
       "translate(" + parallaxMoveDistance * -1.7 + "px, 0px)";
     parallaxList[2].style.transform =
@@ -242,10 +219,15 @@
    *  */
   function sProject() {
     const proBody = document.querySelector(".project");
-    const proUl = proBody.querySelector("ul");
     const proList = proBody.querySelectorAll("li");
-    setProperty(proBody);
-    scrollLocation(proUl, percent, -20);
+
+    if (currentScene === 4 || percent >= 230) {
+      proBody.classList.add("active");
+      proBody.querySelector("ul").classList.add("active");
+    } else {
+      proBody.classList.remove("active");
+      proBody.querySelector("ul").classList.remove("active");
+    }
 
     let proSize,
       totalSize = 0;
@@ -277,32 +259,15 @@
     }
   }
 
-  const proList = document.querySelector(".project ul");
-  const loadMoreButton = document.querySelector(".project button");
-  let currentPage = 1;
+  function projectListPrepend() {
+    const proList = document.querySelector(".project ul");
 
-  function projectListBox(pageIndex) {
     const projectName = [
-      {
-        title: "비짓전주",
-        type: "신규 사업",
-        link: "./page/subpage__06.html",
-      },
-      {
-        title: "담양 대나무 축제",
-        type: "신규 사업",
-        link: "./page/subpage__05.html",
-      },
-      {
-        title: "전북도청",
-        type: "5개 통합사업",
-        link: "./page/subpage__04.html",
-      },
-      {
-        title: "고창군청",
-        type: "18개 통합사업",
-        link: "./page/subpage__03.html",
-      },
+      { title: "비짓전주", type: "신규 사업", link: "" },
+      { title: "담양 대나무 축제", type: "신규 사업", link: "" },
+      { title: "전북도청", type: "5개 통합사업", link: "" },
+      { title: "고창군청", type: "18개 통합사업", link: "" },
+
       {
         title: "임실군 군수실",
         type: "7개 통합사업",
@@ -363,26 +328,13 @@
         type: "5개 통합사업",
         link: "http://www.sunchang.go.kr/farm/index.sunchang",
       },
-      {
-        title: "익산시의회 외국어",
-        type: "개편 사업",
-        link: "https://council.iksan.go.kr/jpn/index.iksan",
-      },
-      {
-        title: "익산시 어린이 청소년 의회",
-        type: "개편 사업",
-        link: "https://council.iksan.go.kr/child/index.iksan",
-      },
+      { title: "익산시의회", type: "개편 사업", link: "" },
       {
         title: "전라북도 농업기술원",
         type: "개편 사업",
         link: "https://www.jbares.go.kr/index.jbares",
       },
-      {
-        title: "장수군 승마레저파크",
-        type: "개편 사업",
-        link: "./page/subpage__00.html",
-      },
+      { title: "장수군 승마레저파크", type: "개편 사업", link: "" },
       {
         title: "남원 사이버 장터",
         type: "신규 사업",
@@ -414,44 +366,23 @@
       },
     ];
 
-    const cardLimit = projectName.length;
-    const cardIncrease = 8;
-    const pageCount = Math.ceil(cardLimit / cardIncrease);
+    for (let num = 0; num < projectName.length; num++) {
+      const colli = document.createElement("li");
 
-    currentPage = pageIndex;
-
-    if (pageCount === currentPage) {
-      loadMoreButton.classList.add("disabled");
-      loadMoreButton.setAttribute("disabled", true);
-    }
-
-    const startRange = (pageIndex - 1) * cardIncrease;
-    const endRange =
-      pageIndex * cardIncrease > cardLimit
-        ? cardLimit
-        : pageIndex * cardIncrease;
-
-    for (let i = startRange; i < endRange; i++) {
-      const listItem = document.createElement("li");
-      listItem.innerHTML = `<a href="${projectName[i].link}" target="_blank" title="새창 열림">${projectName[i].title}</a>`;
-
-      if (projectName[i].link.indexOf("/page/") === 1) {
-        listItem.innerHTML = `<a href="${projectName[i].link}">${projectName[i].title}</a>`;
-      }
-      proList.appendChild(listItem);
+      proList.append(colli);
+      colli.innerHTML = `<a href="${projectName[num].link}">${projectName[num].title}</a>`;
     }
   }
-
   /**
    * graph
    */
-  function sGraph() {
-    const storyGraph = document.querySelector(".storyGraph");
-    setProperty(storyGraph);
-    scrollLocation(storyGraph, percent, -12);
 
-    // 그래프 바깥 그리기
+  function sGraph() {
+    const history = document.querySelector(".history");
+    setProperty(history);
+
     const pieSlice = document.querySelectorAll(".pieSlice");
+
     for (let i = 0; i < pieSlice.length; i++) {
       const d = pieSlice[i].dataset.degree;
       let n = 0;
@@ -464,101 +395,101 @@
       }
     }
 
-    // history 스크롤링 시 그래프 색 칠하기 부르기
-    if (isMobile) {
-      graph(0, 6, 6);
-      graph(1, 6, 6);
-      graph(2, 6, 6);
-      graph(3, 6, 6);
-      graph(4, 6, 6);
+    // console.log(percent);
+
+    if (percent >= 0 && percent < 16.4) {
+      graph(1);
+      graphText(1);
+    } else if (percent >= 16.41 && percent < 29) {
+      graph(2);
+      graphText(2);
+    } else if (percent >= 30 && percent < 48) {
+      graph(3);
+      graphText(3);
+    } else if (percent >= 49 && percent < 68) {
+      graph(4);
+      graphText(4);
+    } else if (percent >= 68 && percent < 85) {
+      graph(5);
+      graphText(5);
+    } else if (percent >= 85) {
+      graph(6);
+      graphText(6);
     } else {
-      calcGG(0, 4);
-      calcGG(1, 5);
-      calcGG(2, 6);
-      calcGG(3, 2);
-      calcGG(4, 2);
+      graph(0);
+      graphText(0);
     }
   }
 
-  //history 스크롤링 시 그래프 색 칠하기
-  function calcGG(index, end) {
-    const array = [0, 16, 34, 50, 65, 85, 100];
-
-    for (let arrIndex = 0; arrIndex < array.length; arrIndex++) {
-      let starting = 1;
-
-      starting = starting + arrIndex;
-
-      let i = 5;
-      if (percent < 4) {
-        graph(index, 0, 0);
-      } else if (percent > array[arrIndex] && percent < array[arrIndex + 1]) {
-        if (index < 3) {
-          graph(index, starting, end);
-        }
-        if (index >= 3 && starting < 5) {
-          graph(index, 0, end);
-        }
-        if (index >= 3 && starting >= 5) {
-          graph(index, starting - i, end);
-        }
-      } else if (percent >= array[array.length - 1]) {
-        if (index >= 3 && starting >= 5) {
-          graph(index, starting - i, end);
-        }
-      }
-
-      starting++;
-    }
-  }
-
-  // 그래프 색 칠하기
-  function graph(index, start, end) {
+  function graphText(roundR) {
     const pie = document.querySelectorAll(".pie");
     const item = document.querySelectorAll(".pieName li");
 
-    let piePercent = pie[index].dataset.percent;
-    const color = pie[index].dataset.color;
-    const r = pie[index].dataset.rotate;
-    let piece = 0;
-    let piece2 = 0;
-    let cake = 0;
-    let cake2 = 0;
+    for (let i = 0; i < pie.length; i++) {
+      let piePercent = pie[i].dataset.percent;
+      let piece = 0;
+      let cake = 0;
 
-    piece = r / end;
-    piece2 = piePercent / end;
-    cake = piece * start;
-    cake2 = piece2 * start;
+      piece = (piePercent / 6).toFixed(2);
+      cake = piece * roundR;
 
-    // txt
-    let ratateNum = 0;
-    const graphAnimation = setInterval(() => {
-      if (end === 0) {
-        clearInterval(graphAnimation);
-      }
-      item[index].dataset.percent = ratateNum;
-      ratateNum++ >= cake2 && clearInterval(graphAnimation);
-    }, 10);
+      let ratateNum = 0;
+      const graphAnimation = setInterval(() => {
+        item[i].dataset.percent = ratateNum;
+        ratateNum++ >= cake && clearInterval(graphAnimation);
+      }, 10);
+    }
+  }
 
-    // txt indicator color
-    let colorPalette = [];
-    colorPalette[index] = pie[index].dataset.color;
-    item[index].style = "--bgColor:" + colorPalette[index];
+  function graph(roundR) {
+    const pie = document.querySelectorAll(".pie");
+    const item = document.querySelectorAll(".pieName li");
 
-    // graph
-    let n = 0;
-    for (let k = 0; k < r; k++) {
-      if (start === 0) {
-        pie[index].style.transform = `rotate(0deg)`;
-      }
-      if (n <= cake) {
-        n++;
-        pie[
-          index
-        ].style.background = `conic-gradient(${color} 0 0%, ${color} 0% 100% )`;
-        pie[index].style.transform = `rotate(${n}deg)`;
+    for (let i = 0; i < pie.length; i++) {
+      const color = pie[i].dataset.color;
+
+      const r = pie[i].dataset.rotate;
+      let piece = 0;
+      let cake = 0;
+
+      piece = r / 6;
+      cake = piece * roundR;
+
+      let n = 0;
+      for (let k = 0; k < r; k++) {
+        if (n <= cake) {
+          n++;
+          pie[
+            i
+          ].style.background = `conic-gradient(${color} 0 0%, ${color} 0% 100% )`;
+          pie[i].style.transform = `rotate(${n}deg)`;
+        }
       }
     }
+
+    // pieSlice.forEach((g, k) => {
+    //   const dataDgree = g.dataset.degree;
+    //   let graphNum = 0;
+
+    //   const graphAnimation = setInterval(() => {
+    //     g.dataset.degree = graphNum;
+    //     g.style.transform = `rotate(${graphNum}deg)`;
+    //     graphNum++ >= dataDgree && clearInterval(graphAnimation);
+    //   }, 10);
+    // });
+    // pie.forEach((g, k) => {
+    //   const dataColor = g.dataset.color;
+    //   const dataRotate = g.dataset.rotate;
+
+    //   let ratateNum = 0;
+
+    //   const graphAniRotate = setInterval(() => {
+    //     g.style.background = `conic-gradient(${dataColor} 0 0%, ${dataColor} 0% 100% )`;
+
+    //     g.dataset.rotate = ratateNum;
+    //     ratateNum++ >= dataRotate && clearInterval(graphAniRotate);
+    //   }, 100);
+    // });
   }
 
   window,
@@ -567,14 +498,10 @@
        * init
        */
       function init() {
+        // graph();
         setLayout();
-        personalityMoving();
-        projectListBox(currentPage);
+        projectListPrepend();
       }
-      loadMoreButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        projectListBox(currentPage + 1);
-      });
 
       window.addEventListener(
         "scroll",
@@ -589,7 +516,6 @@
         () => {
           yOffset = window.pageYOffset; // 현재 스크롤 위치
           setLayout();
-          personalityMoving();
         },
         false
       );

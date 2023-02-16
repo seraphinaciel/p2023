@@ -61,7 +61,7 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-5272px * 3));
+    transform: translateX(calc(var(--moving) * -1));
   }
 }
 

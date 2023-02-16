@@ -64,7 +64,7 @@
   }
 
   h2 {
-    margin: 5.625rem 0;
+    padding: 5.625rem 0;
     @include fontSizeStyle(3rem, 400);
     letter-spacing: -0.05em;
     text-transform: capitalize;
@@ -208,7 +208,7 @@
       flex-flow: row nowrap;
       flex: 0 0 auto;
       text-align: center;
-      animation: moving 30s linear infinite;
+      animation: moving 10s linear infinite;
       @include pc {
         animation-play-state: paused;
       }

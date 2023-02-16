@@ -93,8 +93,8 @@
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-15816px);
-            transform: translateX(-15816px);
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
   }
 }
 @keyframes moving {
@@ -103,8 +103,8 @@
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-15816px);
-            transform: translateX(-15816px);
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
   }
 }
 @-webkit-keyframes fade_in {
