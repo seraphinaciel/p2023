@@ -68,7 +68,7 @@ const subTitle = [
 ];
 
 subVisualTitle.innerText = subTitle[CURRENT_NUM];
-subVisualBg.style = `background:url(../images/thumnail/img${PAGE_CURRENT}.jpg) center ;background-size:cover;`;
+subVisualBg.style = `background:url(images/thumnail/img${PAGE_CURRENT}.jpg) center ;background-size:cover;`;
 
 //	conceptTitle.innerText = subTitle[CURRENT_NUM];
 //window.addEventListener('DOMContentLoaded', () => {});
@@ -83,12 +83,12 @@ const prevBtn = document.querySelector("aside .prev");
 const nextBtn = document.querySelector("aside .next");
 const listBtn = document.querySelector("aside .list");
 prevBtn.href = "subpage__" + PAGE_NUM_PREV + ".html";
-prevBtn.style = `background:url('../images/thumnail/img${PAGE_NUM_PREV}.jpg') top;background-size:cover;`;
+prevBtn.style = `background:url('images/thumnail/img${PAGE_NUM_PREV}.jpg') top;background-size:cover;`;
 prevBtn.innerHTML = `<div><i class="material-icons-round">arrow_back</i><span>이전프로젝트<strong>${subTitle[PREV_NUM]}</strong></span></div>`;
 nextBtn.href = "subpage__" + PAGE_NUM_NEXT + ".html";
-nextBtn.style = `background:url('../images/thumnail/img${PAGE_NUM_NEXT}.jpg') top;background-size:cover;`;
+nextBtn.style = `background:url('images/thumnail/img${PAGE_NUM_NEXT}.jpg') top;background-size:cover;`;
 nextBtn.innerHTML = `<div><span>다음프로젝트<strong>${subTitle[NEXT_NUM]}</strong></span><i class="material-icons-round">arrow_forward</i></div>`;
-listBtn.href = "../index.html";
+listBtn.href = "index.html";
 listBtn.innerText = `list`;
 
 //button disabled in first & last page
@@ -113,7 +113,7 @@ indicatorBtn.forEach((currntBtn, index) => {
 		} else if (index == 2) {
 			window.location.href = 'subpage__' + PAGE_NUM_NEXT + '.html';
 		} else {
-			window.location.href ='../index.html';
+			window.location.href ='index.html';
 		}
 		e.preventDefault();
 	});
