@@ -1,0 +1,693 @@
+@import "variable", "_mixin";
+
+/*page00	'장수군 승마레저파크'*/
+.faq {
+  .accordion {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0);
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    transition: 0.4s;
+    &.active,
+    &:hover {
+      border: 1px solid;
+      font-weight: bold;
+    }
+    &:after {
+      content: "\002B";
+      color: #777;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+  }
+  &.active:after {
+    content: "\2212";
+  }
+  .panel {
+    padding: 0 20px;
+    background-color: floralwhite;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    span {
+      text-align: center;
+      margin: 10px 0 20px;
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 5px 7px 5px;
+        background-color: #444547;
+        text-align: center;
+        transition: ease 0.5s;
+        color: #fff;
+        &:first-child {
+          background-color: #05804a;
+        }
+      }
+    }
+  }
+}
+
+/*page03	'고창군청'*/
+.gochang {
+  h4 {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .member a {
+    width: 150px;
+    line-height: 38px;
+    margin: 0 auto;
+    text-align: center;
+    background: #fff;
+    box-shadow: 10px 10px 0 0 #0a1132;
+    font-weight: 600;
+    color: #2b2c57;
+    display: block;
+  }
+  @include pc {
+    .member a {
+      animation: pop-up 0.5s both;
+    }
+    .member a:hover {
+      animation: pop-down 0.5s both;
+    }
+  }
+
+  .btn_more {
+    margin-top: 2rem;
+    text-align: center;
+    a {
+      width: 40px;
+      height: 0;
+      padding-top: 40px;
+      background: url(https://www.gochang.go.kr//images/04_assemblyman/main/icon.png) -51px -232px
+        #354274;
+      display: inline-block;
+      overflow: hidden;
+      @include pc {
+        &:hover {
+          animation: jelly 0.9s both;
+        }
+      }
+    }
+  }
+
+  .quicklink {
+    p {
+      padding: 10px 0 17px 30px;
+      position: relative;
+      text-align: center;
+      &:before,
+      &:after {
+        width: 10px;
+        height: 10px;
+        background: black;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        left: -5px;
+        transition: all ease-out 0.2s;
+        content: "";
+      }
+      &:after {
+        background: red;
+        left: 0;
+      }
+    }
+    strong {
+      width: 47%;
+      margin: 0 1.5em 0 0;
+      font-size: 1.125rem;
+      line-height: 24px;
+      display: inline-block;
+      word-break: keep-all;
+    }
+    a {
+      padding: 0 20px;
+      position: relative;
+      display: inline-block;
+      i {
+        width: 3px;
+        height: 24px;
+        background: red;
+        position: absolute;
+        top: 0;
+        &:before {
+          height: 3px;
+          width: 10px;
+          content: "";
+          background: inherit;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &:after {
+          height: 3px;
+          width: 10px;
+          content: "";
+          background: inherit;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+        &.l {
+          left: 0;
+        }
+        &.r {
+          left: auto;
+          right: 0;
+          &:before,
+          &:after {
+            left: auto;
+            right: 0;
+          }
+        }
+      }
+    }
+    span {
+      color: red;
+      text-align: center;
+      display: block;
+    }
+  }
+  @include tablet {
+    .quicklink {
+      & > div {
+        padding: 40px 0 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .con_tit {
+        border-bottom: 1px solid;
+      }
+      p {
+        width: 240px;
+        height: 240px;
+        padding: 0;
+        margin: 2rem auto 0;
+        &:before,
+        &:after {
+          top: 0px;
+          left: 47%;
+          transform: translate(0%, -50%);
+        }
+        &:after {
+          left: 50%;
+        }
+      }
+      strong {
+        width: 100%;
+        padding: 35px 0;
+        height: 140px;
+        float: none;
+        text-align: center;
+        box-sizing: border-box;
+        br {
+          display: block;
+        }
+      }
+      a {
+        float: none;
+        i {
+          &.l {
+            left: 0;
+          }
+          &.r {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include pc {
+    .quicklink {
+      strong {
+        padding: 35px 40px;
+        position: relative;
+        z-index: 1;
+      }
+      a {
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        transition: width 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+        i {
+          height: 24px;
+          width: 2px;
+          background: red;
+          &:before {
+            top: 11px;
+            height: 2px;
+            width: 11px;
+          }
+          &:after {
+            bottom: 11px;
+            height: 2px;
+            width: 11px;
+          }
+          &.l {
+            left: 24px;
+          }
+          &.r {
+            right: 24px;
+          }
+        }
+      }
+      span {
+        opacity: 0;
+        filter: Alpha(opacity=0);
+      }
+      a i,
+      a i:before,
+      a i:after,
+      span {
+        transition: all 0.45s cubic-bezier(0.77, 0, 0.175, 1),
+          background-color 0s;
+      }
+      p:hover {
+        &:before,
+        &:after {
+          width: 200px;
+          height: 200px;
+          left: 8%;
+        }
+        &:before {
+          background: url("https://www.gochang.go.kr//images/05_biosphere_reserve/main/quicklink_img.png")
+            no-repeat;
+        }
+        &:after {
+          background: black;
+          opacity: 0.46;
+        }
+        strong {
+          color: white;
+          text-decoration: underline;
+        }
+        a {
+          width: 100%;
+          i {
+            &:before {
+              top: 0;
+              height: 2px;
+              width: 5px;
+            }
+            &:after {
+              bottom: 0;
+              height: 2px;
+              width: 5px;
+            }
+            &.l {
+              left: 20%;
+            }
+            &.r {
+              right: 20%;
+            }
+          }
+        }
+        span {
+          opacity: 1;
+          filter: Alpha(opacity=100);
+        }
+      }
+    }
+  }
+}
+
+@keyframes pop-down {
+  0% {
+    box-shadow: 10px 0 #0a1132, 0 10px #0a1132;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    box-shadow: 10px 10px #0a1132, 10px 10px #0a1132;
+    transform: translateX(-8px) translateY(-8px);
+  }
+}
+@keyframes pop-up {
+  0% {
+    box-shadow: 10px 10px #0a1132, 10px 10px #0a1132;
+    transform: translateX(-8px) translateY(-8px);
+  }
+  100% {
+    box-shadow: 0px 0 #0a1132, 0 0px #0a1132;
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes jelly {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/*page04	'전북도청'*/
+.modalBox {
+  position: relative;
+  margin: 20px 0;
+  .gallery_list {
+    width: 100%;
+    border-top: 2px solid #123466;
+    color: #fff;
+    position: relative;
+    @include pc {
+      padding: 20px 0;
+    }
+    li {
+      line-height: 1.25em;
+      text-align: center;
+      @include tablet {
+        width: calc(33.33% - 2px);
+        float: left;
+        border-left: 1px solid #d7d7d7;
+        &:last-child,
+        &:nth-child(2n) {
+          border-right: 1px solid #d7d7d7;
+        }
+      }
+      @include pc {
+        padding: 30px 10px;
+        border: 0;
+        box-sizing: border-box;
+        transition: 0.5s ease;
+        &:last-child,
+        &:nth-child(2n) {
+          border-right: 0;
+        }
+      }
+      a {
+        display: block;
+      }
+      span {
+        padding: 4px 0;
+        text-align: center;
+        box-sizing: border-box;
+        display: block;
+        @include tablet {
+          height: 0;
+          padding: 0;
+          padding-top: 56.25%;
+          margin: 0 auto;
+          overflow: hidden;
+          position: relative;
+        }
+        @include pc {
+          width: 100%;
+          &:hover {
+            background: #f4f4f8;
+            transition: 0.5s ease;
+            strong {
+              text-decoration: underline;
+            }
+          }
+        }
+        img {
+          max-width: 100%;
+          @include tablet {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+      p {
+        margin: 0 auto;
+        padding: 1.125rem 1rem;
+        font-size: 0.9333rem;
+        color: #002253;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    @include tablet {
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+  }
+
+  .gal_modal {
+    width: 100%;
+    padding: 30px 10px;
+    border-radius: 15px;
+    background: #002253;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-sizing: border-box;
+    strong {
+      margin-right: 50px;
+      height: 70px;
+      line-height: 1.84;
+      color: #fff;
+      text-decoration: underline;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      display: block;
+    }
+
+    .gal_box {
+      position: relative;
+      .gal_imgbox {
+        margin: auto;
+        text-align: center;
+        position: relative;
+        height: 0;
+        padding-top: 56.25%;
+        overflow: hidden;
+        img {
+          max-width: 100%;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -0%);
+        }
+      }
+    }
+
+    .btn_set {
+      &.close_btnbox {
+        position: absolute;
+        top: 20px;
+        right: 0px;
+      }
+      a {
+        width: 36px;
+        padding: 36px 0 0;
+        position: absolute;
+        height: 0;
+        margin: 0 1px 0 0;
+        background: url(https://www.jeonbuk.go.kr//images/01_portal/common/icon_common.png);
+        display: inline-block !important;
+        overflow: hidden;
+        &:last-child {
+          margin: 0;
+        }
+        &.prev {
+          background-position: 0px -104px;
+          background-color: rgba(0, 0, 0, 0.7);
+          top: 50%;
+          left: -10px;
+          transform: translate(0, -50%);
+        }
+        &.stop {
+          background-position: -37px -104px;
+        }
+        &.play {
+          background-position: -71px -104px;
+        }
+        &.next {
+          background-position: -143px -104px;
+          background-color: rgba(0, 0, 0, 0.7);
+          top: 50%;
+          right: -10px;
+          transform: translate(0, -50%);
+        }
+        &.list {
+          background-position: -109px -104px;
+        }
+        &.close {
+          background-color: #fff !important;
+          border-radius: 50%;
+          background-position: -4px -237px;
+          top: -100px;
+          right: 0;
+        }
+        &:focus,
+        &:hover {
+          background-color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+
+    @include tablet {
+      width: 90%;
+      ul {
+        width: 80%;
+        margin: 20px auto;
+        &:after {
+          display: block;
+          clear: both;
+          content: "";
+        }
+        li {
+          float: left;
+          width: 50%;
+          box-sizing: border-box;
+        }
+      }
+    }
+    @include pc {
+      padding: 20px 30px;
+      top: 0;
+      ul {
+        margin: 20px auto 50px;
+      }
+    }
+  }
+
+  @include tablet {
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+}
+
+@media all and (max-width: 400px) {
+  .gal_modal .gal_imgbox img {
+    width: 100%;
+  }
+}
+
+/*page05	'담양 대나무 축제'*/
+.t_info {
+  .v_date {
+    font: 3.75rem "DoHyeon";
+    color: #fff;
+    text-align: center;
+    text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.75);
+    @include tablet {
+      font-size: 6.25rem;
+    }
+    @include pc {
+      max-width: 1400px;
+      padding: 40px 0px 52px;
+      margin: 0 auto;
+    }
+    span {
+      display: inline-block;
+      position: relative;
+      &:before {
+        width: 36px;
+        height: 36px;
+        background: url(../images/content/img06-03.png) -276px -8px;
+        display: block;
+        position: absolute;
+        content: "";
+      }
+      .d:before {
+        bottom: 10px;
+        left: -26px;
+        @include tablet {
+          bottom: 20px;
+        }
+      }
+      .day {
+        color: #f6ff00;
+        &:before {
+          top: -22px;
+          right: -21px;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+/*page6	'비짓전주'*/
+.spotSlide {
+  padding-top: 3rem;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  @include pc {
+    width: 1280px;
+  }
+  .btn_circle {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    button {
+      padding: 0.5rem 1rem;
+      background: powderblue;
+      overflow: hidden;
+      display: block;
+      z-index: 1;
+      &:hover,
+      &:focus {
+        background-color: #efe9f3;
+      }
+      &.prev {
+        top: 0;
+        right: 70px;
+      }
+      &.next {
+        top: 0;
+      }
+      &.disable {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .item_wrap {
+    display: flex;
+    width: 100%;
+    span {
+      flex: 0 0 auto;
+      width: 33.33%;
+      img {
+        max-width: 100%;
+      }
+      strong {
+        text-align: center;
+      }
+    }
+  }
+}

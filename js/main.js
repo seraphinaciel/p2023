@@ -8,8 +8,7 @@
   let scrollRealHeight; //실제 스크롤 해야 될 높이
   let sectionOffsetTop;
   let sectionScrollTop; //스크롤 백분율 값을 담을 변수
-  let scrollPercent; //스크롤탑 / 스크롤 실제 길이로 구한 비율
-  let percent; //scrollPercent * 100;
+  let percent; //스크롤탑 / 스크롤 실제 길이로 구한 비율
 
   let isMobile;
 
@@ -47,8 +46,7 @@
     scrollRealHeight = scrollHeight - window.innerHeight;
     sectionScrollTop = yOffset - sectionOffsetTop;
     // sectionOffsetBottom = sectionOffsetTop + personality.offsetHeight; // 섹션의 바텀값을 구함
-    scrollPercent = sectionScrollTop / scrollRealHeight;
-    percent = scrollPercent * 100;
+    percent = (sectionScrollTop / scrollRealHeight) * 100;
 
     isMobile = window.innerWidth <= 768 ? true : false;
   }
@@ -66,11 +64,6 @@
    */
   function sTitle() {
     const title = document.querySelector(".title");
-    const header = document.querySelector("header");
-
-    setProperty(title);
-    scrollLocation(header, percent, 100);
-
     const titleMove = yOffset / ((title.offsetHeight - window.innerHeight) / 2);
 
     const gap = 1;
@@ -286,22 +279,26 @@
       {
         title: "비짓전주",
         type: "신규 사업",
-        link: "./page/subpage__06.html",
+        link: "./subpage__06.html",
+        // link: "./page/subpage__06.html",
       },
       {
         title: "담양 대나무 축제",
         type: "신규 사업",
-        link: "./page/subpage__05.html",
+        link: "./subpage__05.html",
+        // link: "./page/subpage__05.html",
       },
       {
         title: "전북도청",
         type: "5개 통합사업",
-        link: "./page/subpage__04.html",
+        link: "./subpage__04.html",
+        // link: "./page/subpage__04.html",
       },
       {
         title: "고창군청",
         type: "18개 통합사업",
-        link: "./page/subpage__03.html",
+        link: "./subpage__03.html",
+        // link: "./page/subpage__03.html",
       },
       {
         title: "임실군 군수실",
@@ -381,7 +378,8 @@
       {
         title: "장수군 승마레저파크",
         type: "개편 사업",
-        link: "./page/subpage__00.html",
+        link: "./subpage__00.html",
+        // link: "./page/subpage__00.html",
       },
       {
         title: "남원 사이버 장터",
@@ -435,7 +433,7 @@
       const listItem = document.createElement("li");
       listItem.innerHTML = `<a href="${projectName[i].link}" target="_blank" title="새창 열림">${projectName[i].title}</a>`;
 
-      if (projectName[i].link.indexOf("/page/") === 1) {
+      if (projectName[i].link.indexOf("/subpage/") === 1) {
         listItem.innerHTML = `<a href="${projectName[i].link}">${projectName[i].title}</a>`;
       }
       proList.appendChild(listItem);

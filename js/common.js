@@ -27,3 +27,96 @@ $(document).ready(function ($) {
     alert('마우스 오른쪽 클릭은 사용할 수 없습니다.');
 });
  */
+
+(() => {
+  const contentBody = document.querySelectorAll("#content > article");
+
+  let yOffset = 0;
+  let currentScene = 0;
+
+  let scrollHeight;
+  let scrollRealHeight;
+  let sectionOffsetTop;
+  let sectionScrollTop;
+  let percent;
+
+  function setLayout() {
+    yOffset = window.pageYOffset; // 스크롤
+
+    let totalScrollHeight = 0;
+    for (let i = 0; i < contentBody.length; i++) {
+      totalScrollHeight += contentBody[i].scrollHeight;
+
+      if (totalScrollHeight >= yOffset) {
+        currentScene = i;
+        break;
+      }
+    }
+
+    document.body.setAttribute("id", `sub-${currentScene}`);
+
+    scrollFunc();
+  }
+
+  function scrollFunc() {
+    sVisual();
+  }
+
+  function setProperty(sectionName) {
+    scrollHeight = sectionName.offsetHeight; // 높이
+    sectionOffsetTop = sectionName.getBoundingClientRect().top + yOffset; // 0
+    scrollRealHeight = scrollHeight - window.innerHeight; // 9443, 3628
+    sectionScrollTop = yOffset - sectionOffsetTop; // scrolling
+    percent = (sectionScrollTop / scrollRealHeight) * 100;
+
+    isMobile = window.innerWidth <= 768 ? true : false;
+  }
+
+  function scrollLocation(sectionName, percent, pointNum) {
+    if (percent > pointNum) {
+      sectionName.classList.add("active");
+    } else {
+      sectionName.classList.remove("active");
+    }
+  }
+
+  /**
+   * header
+   */
+  function sVisual() {
+    const sub_visual = document.querySelector("#content");
+    const header = document.querySelector("header");
+
+    setProperty(sub_visual);
+    console.log(percent);
+    scrollLocation(header, percent, 10);
+  }
+
+  window,
+    addEventListener("load", () => {
+      /**
+       * init
+       */
+      function init() {
+        setLayout();
+      }
+      window.addEventListener(
+        "scroll",
+        () => {
+          setLayout();
+        },
+        false
+      );
+
+      window.addEventListener(
+        "resize",
+        () => {
+          yOffset = window.pageYOffset;
+          setLayout();
+        },
+        false
+      );
+
+      init();
+    });
+})();
