@@ -17,212 +17,143 @@
     <header id="include" data-include-path="gnb.html"></header>
 
     <main id="content">
+      <nav></nav>
+
       <article class="sub_visual">
         <span></span>
         <div>
-          <h2>제목</h2>
+          <h2>비짓전주</h2>
           <h3><em>main design</em><em>publishing</em></h3>
         </div>
-      </article>
-      <article class="concept">
-        <ul>
-          <li>
-            <strong>role</strong>메인 디자인, 퍼블리싱(html/css/javascript)
-          </li>
-          <li><strong>date</strong>2020.11.2. ~ 22.5.9.</li>
-          <li>
-            <strong>type</strong>국문, 외국어(영중일스프), 관광거점도시 홍보형,
-            전주시 문화관광
-          </li>
-          <li>
-            <strong>note</strong>전주가 방한 도시관광의 선도모델 육성을 위한
-            관광거점도시로 선정되어 만든 반응형 웹
-          </li>
-        </ul>
-        <p class="btn">
-          <a
-            href="https://tour.jeonju.go.kr/index.jeonju#content"
-            target="_blank"
-            title="새창으로 열기"
-            >web more</a
-          >
-        </p>
-      </article>
-      <article class="story">
-        <section class="codeBox">
-          <pre><code>
-$(document).ready(function(){
-  let move = 0;
-  <em>//게시물이 이동되는 값을 초기화!</em>
-  const elements = $(".item_wrap > span");
-  const moveAdd = (window.innerWidth / 3);
-  <em>//디바이스 너비 / 3</em>
-  const length = $(elements).length;
-  <em>//총 게시물 개수</em>
-  $(".btn_circle .prev").bind("click",function(){
-  <em>//prev 버튼을 클릭하면 아래의 이벤트가 발생된다.</em>
-  	if($(this).hasClass("disable"))return false;
-  	<em>//disable이 있다면 여기에서 멈춘다(이전 게시물이 없으므로 이벤트가 진행되지 않는다).</em>
-  	$(".btn_circle .next").removeClass("disable"); 
-  	<em>//next버튼을 클릭하면 현재 prev버튼에서 disable제거(이벤트 시작)</em>
-  	$(elements).filter(".on").removeClass("on").prev("span").addClass("on");
-  	<em>//현재 게시물에서 .on을 제거하고, 다음 게시물에 .on을 추가한다.</em>
-  	if($(elements).index($(elements).filter(".on")) == 0){
-  	<em>//이전 게시물이 없을 때 </em>
-  		$(".btn_circle .prev").addClass("disable");
-  		<em>//disable 추가</em>
-  	}
-  	move += moveAdd;
-  	<em>//버튼을 누를 때마다 1칸의 너비만큼 값이 더해진다.</em>
-  	$(".item_wrap").css("transform","translateX("+move+"px)");
-  	<em>//버튼을 누를 때마다 transform을 이용해 1칸의 너비만큼 이동된다.</em>
-  });
-  
-  $(".btn_circle .next").bind("click",function(){
-  	if($(this).hasClass("disable"))return false;
-  	$(".btn_circle .prev").removeClass("disable");
-  	$(elements).filter(".on").removeClass("on").next("span").addClass("on");
-  	if($(elements).index($(elements).filter(".on")) == (length-2)){
-  		$(".btn_circle .next").addClass("disable");
-  	} 
-  	move -= moveAdd;
-  	$(".item_wrap").css("transform","translateX("+move+"px)");
-  });
-})
-			</code></pre>
-
-          <div class="spotSlide">
-            <p class="btn_circle">
-              <button class="prev disable">prev</button
-              ><button class="next">next</button>
-            </p>
-            <div
-              class="item_wrap"
-              style="
-                transition: all 0.5s ease-out 0s;
-                transform: translateX(0px);
-              "
+        <div>
+          <dl>
+            <dt>역할</dt>
+            <dd>
+              main design & publishing<br />컨텐츠 기획&디자인,
+              <img
+                src="https://img.shields.io/badge/HTML5-252525?style=flat-square&logo=HTML5&logoColor=white"
+              />
+              <img
+                src="https://img.shields.io/badge/CSS3-252525?style=flat-square&logo=CSS3&logoColor=white"
+              />
+              <img
+                src="https://img.shields.io/badge/JavaScript-252525?style=flat-square&logo=JavaScript&logoColor=black"
+              />
+              <img
+                src="https://img.shields.io/badge/jQuery-252525?style=flat-square&logo=jQuery&logoColor=white"
+              />
+              <img
+                src="https://img.shields.io/badge/Adobe Photoshop-252525?style=flat-square&logo=Adobe Photoshop&logoColor=white"
+              />
+              <img
+                src="https://img.shields.io/badge/Adobe Illustrator-252525?style=flat-square&logo=Adobe Illustrator&logoColor=white"
+              />
+              <img
+                src="https://img.shields.io/badge/Visual Studio Code-252525?style=flat-square&logo=Visual Studio Code&logoColor=white"
+              />
+            </dd>
+            <dt>기간</dt>
+            <dd>
+              디자인 시안 1차 - 20.11.02. ~ 11.10. <br />
+              디자인 시안 2차 - 21.03.10. ~ 04.09. <br />
+              작업 - 2020.11.2. ~ 22.5.9. (open : 22.5.9.)
+            </dd>
+            <dt>참여인원</dt>
+            <dd>
+              팀작업(기획 2, 개발 2, 디자이너&퍼블리셔 1)<br />
+              기여도 100%
+            </dd>
+            <dt>type</dt>
+            <dd>
+              국문, 외국어(영중일스프), 관광거점도시 홍보형, 전주시 문화관광
+            </dd>
+            <dt>성과</dt>
+            <dd>
+              두리뭉실한 고객의 니즈를 최대한 맞추어 작업<br />일의 기준과 팀의
+              협업, 책임에 대해 많이 배운 프로젝트
+            </dd>
+          </dl>
+          <p class="btn">
+            <a
+              href="https://tour.jeonju.go.kr"
+              target="_blank"
+              title="새창으로 열기"
+              >web more</a
             >
-              <span class="on">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide01.jpg"
-                  alt=""
-                />
-                <strong>골목갤러리</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide02.jpg"
-                  alt=""
-                />
-                <strong>서학동 사진관</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide03.jpg"
-                  alt=""
-                />
-                <strong>선재미술관</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide04.jpg"
-                  alt=""
-                />
-                <strong>예술공방촌</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide05.jpg"
-                  alt=""
-                />
-                <strong>벽화아트</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide06.jpg"
-                  alt=""
-                />
-                <strong>마당음악회</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide07.jpg"
-                  alt=""
-                />
-                <strong>야호 아이놀자</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide08.jpg"
-                  alt=""
-                />
-                <strong>예술학교</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide09.jpg"
-                  alt=""
-                />
-                <strong>희망 도시락 편지</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide10.jpg"
-                  alt=""
-                />
-                <strong>할매공방 패션쇼</strong>
-              </span>
-              <span class="">
-                <img
-                  src="https://seraphinaciel.github.io/visitJeonju_2022/images/contents/arttownSlide11.jpg"
-                  alt=""
-                />
-                <strong>마스크 제작 기부</strong>
-              </span>
+          </p>
+        </div>
+      </article>
+
+      <article class="slider slide_v">
+        <section>
+          <div class="text_box">
+            <div class="txt">
+              <h4>컨셉</h4>
+              <p>
+                전주가 방한 도시관광의 선도모델 육성을 위한 관광거점도시로
+                선정되었기에 전주를 대표하는 여행지의 사진을 화면에 가득 담아,
+                사용자가 실제 여행을 하는 것처럼 표현했습니다. 또한 최대한 핵심
+                내용을 큼직한 크기로 알차게 배치하여 전하고자 하는 바를 명확하게
+                전달하고자 하였습니다.
+              </p>
+            </div>
+            <div class="txt">
+              <h4>color</h4>
+              <p>
+                사진에 보다 더 집중 할 수 있도록 최대한 색을 배제하였습니다.<br />
+                메인컬러는 뉴트럴(흑,백), 포인트는 보라색을 사용했습니다.
+              </p>
+            </div>
+            <div class="txt">
+              <h4>ux/ui</h4>
+              <p>
+                - 패럴렉스 스크롤 기법으로 웹에 생동감을 주어 자연스럽게 몰입할
+                수 있도록 하였습니다. <br />- 배경과 아이콘의 구분을 색이 아닌
+                빛과 그림자로 구별하는 뉴모피즘 디자인을 사용하였습니다. <br />-
+                서체를 큼직하게 배치하고, 미니멀리즘을 웹에도 적용시켜 최대한
+                사진과 내용에 사용자의 이목을 집중시켰습니다. <br />- 기존의
+                레이아웃을 벗어난 탈그리드로 사진을 배치시켜 시각적으로 재미를
+                주었습니다.
+              </p>
             </div>
           </div>
-          <script>
-            $(document).ready(function () {
-              let move = 0;
-              const elements = $(".item_wrap > span");
-              const moveAdd = window.innerWidth / 3;
-              const length = $(elements).length;
-              $(".btn_circle .prev").bind("click", function () {
-                if ($(this).hasClass("disable")) return false;
-                $(".btn_circle .next").removeClass("disable");
-                $(elements)
-                  .filter(".on")
-                  .removeClass("on")
-                  .prev("span")
-                  .addClass("on");
-                if ($(elements).index($(elements).filter(".on")) == 0) {
-                  $(".btn_circle .prev").addClass("disable");
-                }
-                move += moveAdd;
-                $(".item_wrap").css("transform", "translateX(" + move + "px)");
-              });
+          <div class="device_fix">
+            <div class="slide_wrap">
+              <div class="slide">
+                <figure>
+                  <img src="images/content/visit01.jpg" />
+                </figure>
+                <figure>
+                  <img src="images/content/visit03.jpg" />
+                </figure>
+                <figure>
+                  <img src="images/content/visit04.jpg" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
 
-              $(".btn_circle .next").bind("click", function () {
-                if ($(this).hasClass("disable")) return false;
-                $(".btn_circle .prev").removeClass("disable");
-                $(elements)
-                  .filter(".on")
-                  .removeClass("on")
-                  .next("span")
-                  .addClass("on");
-                if (
-                  $(elements).index($(elements).filter(".on")) ==
-                  length - 2
-                ) {
-                  $(".btn_circle .next").addClass("disable");
-                }
-                move -= moveAdd;
-                $(".item_wrap").css("transform", "translateX(" + move + "px)");
-              });
-            });
-          </script>
+      <article class="slider slide_h">
+        <section>
+          <div>
+            <div class="figureWrap">
+              <figure>
+                <span><img src="images/content/visit07.jpg" /></span>
+                <figcaption>hello1</figcaption>
+              </figure>
+              <figure>
+                <span><img src="images/main/bg2.jpg" /></span>
+                <figcaption>hello2</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+      </article>
 
+      <article class="sub_detail">
+        <section class="codeBox">
           <div class="storyTxt">
             <h4>반응형 슬라이드</h4>
             디바이스 크기에 따라 3칸으로 표출되고, 버튼을 누를때마다 1칸의
@@ -231,8 +162,30 @@ $(document).ready(function(){
             <strong>보완점</strong>: 디바이스가 변할 때마다 새로고침을 해야 하는
             번거로움이 있어 보완해야 한다.
           </div>
+          <p
+            class="codepen"
+            data-height="300"
+            data-default-tab="html,result"
+            data-slug-hash="abavgOQ"
+            data-user="seraphinaciel"
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/seraphinaciel/pen/abavgOQ">
+                Untitled</a
+              >
+              by seraphinaciel (<a href="https://codepen.io/seraphinaciel"
+                >@seraphinaciel</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script
+            async
+            src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+          ></script>
         </section>
       </article>
+
       <article class="story">
         <figure class="colBox-1">
           <span><img src="images/content/img07-01.jpg" alt="" /></span>
