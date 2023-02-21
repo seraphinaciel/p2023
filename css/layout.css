@@ -106,6 +106,26 @@
             transform: translateX(calc(var(--moving) * -1));
   }
 }
+@-webkit-keyframes moving2 {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
+  }
+}
+@keyframes moving2 {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
+  }
+}
 @-webkit-keyframes fade_in {
   0% {
     opacity: 0;
@@ -247,9 +267,19 @@ footer .fnb a:before {
 }
 footer .fnb a address {
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.4375rem;
   position: relative;
   z-index: 1;
+}
+@media all and (min-width: 768px) {
+  footer .fnb a address {
+    font-size: 0.5833333333rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  footer .fnb a address {
+    font-size: 0.875rem;
+  }
 }
 @media all and (min-width: 2000px) {
   footer .fnb a address {
@@ -277,9 +307,14 @@ footer .fnb a i {
   font-size: 1.375rem;
   margin-right: 0.625rem;
 }
+@media all and (max-width: 767px) {
+  footer .fnb a i {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   footer .fnb a i {
-    font-size: 1.9642857143rem;
+    font-size: 1.4285714286rem;
   }
 }
 footer .fnb a svg {
@@ -314,6 +349,11 @@ footer .copy {
   font-size: 1rem;
   letter-spacing: 0;
 }
+@media all and (max-width: 767px) {
+  footer .copy {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   footer .copy {
     font-size: 1.4285714286rem;
@@ -336,7 +376,7 @@ footer .copy {
   width: 40px;
   height: 40px;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.4375rem;
   text-align: center;
   line-height: 3;
   letter-spacing: 1px;
@@ -349,6 +389,16 @@ footer .copy {
   transition: 0.3s cubic-bezier(0.7, 1, 0.7, 1);
   opacity: 0;
   text-transform: uppercase;
+}
+@media all and (min-width: 768px) {
+  .btnTop {
+    font-size: 0.5833333333rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  .btnTop {
+    font-size: 0.875rem;
+  }
 }
 @media all and (min-width: 2000px) {
   .btnTop {
@@ -385,8 +435,8 @@ footer .copy {
   margin: 0 auto;
   position: fixed;
   top: 50%;
-  left: 0;
-  right: 0;
+  left: 20px;
+  right: 20px;
   -webkit-animation: in-out 1s linear forwards paused;
           animation: in-out 1s linear forwards paused;
   -webkit-animation-delay: calc(var(--progress) * -1s);
@@ -492,9 +542,14 @@ footer .copy {
   font-weight: 600;
   font-size: 1.5rem;
 }
+@media all and (max-width: 767px) {
+  .sub_visual dl dt {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .sub_visual dl dt {
-    font-size: 2.1428571429rem;
+    font-size: 1.4285714286rem;
   }
 }
 .sub_visual dl dt + dd {
@@ -521,9 +576,14 @@ footer .copy {
   font-weight: 300;
   font-size: 1.125rem;
 }
+@media all and (max-width: 767px) {
+  .sub_visual dl dd {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .sub_visual dl dd {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 @media all and (min-width: 768px) {
@@ -540,6 +600,9 @@ footer .copy {
   .sub_visual dl dd:last-of-type {
     grid-column: 2/-1;
   }
+}
+.sub_visual dl dd em {
+  font-size: 0.625rem;
 }
 .sub_visual dl + .btn {
   -webkit-box-ordinal-group: 3;
@@ -558,8 +621,18 @@ footer .copy {
   padding: 0.875rem 4em;
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.4375rem;
   letter-spacing: 0;
+}
+@media all and (min-width: 768px) {
+  .btn a {
+    font-size: 0.5833333333rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  .btn a {
+    font-size: 0.875rem;
+  }
 }
 @media all and (min-width: 2000px) {
   .btn a {
@@ -637,6 +710,27 @@ nav.sticky .progress .bar {
   height: 260vh;
   padding-bottom: 13.4vh;
 }
+.slide_v h2 {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1% 0;
+  text-align: center;
+}
+@media all and (min-width: 768px) {
+  .slide_v h2 {
+    font-size: 1.3333333333rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  .slide_v h2 {
+    font-size: 2rem;
+  }
+}
+@media all and (min-width: 2000px) {
+  .slide_v h2 {
+    font-size: 2.8571428571rem;
+  }
+}
 .slide_v section {
   height: 100%;
 }
@@ -654,24 +748,24 @@ nav.sticky .progress .bar {
     grid-template-columns: repeat(auto-fill, minmax(7%, 1fr));
   }
 }
-.slide_v .text_box {
+.slide_v .text {
   position: sticky;
   top: 90px;
   left: 0;
 }
 @media all and (min-width: 768px) {
-  .slide_v .text_box {
+  .slide_v .text {
     top: 25%;
     grid-column: 1/3;
   }
 }
 @media all and (min-width: 1280px) {
-  .slide_v .text_box {
+  .slide_v .text {
     top: calc(50% - 200px);
     grid-column: 3/span 3;
   }
 }
-.slide_v .text_box .txt {
+.slide_v .text div {
   position: absolute;
   top: 0;
   left: 0;
@@ -684,28 +778,66 @@ nav.sticky .progress .bar {
   font-size: 1.125rem;
   line-height: 2;
 }
-@media all and (min-width: 2000px) {
-  .slide_v .text_box .txt {
-    font-size: 1.6071428571rem;
+@media all and (max-width: 767px) {
+  .slide_v .text div {
+    font-size: 1rem;
   }
 }
-.slide_v .text_box .txt.active {
+@media all and (min-width: 2000px) {
+  .slide_v .text div {
+    font-size: 1.4285714286rem;
+  }
+}
+.slide_v .text div.active {
   opacity: 1;
 }
 @media all and (min-width: 768px) {
-  .slide_v .text_box .txt {
+  .slide_v .text div {
     text-align: left;
   }
 }
-.slide_v .text_box .txt h4 {
+.slide_v .text div h4 {
   font-weight: 600;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-@media all and (min-width: 2000px) {
-  .slide_v .text_box .txt h4 {
-    font-size: 2.1428571429rem;
+@media all and (max-width: 767px) {
+  .slide_v .text div h4 {
+    font-size: 1rem;
   }
+}
+@media all and (min-width: 2000px) {
+  .slide_v .text div h4 {
+    font-size: 1.4285714286rem;
+  }
+}
+.slide_v .text div i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 6px;
+  display: inline-block;
+}
+.slide_v .text div i::before {
+  content: attr(data-comment);
+  margin-top: 30px;
+  font-size: 0.625rem;
+  text-align: center;
+  display: block;
+}
+.slide_v .text div i.w {
+  background: white;
+  -webkit-box-shadow: 0 0 10px #ccc;
+          box-shadow: 0 0 10px #ccc;
+}
+.slide_v .text div i.b {
+  background: black;
+}
+.slide_v .text div i.p {
+  background: #622b89;
+}
+.slide_v .text div i.p1 {
+  background: #7301b7;
 }
 .slide_v .device_fix {
   position: sticky;
@@ -722,7 +854,7 @@ nav.sticky .progress .bar {
 }
 @media all and (min-width: 1280px) {
   .slide_v .device_fix {
-    grid-column: 7/-1;
+    grid-column: 6/-1;
   }
 }
 .slide_v .device_fix .slide_wrap {
@@ -794,6 +926,27 @@ nav.sticky .progress .bar {
   height: 260vh;
   padding-bottom: 13.4vh;
 }
+.slide_h h2 {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10% 0 1%;
+  text-align: center;
+}
+@media all and (min-width: 768px) {
+  .slide_h h2 {
+    font-size: 1.3333333333rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  .slide_h h2 {
+    font-size: 2rem;
+  }
+}
+@media all and (min-width: 2000px) {
+  .slide_h h2 {
+    font-size: 2.8571428571rem;
+  }
+}
 .slide_h section {
   position: sticky;
   top: calc(50% - 300px);
@@ -840,7 +993,7 @@ nav.sticky .progress .bar {
 }
 @media all and (min-width: 1280px) {
   .slide_h .figureWrap figure span {
-    grid-column: 2/9;
+    grid-column: 2/8;
     align-self: center;
   }
 }
@@ -852,9 +1005,14 @@ nav.sticky .progress .bar {
   font-size: 1.125rem;
   line-height: 2;
 }
+@media all and (max-width: 767px) {
+  .slide_h .figureWrap figure figcaption {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .slide_h .figureWrap figure figcaption {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 @media all and (min-width: 768px) {
@@ -865,6 +1023,92 @@ nav.sticky .progress .bar {
 }
 @media all and (min-width: 1280px) {
   .slide_h .figureWrap figure figcaption {
-    grid-column: 9/-1;
+    grid-column: 9/-2;
+  }
+}
+.slide_h .figureWrap figure figcaption h4 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+@media all and (max-width: 767px) {
+  .slide_h .figureWrap figure figcaption h4 {
+    font-size: 1rem;
+  }
+}
+@media all and (min-width: 2000px) {
+  .slide_h .figureWrap figure figcaption h4 {
+    font-size: 1.4285714286rem;
+  }
+}
+
+.sub_detail {
+  padding: 10% 0;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+.sub_detail.active {
+  background: #555;
+  color: #f8f8f8;
+}
+
+.txtBox {
+  text-align: center;
+}
+@media all and (min-width: 768px) {
+  .txtBox {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+.txtBox h4 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+@media all and (max-width: 767px) {
+  .txtBox h4 {
+    font-size: 1rem;
+  }
+}
+@media all and (min-width: 2000px) {
+  .txtBox h4 {
+    font-size: 1.4285714286rem;
+  }
+}
+@media all and (min-width: 768px) {
+  .txtBox h4 {
+    grid-column: 3/3;
+  }
+}
+.txtBox p {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 2;
+}
+@media all and (max-width: 767px) {
+  .txtBox p {
+    font-size: 1rem;
+  }
+}
+@media all and (min-width: 2000px) {
+  .txtBox p {
+    font-size: 1.4285714286rem;
+  }
+}
+@media all and (min-width: 768px) {
+  .txtBox p {
+    grid-column: 3/3;
+  }
+}
+.txtBox p kbd {
+  background: darkgray;
+  padding: 2px 4px;
+}
+@media all and (min-width: 768px) {
+  .txtBox .cp_embed_wrapper {
+    grid-column: 2/-2;
   }
 }

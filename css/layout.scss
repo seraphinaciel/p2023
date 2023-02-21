@@ -189,8 +189,8 @@ footer {
     margin: 0 auto;
     position: fixed;
     top: 50%;
-    left: 0;
-    right: 0;
+    left: 20px;
+    right: 20px;
     animation: in-out 1s linear forwards paused;
     animation-delay: calc(var(--progress) * -1s);
     &:first-of-type {
@@ -262,8 +262,10 @@ footer {
           grid-column: 2/-1;
         }
       }
+      em {
+        font-size: 0.625rem;
+      }
     }
-
     & + .btn {
       order: 2;
     }
@@ -340,6 +342,11 @@ nav {
   height: 260vh;
   padding-bottom: 13.4vh;
 
+  h2 {
+    @include fontSizeStyle(2rem, 600);
+    padding: 1% 0;
+    text-align: center;
+  }
   section {
     height: 100%;
     @include tablet {
@@ -354,7 +361,7 @@ nav {
     }
   }
 
-  .text_box {
+  .text {
     position: sticky;
     top: 90px;
     left: 0;
@@ -369,7 +376,7 @@ nav {
       grid-column: 3 / span 3;
     }
 
-    .txt {
+    div {
       position: absolute;
       top: 0;
       left: 0;
@@ -391,6 +398,33 @@ nav {
         @include fontSizeStyle(1.5rem, 600);
         text-transform: uppercase;
       }
+      i {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 6px;
+        display: inline-block;
+        &::before {
+          content: attr(data-comment);
+          margin-top: 30px;
+          font-size: 0.625rem;
+          text-align: center;
+          display: block;
+        }
+        &.w {
+          background: white;
+          box-shadow: 0 0 10px #ccc;
+        }
+        &.b {
+          background: black;
+        }
+        &.p {
+          background: #622b89;
+        }
+        &.p1 {
+          background: #7301b7;
+        }
+      }
     }
   }
 
@@ -407,7 +441,7 @@ nav {
     }
 
     @include pc {
-      grid-column: 7/-1;
+      grid-column: 6/-1;
     }
 
     $SLIDE_WIDTH: 80vw;
@@ -470,13 +504,16 @@ nav {
   background: #f8f8f8;
   height: 260vh;
   padding-bottom: 13.4vh;
+  h2 {
+    @include fontSizeStyle(2rem, 600);
+    padding: 10% 0 1%;
+    text-align: center;
+  }
   section {
     position: sticky;
     top: calc(50% - 300px);
     left: 0;
-
     & > div {
-      // max-width: 1280px;
       height: 100%;
       margin: auto;
       overflow: hidden;
@@ -529,7 +566,7 @@ nav {
           align-self: center;
         }
         @include pc {
-          grid-column: 2/9;
+          grid-column: 2/8;
           align-self: center;
         }
       }
@@ -543,9 +580,55 @@ nav {
           align-self: center;
         }
         @include pc {
-          grid-column: 9/-1;
+          grid-column: 9/-2;
+        }
+
+        h4 {
+          @include fontSizeStyle(1.5rem, 600);
+          text-transform: uppercase;
         }
       }
+    }
+  }
+}
+
+.sub_detail {
+  padding: 10% 0;
+  transition: background 0.5s;
+  &.active {
+    background: #555;
+    color: #f8f8f8;
+  }
+}
+.txtBox {
+  text-align: center;
+  @include tablet {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
+    gap: 16px;
+  }
+  h4 {
+    @include fontSizeStyle(1.5rem, 600);
+    text-transform: uppercase;
+    @include tablet {
+      grid-column: 3/3;
+    }
+  }
+  p {
+    @include fontSizeStyle(1.125rem);
+    line-height: 2;
+    @include tablet {
+      grid-column: 3/3;
+    }
+    kbd {
+      background: darkgray;
+      padding: 2px 4px;
+    }
+  }
+  .cp_embed_wrapper {
+    @include tablet {
+      grid-column: 2/-2;
     }
   }
 }

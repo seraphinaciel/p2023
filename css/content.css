@@ -107,6 +107,26 @@
             transform: translateX(calc(var(--moving) * -1));
   }
 }
+@-webkit-keyframes moving2 {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
+  }
+}
+@keyframes moving2 {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
+  }
+}
 @-webkit-keyframes fade_in {
   0% {
     opacity: 0;

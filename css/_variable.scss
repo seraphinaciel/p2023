@@ -64,6 +64,14 @@
     transform: translateX(calc(var(--moving) * -1));
   }
 }
+@keyframes moving2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(calc(var(--moving) * -1));
+  }
+}
 
 @keyframes fade_in {
   0% {

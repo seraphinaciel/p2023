@@ -17,7 +17,6 @@
     <header id="include" data-include-path="gnb.html"></header>
 
     <main id="content">
-      <nav></nav>
 
       <article class="sub_visual">
         <span></span>
@@ -29,7 +28,10 @@
           <dl>
             <dt>역할</dt>
             <dd>
-              main design & publishing<br />컨텐츠 기획&디자인,
+              main design & publishing<br />
+              <img
+                src="https://img.shields.io/badge/컨텐츠 기획&디자인-252525?style=flat-square&logo=Microsoft Word&logoColor=white"
+              />
               <img
                 src="https://img.shields.io/badge/HTML5-252525?style=flat-square&logo=HTML5&logoColor=white"
               />
@@ -37,7 +39,7 @@
                 src="https://img.shields.io/badge/CSS3-252525?style=flat-square&logo=CSS3&logoColor=white"
               />
               <img
-                src="https://img.shields.io/badge/JavaScript-252525?style=flat-square&logo=JavaScript&logoColor=black"
+                src="https://img.shields.io/badge/JavaScript-252525?style=flat-square&logo=JavaScript&logoColor=white"
               />
               <img
                 src="https://img.shields.io/badge/jQuery-252525?style=flat-square&logo=jQuery&logoColor=white"
@@ -85,10 +87,11 @@
       </article>
 
       <article class="slider slide_v">
+        <h2>이런 생각으로 만들었습니다.</h2>
         <section>
-          <div class="text_box">
-            <div class="txt">
-              <h4>컨셉</h4>
+          <div class="text">
+            <div>
+              <h4>concept</h4>
               <p>
                 전주가 방한 도시관광의 선도모델 육성을 위한 관광거점도시로
                 선정되었기에 전주를 대표하는 여행지의 사진을 화면에 가득 담아,
@@ -97,14 +100,18 @@
                 전달하고자 하였습니다.
               </p>
             </div>
-            <div class="txt">
+            <div>
               <h4>color</h4>
               <p>
                 사진에 보다 더 집중 할 수 있도록 최대한 색을 배제하였습니다.<br />
-                메인컬러는 뉴트럴(흑,백), 포인트는 보라색을 사용했습니다.
+                메인컬러는 뉴트럴(흑,백), 포인트는 보라색을 사용했습니다.<br />
+                <i class="w" data-comment="basic"></i
+                ><i class="b" data-comment="basic"></i
+                ><i class="p" data-comment="main"></i
+                ><i class="p1" data-comment="point"></i>
               </p>
             </div>
-            <div class="txt">
+            <div>
               <h4>ux/ui</h4>
               <p>
                 - 패럴렉스 스크롤 기법으로 웹에 생동감을 주어 자연스럽게 몰입할
@@ -114,6 +121,13 @@
                 사진과 내용에 사용자의 이목을 집중시켰습니다. <br />- 기존의
                 레이아웃을 벗어난 탈그리드로 사진을 배치시켜 시각적으로 재미를
                 주었습니다.
+                <span class="btn">
+                  <a
+                    href="images/content/img07-01.jpg"
+                    title="새창열림"
+                    target="_blank"
+                    >PC 시안 자세히보기</a
+                  >
               </p>
             </div>
           </div>
@@ -128,6 +142,11 @@
                 </figure>
                 <figure>
                   <img src="images/content/visit04.jpg" />
+                </figure> <figure>
+                  <img src="images/content/visit01.jpg" />
+                </figure>
+                <figure>
+                  <img src="images/content/visit03.jpg" />
                 </figure>
               </div>
             </div>
@@ -136,16 +155,39 @@
       </article>
 
       <article class="slider slide_h">
+        <h2>이런 특징이 있어요.</h2>
         <section>
           <div>
             <div class="figureWrap">
               <figure>
                 <span><img src="images/content/visit07.jpg" /></span>
-                <figcaption>hello1</figcaption>
+                <figcaption>
+                  <h4>전주 사계&Hallyu</h4>
+                  사계절을 한 눈에 볼 수 있도록 만든 특화 페이지입니다. 계절에
+                  맞게 전주를 즐길 수 있도록 기획했습니다. 마우스 효과를 위해
+                  jquery로 만들었습니다. 외국어 페이지에는 한류 특화 메뉴를
+                  만들어 K-문화를 소개하였습니다.
+                </figcaption>
               </figure>
               <figure>
-                <span><img src="images/main/bg2.jpg" /></span>
-                <figcaption>hello2</figcaption>
+                <span><img src="images/content/visit08.jpg" /></span>
+                <figcaption>
+                  <h4>나의 여행 계획</h4>
+                  여행의 시작은 계획! 회원이 사용할 수 있는 여행 계획을 짤 수
+                  있는 특화 페이지입니다. 누구와 어디를 떠날지 계획을 짜보고,
+                  다른 여행객들이 올린 계획표를 참고 할 수 있습니다.
+                </figcaption>
+              </figure>
+              <figure>
+                <span><img src="images/content/visit09.jpg" /></span>
+                <figcaption>
+                  <h4>나의 여행 계획 세부 페이지</h4>
+                  왼쪽 검색 bar를 고정하여 한 번에 관광지 등을 검색 할 수
+                  있습니다. 나만의 여행 계획을 짜서 다른 여행객에게 공유를 할 수
+                  있고, 리뷰를 통해 다양한 여행객과 교류가 가능합니다. 지도를
+                  보면서 거리감을 느낄 수 있어 편리하게 계획을 짤 수 있도록
+                  만들었습니다.
+                </figcaption>
               </figure>
             </div>
           </div>
@@ -153,22 +195,15 @@
       </article>
 
       <article class="sub_detail">
-        <section class="codeBox">
-          <div class="storyTxt">
-            <h4>반응형 슬라이드</h4>
+        <section class="txtBox">
+          <h4>반응형 슬라이드</h4>
+          <p>
             디바이스 크기에 따라 3칸으로 표출되고, 버튼을 누를때마다 1칸의
-            크기만큼 이동이 가능하다. 게시물이 없을 시 <kbd>button</kbd>에
-            <kbd>.disable</kbd>이 추가되어 이동이 불가능하다.<br />
-            <strong>보완점</strong>: 디바이스가 변할 때마다 새로고침을 해야 하는
-            번거로움이 있어 보완해야 한다.
-          </div>
-          <p
-            class="codepen"
-            data-height="300"
-            data-default-tab="html,result"
-            data-slug-hash="abavgOQ"
-            data-user="seraphinaciel"
-          >
+            크기만큼 이동이 가능합니다. 게시물이 없을 시 <kbd>button</kbd>에
+            <kbd>.disable</kbd>이 추가되어 이동이 불가능합니다.<br />디바이스가 변할 때마다 새로고침을 해야 하는
+            번거로움이 있어 보완이 필요합니다.
+          </p>
+          <p class="codepen"data-height="500"data-default-tab="js,result"data-slug-hash="abavgOQ"data-user="seraphinaciel">
             <span
               >See the Pen
               <a href="https://codepen.io/seraphinaciel/pen/abavgOQ">
@@ -179,51 +214,28 @@
               >) on <a href="https://codepen.io">CodePen</a>.</span
             >
           </p>
-          <script
-            async
-            src="https://cpwebassets.codepen.io/assets/embed/ei.js"
-          ></script>
+          <h4>반응형 슬라이드 2</h4>
+          <p>
+            bx slide 라이브러리를 적용하였습니다. <br>썸네일이 넘어가지 않는 부분의 보완이 필요합니다.
+          </p>
+          <p class="codepen" data-height="500" data-default-tab="js,result" data-slug-hash="jOvWeyE"data-user="seraphinaciel">
+            <span>See the Pen <a href="https://codepen.io/seraphinaciel/pen/jOvWeyE">
+            Untitled</a> by seraphinaciel (<a href="https://codepen.io/seraphinaciel">@seraphinaciel</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
         </section>
       </article>
-
-      <article class="story">
-        <figure class="colBox-1">
-          <span><img src="images/content/img07-01.jpg" alt="" /></span>
-          <figcaption>
-            <h4>최종 메인 시안</h4>
-            <strong>1차 작업</strong> : 한옥마을 등 외국인 관광객들이 체감할 수
-            있는 전통문화 브랜드가 가장 확고한 도시라는 이유로 선정되었다. 이에
-            전주 한옥마을을 모티브로 아이콘도 그려보고, 처음 시도해보는
-            일러스트로 구성한 디자인이라 재미있었다.<br />
-            <strong>2차 작업</strong> : 요청사항 및 콘텐츠 기획, 담당자들의 잦은
-            교체와 중간에 거의 완성된 작업을 새로 해야 해서 어려웠다. 이걸
-            기회로 삼아 디자인 기획부터 앞으로 나아갈 방향에 대해 생각하는
-            시간을 가졌다. 개인적으로 비짓전주를 하면서 안팎으로 매우 성장했다고
-            생각한다.<br />
-            <strong>외국어</strong> : 외국인의 눈으로 볼 때 와닿을 수 있도록
-            폰트, 배치, 외국어 특화 메뉴에 신경을 많이 썼다. 5개 국어 글자 수가
-            가변적으로 변해도 무리가 없는 코딩을 하려고 노력했다.
-            <p class="btn">
-              <a
-                href="images/content/img07-01.jpg"
-                title="새창열림"
-                target="_blank"
-                >PC 시안 자세히보기</a
-              >
-            </p>
-          </figcaption>
-        </figure>
-      </article>
     </main>
-
+    
     <aside></aside>
-
+    
     <footer id="include" data-include-path="fnb.html"></footer>
-
+    
     <a href="javascript:void(0);" class="btnTop">Top</a>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/swiperMouse.js"></script>
+    
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <!-- <script src="js/swiperMouse.js"></script> -->
     <script src="js/include.js"></script>
     <script src="js/common.js"></script>
     <script src="js/subpage.js"></script>

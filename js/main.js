@@ -268,6 +268,14 @@
 
       proList[i].style.transform = "translateY(" + -projectMoveDistance + "px)";
     }
+
+    document.querySelectorAll(".project li a").forEach((project, index) => {
+      let aa = project.querySelector("span");
+
+      project.style = `--moving : ${aa.scrollWidth}px; --time: ${
+        aa.innerText.length / 2.5
+      }s`;
+    });
   }
 
   const proList = document.querySelector(".project ul");
@@ -279,134 +287,239 @@
       {
         title: "비짓전주",
         type: "신규 사업",
+        date: "2020.11.2. ~ 22.5.9.",
+        role: "메인 디자인, 퍼블리싱",
         link: "./subpage__06.html",
-        // link: "./page/subpage__06.html",
       },
       {
         title: "담양 대나무 축제",
         type: "신규 사업",
-        link: "./subpage__05.html",
-        // link: "./page/subpage__05.html",
+        date: "2019.7.17. ~ 9.30.",
+        role: "디자인&amp;퍼블리싱(html/css,javascript), 기여도 40%",
+        link: "http://www.bamboofestival.co.kr/index.do",
       },
       {
         title: "전북도청",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "5개 통합사업",
-        link: "./subpage__04.html",
-        // link: "./page/subpage__04.html",
+        link: "https://www.jeonbuk.go.kr/index.jeonbuk",
       },
       {
-        title: "고창군청",
-        type: "18개 통합사업",
-        link: "./subpage__03.html",
-        // link: "./page/subpage__03.html",
+        title: "전북도청 도지사실",
+        date: "준비중",
+        role: "design&amp;publishing",
+        type: "5개 통합사업",
+        link: "https://www.jeonbuk.go.kr/governor/index.jeonbuk",
       },
       {
         title: "임실군 군수실",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "7개 통합사업",
         link: "https://www.imsil.go.kr/mayor/index.imsil",
       },
       {
         title: "임실군 보건의료원",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "7개 통합사업",
         link: "https://www.imsil.go.kr/bogun/index.imsil",
       },
       {
         title: "군산대학교",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "55개 개편 사업",
         link: "https://www.kunsan.ac.kr/",
       },
       {
         title: "군산대학교 학과",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "55개 개편 사업",
         link: "https://www.kunsan.ac.kr/knuenglish/",
       },
       {
         title: "익산시 체육시설예약",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "콘텐츠 보완",
         link: "https://www.iksan.go.kr/reserve/index.iksan?menuCd=DOM_000001905003005001&&cpath=%2Freserve",
       },
       {
         title: "전라북도 교육청",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "16개 통합사업",
         link: "https://www.jbe.go.kr/eng/index.jbe",
       },
       {
         title: "광주광역시 빅데이터",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "빅데이터 사업",
         link: "https://seraphinaciel.github.io/gwangjuBigdata_2020/",
       },
       {
         title: "전라남도 지원청",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "템플릿 사업",
         link: "https://hped.jne.go.kr/index.jne",
       },
       {
+        title: "고창군의회 의원",
+        date: "2019.7.17. ~ 9.30.",
+        role: "디자인&amp;퍼블리싱(html/css,javascript), 기여도 40%",
+        type: "준비중",
+        link: "https://www.gochang.go.kr/council/index.gochang?menuCd=DOM_000000607001003000",
+      },
+      {
+        title: "고창군청 생물권보전지역",
+        date: "2019.3.4. ~ 3.19.",
+        role: "디자인&amp;퍼블리싱(html/css,javascript), 기여도 40%",
+        type: "준비중",
+        link: "https://www.gochang.go.kr/gcbr/index.gochang",
+      },
+      {
+        title: "고창군청 문화의 전당",
+        date: "2019.7.3. ~ 8.5.",
+        role: "디자인&amp;퍼블리싱(html/css,javascript), 기여도 40%",
+        type: "준비중",
+        link: "https://www.gochang.go.kr/art/index.gochang",
+      },
+      {
+        title: "고창군청 고인돌 박물관",
+        date: "2019.7.8. ~ 7.23.",
+        role: "디자인&amp;퍼블리싱(html/css,javascript), 기여도 40%",
+        type: "준비중",
+        link: "https://www.gochang.go.kr/gcdolmen/index.gochang",
+      },
+      {
+        title: "고창군청 육아종합지원센터",
+        date: "2019.7.15. ~ 8.8.",
+        role: "디자인&amp;퍼블리싱(html/css,javascript), 기여도 40%",
+        type: "준비중",
+        link: "https://www.gochang.go.kr/childcare/index.gochang",
+      },
+      {
         title: "익산시 환경친화도시",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "콘텐츠 보완",
         link: "https://www.iksan.go.kr/index.iksan?menuCd=DOM_000002015000000000",
       },
       {
         title: "부안군 군수실",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "템플릿 사업",
         link: "https://www.buan.go.kr/mayor/index.buan",
       },
       {
         title: "순창군 블루베리 분양",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "5개 통합사업",
         link: "http://www.sunchang.go.kr/blueberry/index.sunchang",
       },
       {
         title: "순창군 농업기술센터",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "5개 통합사업",
         link: "http://www.sunchang.go.kr/farm/index.sunchang",
       },
       {
         title: "익산시의회 외국어",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "개편 사업",
         link: "https://council.iksan.go.kr/jpn/index.iksan",
       },
       {
         title: "익산시 어린이 청소년 의회",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "개편 사업",
         link: "https://council.iksan.go.kr/child/index.iksan",
       },
       {
         title: "전라북도 농업기술원",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "개편 사업",
         link: "https://www.jbares.go.kr/index.jbares",
       },
       {
         title: "장수군 승마레저파크",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "개편 사업",
         link: "./subpage__00.html",
         // link: "./page/subpage__00.html",
       },
       {
         title: "남원 사이버 장터",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "신규 사업",
         link: "http://www.namwonlove.co.kr/",
       },
-      { title: "마마슈", type: "신규 사업", link: "http://www.mamashu.co.kr/" },
+      {
+        title: "마마슈",
+        date: "준비중",
+        role: "design&amp;publishing",
+        type: "신규 사업",
+        link: "http://www.mamashu.co.kr/",
+      },
       {
         title: "임실 고추앤 농산물 가공 판매(주)",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "신규 사업",
         link: "http://www.jbgochu.com/",
       },
-      // { title: "곰소젓갈", type: "상세페이지 등", link: "http://www.gomsomall.co.kr/"},
-      // { title: "정읍시 단풍미인 쇼핑몰", type: "상세페이지 등", link: "https://www.danpoongmall.kr/"},
+      {
+        title: "곰소젓갈",
+        date: "준비중",
+        role: "design&amp;publishing",
+        type: "상세페이지 등",
+        link: "http://www.gomsomall.co.kr/",
+      },
+      {
+        title: "정읍시 단풍미인 쇼핑몰",
+        date: "준비중",
+        role: "design&amp;publishing",
+        type: "상세페이지 등",
+        link: "https://www.danpoongmall.kr/",
+      },
       {
         title: "DB방음부스",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "신규 사업",
         link: "http://www.dbbooth.co.kr/",
       },
-      { title: "주식회사 T&G", type: "신규 사업", link: "https://tng.co.kr/" },
+      {
+        title: "주식회사 T&G",
+        date: "준비중",
+        role: "design&amp;publishing",
+        type: "신규 사업",
+        link: "https://tng.co.kr/",
+      },
       {
         title: "김정숙 황토식품",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "신규 사업",
         link: "http://www.htfood.co.kr/",
       },
       {
         title: "전주시 직장맘 고충 상담소",
+        date: "준비중",
+        role: "design&amp;publishing",
         type: "신규 사업",
         link: "http://www.jjworkingmom.org/main",
       },
@@ -431,10 +544,10 @@
 
     for (let i = startRange; i < endRange; i++) {
       const listItem = document.createElement("li");
-      listItem.innerHTML = `<a href="${projectName[i].link}" target="_blank" title="새창 열림">${projectName[i].title}</a>`;
+      listItem.innerHTML = `<a href="${projectName[i].link}" target="_blank" title="새창 열림"><strong>${projectName[i].title}</strong> <span>${projectName[i].date} / ${projectName[i].role} / ${projectName[i].type}</span></a>`;
 
-      if (projectName[i].link.indexOf("/subpage/") === 1) {
-        listItem.innerHTML = `<a href="${projectName[i].link}">${projectName[i].title}</a>`;
+      if (projectName[i].link.indexOf("subpage") === 2) {
+        listItem.innerHTML = `<a href="${projectName[i].link}" class="no"><strong>${projectName[i].title}</strong> <span>${projectName[i].date} / ${projectName[i].role} / ${projectName[i].type}</span></a>`;
       }
       proList.appendChild(listItem);
     }

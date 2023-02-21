@@ -479,35 +479,63 @@
 
     li {
       text-align: right;
-      margin-top: 1em;
       line-height: 1;
       animation: fade_in 1s linear forwards;
       &:first-child {
         padding-top: -50%;
       }
       a {
+        padding: 0.5em 0;
+        margin-bottom: 1.1em;
+        display: block;
+        position: relative;
+        transform-style: preserve-3d;
         transform: rotateY(-25deg) translateZ(0) scale(1.2)
           matrix(1, -0.2, 0, 1, -34, 24);
         transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
         transform-style: preserve-3d;
-        display: inline-block;
-        position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0.23em;
-          margin-left: -0.25em;
-          width: 1px;
-          height: 0.85em;
-          background-color: #000;
-          transform: rotate(25deg);
-          pointer-events: none;
+
+        strong {
+          display: inline-block;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0.5em;
+            margin-left: -0.25em;
+            width: 1px;
+            height: 0.85em;
+            background-color: #000;
+            transform: rotate(25deg);
+            pointer-events: none;
+          }
+        }
+        span {
+          opacity: 0;
+          display: block;
+          height: 0;
+          flex: inherit;
+          overflow: hidden;
         }
         &:hover {
-          -webkit-text-stroke: 2px #000;
+          -webkit-text-stroke: 2px #f8f8f8;
           -webkit-text-fill-color: transparent;
-          transform: rotateY(-25deg) translateZ(0) scale(1.2)
-            matrix(1, 0, 0, 1, -40, 21);
+          transform: rotateY(-25deg) translateZ(0) scale(1.1)
+            matrix(1, 0, 0, 1, 0, -10);
+          display: flex;
+          flex-flow: row nowrap;
+          flex: 0 0 auto;
+          justify-content: flex-end;
+          overflow: hidden;
+          background: #252525;
+          strong {
+            display: none;
+          }
+          span {
+            opacity: 1;
+            height: 100%;
+            padding-bottom: 20px;
+            animation: moving2 var(--time) linear infinite;
+          }
         }
       }
     }

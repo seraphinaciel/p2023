@@ -32,6 +32,7 @@
     sVisual();
     sSlide_v();
     sSlide_h();
+    sCode();
   }
 
   function setProperty(sectionName) {
@@ -57,7 +58,6 @@
    */
   function sVisual() {
     const sub_visual = document.querySelector(".sub_visual");
-    const sCont = sub_visual.querySelector("div");
 
     const titleMove =
       yOffset / ((sub_visual.offsetHeight - window.innerHeight) / 2);
@@ -124,7 +124,7 @@
   function setFixText(index) {
     let imgName;
     if (currentScene === 1) {
-      imgName = document.querySelectorAll(".txt");
+      imgName = document.querySelectorAll(".text>div");
     }
     if (currentScene === 2) {
       imgName = document.querySelectorAll("figcaption");
@@ -146,6 +146,15 @@
     imgBox.style.transform = "translateX(" + -moveX + "px)";
   }
 
+  /**
+   * slider
+   */
+  function sCode() {
+    const sub_detail = document.querySelector(".sub_detail");
+    setProperty(sub_detail);
+    console.log(percent);
+    scrollLocation(sub_detail, percent, -300);
+  }
   const subVisual = document.querySelector(".sub_visual");
 
   //sub navigator + progress bar + article adding id

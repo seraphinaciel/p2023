@@ -106,6 +106,26 @@
             transform: translateX(calc(var(--moving) * -1));
   }
 }
+@-webkit-keyframes moving2 {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
+  }
+}
+@keyframes moving2 {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(calc(var(--moving) * -1));
+            transform: translateX(calc(var(--moving) * -1));
+  }
+}
 @-webkit-keyframes fade_in {
   0% {
     opacity: 0;
@@ -297,9 +317,14 @@
   font-size: 1.125rem;
   line-height: 2;
 }
+@media all and (max-width: 767px) {
+  .introduce .text_box p {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .introduce .text_box p {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 .introduce .text_box p.active {
@@ -737,9 +762,14 @@
   font-size: 1.25rem;
   text-transform: capitalize;
 }
+@media all and (max-width: 767px) {
+  .interest ul li dl dt {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .interest ul li dl dt {
-    font-size: 1.7857142857rem;
+    font-size: 1.4285714286rem;
   }
 }
 .interest ul li dl dd {
@@ -747,9 +777,14 @@
   font-weight: 400;
   font-size: 1.125rem;
 }
+@media all and (max-width: 767px) {
+  .interest ul li dl dd {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .interest ul li dl dd {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 .interest ul li dl dd::before {
@@ -791,9 +826,14 @@
   font-weight: 400;
   font-size: 1.125rem;
 }
+@media all and (max-width: 767px) {
+  .project p {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .project p {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 .project ul {
@@ -829,7 +869,6 @@
 }
 .project ul li {
   text-align: right;
-  margin-top: 1em;
   line-height: 1;
   -webkit-animation: fade_in 1s linear forwards;
           animation: fade_in 1s linear forwards;
@@ -838,21 +877,27 @@
   padding-top: -50%;
 }
 .project ul li a {
+  padding: 0.5em 0;
+  margin-bottom: 1.1em;
+  display: block;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   -webkit-transform: rotateY(-25deg) translateZ(0) scale(1.2) matrix(1, -0.2, 0, 1, -34, 24);
           transform: rotateY(-25deg) translateZ(0) scale(1.2) matrix(1, -0.2, 0, 1, -34, 24);
   -webkit-transition: -webkit-transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: -webkit-transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  display: inline-block;
-  position: relative;
+  transform-style: preserve-3d;
 }
-.project ul li a::before {
+.project ul li a strong {
+  display: inline-block;
+}
+.project ul li a strong::before {
   content: "";
   position: absolute;
-  top: 0.23em;
+  top: 0.5em;
   margin-left: -0.25em;
   width: 1px;
   height: 0.85em;
@@ -861,11 +906,45 @@
           transform: rotate(25deg);
   pointer-events: none;
 }
+.project ul li a span {
+  opacity: 0;
+  display: block;
+  height: 0;
+  -webkit-box-flex: inherit;
+      -ms-flex: inherit;
+          flex: inherit;
+  overflow: hidden;
+}
 .project ul li a:hover {
-  -webkit-text-stroke: 2px #000;
+  -webkit-text-stroke: 2px #f8f8f8;
   -webkit-text-fill-color: transparent;
-  -webkit-transform: rotateY(-25deg) translateZ(0) scale(1.2) matrix(1, 0, 0, 1, -40, 21);
-          transform: rotateY(-25deg) translateZ(0) scale(1.2) matrix(1, 0, 0, 1, -40, 21);
+  -webkit-transform: rotateY(-25deg) translateZ(0) scale(1.1) matrix(1, 0, 0, 1, 0, -10);
+          transform: rotateY(-25deg) translateZ(0) scale(1.1) matrix(1, 0, 0, 1, 0, -10);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  overflow: hidden;
+  background: #252525;
+}
+.project ul li a:hover strong {
+  display: none;
+}
+.project ul li a:hover span {
+  opacity: 1;
+  height: 100%;
+  padding-bottom: 20px;
+  -webkit-animation: moving2 var(--time) linear infinite;
+          animation: moving2 var(--time) linear infinite;
 }
 .project button {
   padding: 1rem;
@@ -881,9 +960,14 @@
   text-transform: uppercase;
   display: block;
 }
+@media all and (max-width: 767px) {
+  .project button {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .project button {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 @media all and (min-width: 768px) {
@@ -968,9 +1052,14 @@
   font-weight: 400;
   font-size: 1.125rem;
 }
+@media all and (max-width: 767px) {
+  .storyGraph .history li {
+    font-size: 1rem;
+  }
+}
 @media all and (min-width: 2000px) {
   .storyGraph .history li {
-    font-size: 1.6071428571rem;
+    font-size: 1.4285714286rem;
   }
 }
 @media all and (min-width: 768px) {
@@ -1088,8 +1177,18 @@
 }
 .storyGraph .colorSign .pieName {
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.4375rem;
   text-align: left;
+}
+@media all and (min-width: 768px) {
+  .storyGraph .colorSign .pieName {
+    font-size: 0.5833333333rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  .storyGraph .colorSign .pieName {
+    font-size: 0.875rem;
+  }
 }
 @media all and (min-width: 2000px) {
   .storyGraph .colorSign .pieName {
@@ -1104,22 +1203,17 @@
 .storyGraph .colorSign .pieName li::after {
   content: attr(data-percent) "%";
   font-weight: 900;
-  font-size: 0.9375rem;
+  font-size: 1.875rem;
   padding-left: 10px;
 }
-@media all and (min-width: 768px) {
+@media all and (max-width: 767px) {
   .storyGraph .colorSign .pieName li::after {
-    font-size: 1.25rem;
-  }
-}
-@media all and (min-width: 1280px) {
-  .storyGraph .colorSign .pieName li::after {
-    font-size: 1.875rem;
+    font-size: 1rem;
   }
 }
 @media all and (min-width: 2000px) {
   .storyGraph .colorSign .pieName li::after {
-    font-size: 2.6785714286rem;
+    font-size: 1.4285714286rem;
   }
 }
 .storyGraph .colorSign .pieName li i {

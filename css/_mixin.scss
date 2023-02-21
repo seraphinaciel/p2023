@@ -26,15 +26,19 @@ $minWide: 2000px;
 @mixin fontSizeStyle($size: 1rem, $weight: 400) {
   font-weight: $weight;
 
-  @if $size >= 0.625rem and $size < 1.875rem {
-    font-size: calc($size / 1);
+  @if $size >= 1rem and $size < 2rem {
+    font-size: $size;
+    @media all and (max-width: 767px) {
+      $size: 1rem;
+      font-size: $size;
+    }
   } @else {
     font-size: calc($size / 2);
     @include tablet {
       font-size: calc($size / 1.5);
     }
     @include pc {
-      font-size: calc($size / 1);
+      font-size: $size;
     }
   }
 
