@@ -143,24 +143,21 @@
     moving.style = `--moving : ${document.querySelector(".box").scrollWidth}px`;
   }
 
-  const s1 = new personalityBox("#personality");
-  function personalityBox() {
-    const personality = document.querySelector(".personality");
+  // 객체 & 일회용 생성자 함수
+  const banner = new (function () {
     const container = document.createElement("div");
-
     container.classList.add("container");
     let boxes = [].slice.call(personality.children);
-    boxes = [].concat(boxes, boxes, boxes[0]); //박스 배열에 박스, 복사된박스, 첫번째 박스를 합친다.
-    const size = boxes.length;
+    boxes = [].concat(boxes, boxes, boxes);
 
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < boxes.length; i++) {
       const box = boxes[i];
       container.appendChild(box.cloneNode(true));
     }
     personality.innerHTML = "";
     personality.appendChild(container);
-    return {};
-  }
+    return;
+  })();
 
   /**
    * interest
@@ -597,19 +594,13 @@
       if (percent < 4) {
         graph(index, 0, 0);
       } else if (percent > array[arrIndex] && percent < array[arrIndex + 1]) {
-        if (index < 3) {
-          graph(index, starting, end);
-        }
-        if (index >= 3 && starting < 5) {
-          graph(index, 0, end);
-        }
-        if (index >= 3 && starting >= 5) {
-          graph(index, starting - i, end);
-        }
+        if (index < 3) graph(index, starting, end);
+
+        if (index >= 3 && starting < 5) graph(index, 0, end);
+
+        if (index >= 3 && starting >= 5) graph(index, starting - i, end);
       } else if (percent >= array[array.length - 1]) {
-        if (index >= 3 && starting >= 5) {
-          graph(index, starting - i, end);
-        }
+        if (index >= 3 && starting >= 5) graph(index, starting - i, end);
       }
 
       starting++;
@@ -623,13 +614,13 @@
 
     let piePercent = pie[index].dataset.percent;
     const color = pie[index].dataset.color;
-    const r = pie[index].dataset.rotate;
+    const rotate = pie[index].dataset.rotate;
     let piece = 0;
     let piece2 = 0;
     let cake = 0;
     let cake2 = 0;
 
-    piece = r / end;
+    piece = rotate / end;
     piece2 = piePercent / end;
     cake = piece * start;
     cake2 = piece2 * start;
@@ -637,25 +628,22 @@
     // txt
     let ratateNum = 0;
     const graphAnimation = setInterval(() => {
-      if (end === 0) {
-        clearInterval(graphAnimation);
-      }
+      if (end === 0) clearInterval(graphAnimation);
       item[index].dataset.percent = ratateNum;
       ratateNum++ >= cake2 && clearInterval(graphAnimation);
     }, 10);
 
     // txt indicator color
     let colorPalette = [];
-    colorPalette[index] = pie[index].dataset.color;
+    colorPalette[index] = color;
     item[index].style = "--bgColor:" + colorPalette[index];
 
     // graph
     let n = 0;
-    for (let k = 0; k < r; k++) {
-      if (start === 0) {
-        pie[index].style.transform = `rotate(0deg)`;
-      }
-      if (n <= cake) {
+    for (let k = 0; k < rotate; k++) {
+      if (start === 0) pie[index].style.transform = `rotate(0deg)`;
+
+      if (n < cake) {
         n++;
         pie[
           index
