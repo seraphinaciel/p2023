@@ -590,7 +590,7 @@
 }
 .interest ul li figure a:hover::before {
   width: 100%;
-  background: rgba(37, 37, 37, 0.94);
+  background: rgba(4, 207, 92, 0.94);
   -webkit-transition: width 0.5s 0.2s;
   transition: width 0.5s 0.2s;
 }
@@ -687,7 +687,7 @@
   .interest ul li .figma span {
     -webkit-transform: rotateZ(90deg);
             transform: rotateZ(90deg);
-    top: 70px;
+    top: 0px;
     left: calc(0% + 131px);
   }
 }
@@ -1049,8 +1049,10 @@
   border-top: 1px dashed gray;
   margin-bottom: 1rem;
   line-height: 1.86;
+  letter-spacing: 0;
   font-weight: 400;
   font-size: 1.125rem;
+  text-transform: capitalize;
 }
 @media all and (max-width: 767px) {
   .storyGraph .history li {
@@ -1246,61 +1248,4 @@
 }
 .storyGraph.active .pieContainer::before {
   background-color: #1e1e1e;
-}
-
-.overlap .img_device {
-  position: relative;
-  z-index: 50;
-  width: 300px;
-  margin: 0 auto;
-}
-
-.overlap .bg_change {
-  width: 100%;
-  height: 100%;
-}
-
-.overlap .img_device::before,
-.overlap .img_device::after,
-.overlap .img_device a::before,
-.overlap .img_device a::after {
-  width: 0;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-}
-
-.overlap .img_device:hover::before {
-  width: 100%;
-  background: #000;
-  -webkit-transition: width 0.5s 0.2s;
-  transition: width 0.5s 0.2s;
-}
-
-.overlap .img_device:hover::after {
-  width: 100%;
-  background-color: #272727;
-  -webkit-transition: width 0.5s 0.7s;
-  transition: width 0.5s 0.7s;
-}
-
-.overlap .img_device:hover a::before {
-  width: 100%;
-  background: #c2bada;
-  -webkit-transition: width 0.5s 1.2s;
-  transition: width 0.5s 1.2s;
-  z-index: 1;
-}
-
-.bg_clip {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border: 1px solid;
-  -webkit-clip-path: circle(50% at 50% 50%);
-          clip-path: circle(50% at 50% 50%);
-  background-color: cornflowerblue;
 }
