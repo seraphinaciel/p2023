@@ -280,239 +280,273 @@
   let currentPage = 1;
 
   function projectListBox(pageIndex) {
+    class projectContent {
+      constructor(title, type, date, role, link) {
+        this.title = title;
+        this.type = type;
+        this.date = date;
+        this.role = role;
+        this.link = link;
+      }
+    }
+
+    const visit = new projectContent(
+      "비짓전주",
+      "신규 사업",
+      "20.11.2. ~ 22.5.9.",
+      "메인 디자인, 퍼블리싱, 기여도 100%",
+      "./subpage__06.html"
+    );
+    const bamboo = new projectContent(
+      "담양 대나무 축제",
+      "20.1.23.~3.26.",
+      "신규 사업",
+      "디자인&amp;퍼블리싱 기여도 40%",
+      "http://www.bamboofestival.co.kr/index.do"
+    );
+    const jeonbuk = new projectContent(
+      "전북도청",
+      "19.6.12.~1.5.",
+      "design&amp;publishing, 기여도 100%",
+      "5개 통합사업&유지보수(3년)",
+      "https://www.jeonbuk.go.kr/index.jeonbuk"
+    );
+    const jeonbukgovernor = new projectContent(
+      "전북도청 도지사실",
+      "19.9.3.~20.1.5.",
+      "design&amp;publishing, 기여도 100%",
+      "5개 통합사업&유지보수(3년)",
+      "https://www.jeonbuk.go.kr/governor/index.jeonbuk"
+    );
+    const kunsan = new projectContent(
+      "군산대학교 학과",
+      "21.8.2.~10.15.",
+      "design&amp;publishing, 기여도 100%",
+      "55개 개편 사업",
+      "https://www.kunsan.ac.kr/knuenglish/"
+    );
+    const imsilmayor = new projectContent(
+      "임실군 군수실",
+      "21.3.1.",
+      "design, 기여도 100%",
+      "7개 통합사업",
+      "https://www.imsil.go.kr/mayor/index.imsil"
+    );
+    const imsilbogun = new projectContent(
+      "임실군 보건의료원",
+      "21.3.2.",
+      "design, 기여도 100%",
+      "7개 통합사업",
+      "https://www.imsil.go.kr/bogun/index.imsil"
+    );
+    const jbe = new projectContent(
+      "전라북도 교육청 외국어",
+      "20.9.1.~10.15.",
+      "design&amp;publishing, 기여도 100%",
+      "16개 통합 개편 사업",
+      "https://www.jbe.go.kr/eng/index.jbe"
+    );
+    const gwangjuBigdata = new projectContent(
+      "광주광역시 빅데이터",
+      "20.6.8.~10.12.",
+      "design&amp;publishing, 기여도 100%",
+      "빅데이터 신규 사업",
+      "https://seraphinaciel.github.io/gwangjuBigdata_2020/"
+    );
+    const jne = new projectContent(
+      "전라남도 지원청",
+      "20.2.21.~4.3.",
+      "design&amp;publishing, 기여도 100%",
+      "템플릿 사업 지원",
+      "https://hped.jne.go.kr/index.jne"
+    );
+    const iksancity = new projectContent(
+      "익산시 환경친화도시",
+      "준비중",
+      "design&amp;publishing, 기여도 100%",
+      "콘텐츠 보완",
+      "https://www.iksan.go.kr/index.iksan?menuCd=DOM_000002015000000000"
+    );
+    const buanmayor = new projectContent(
+      "부안군 군수실",
+      "19.5.2.~5.10.",
+      "design&amp;publishing, 기여도 100%",
+      "템플릿 사업&유지보수",
+      "https://www.buan.go.kr/mayor/index.buan"
+    );
+    const sunchangblueberry = new projectContent(
+      "순창군 블루베리 분양",
+      "19.7.25.~11.12.",
+      "design&amp;publishing, 기여도 60%",
+      "5개 통합사업",
+      "http://www.sunchang.go.kr/blueberry/index.sunchang"
+    );
+    const sunchangfarm = new projectContent(
+      "순창군 농업기술센터",
+      "19.6.24.~11.12.",
+      "design&amp;publishing, 기여도 60%",
+      "5개 통합사업",
+      "http://www.sunchang.go.kr/farm/index.sunchang"
+    );
+    const gochangcouncil = new projectContent(
+      "고창군의회 의원",
+      "19.7.17. ~ 9.30.",
+      "디자인&amp;퍼블리싱 기여도 40%",
+      "개편 사업",
+      "https://www.gochang.go.kr/council/index.gochang?menuCd=DOM_000000607001003000"
+    );
+    const gochanggcbr = new projectContent(
+      "고창군청 생물권보전지역",
+      "19.3.4. ~ 3.19.",
+      "디자인&amp;퍼블리싱 기여도 40%",
+      "신규 사업",
+      "https://www.gochang.go.kr/gcbr/index.gochang"
+    );
+    const gochangart = new projectContent(
+      "고창군청 문화의 전당",
+      "19.7.3. ~ 8.5.",
+      "디자인&amp;퍼블리싱 기여도 40%",
+      "개편 사업",
+      "https://www.gochang.go.kr/art/index.gochang"
+    );
+    const gochanggcdolmen = new projectContent(
+      "고창군청 고인돌 박물관",
+      "19.7.8. ~ 7.23.",
+      "디자인&amp;퍼블리싱 기여도 40%",
+      "개편 사업",
+      "https://www.gochang.go.kr/gcdolmen/index.gochang"
+    );
+    const gochangchildcare = new projectContent(
+      "고창군청 육아종합지원센터",
+      "19.7.15. ~ 8.8.",
+      "디자인&amp;퍼블리싱 기여도 40%",
+      "개편 사업&유지보수",
+      "https://www.gochang.go.kr/childcare/index.gochang"
+    );
+    const jpn = new projectContent(
+      "익산시의회 외국어",
+      "19.3.4.~4.5.",
+      "content design&amp;publishing, 기여도 100%",
+      "개편 사업",
+      "https://council.iksan.go.kr/jpn/index.iksan"
+    );
+    const child = new projectContent(
+      "익산시 어린이 청소년 의회",
+      "19.2.12.~3.27.",
+      "content design&amp;publishing, 기여도 100%",
+      "개편 사업",
+      "https://council.iksan.go.kr/child/index.iksan"
+    );
+    const jbares = new projectContent(
+      "전라북도 농업기술원",
+      "18.6.1.~19.1.3.",
+      "design&amp;publishing, 기여도 100%",
+      "개편 사업&유지보수",
+      "https://www.jbares.go.kr/index.jbares"
+    );
+    const horseleisure = new projectContent(
+      "장수군 승마레저파크",
+      "18.1.12.~19.4.30.",
+      "design&amp;publishing, 기여도 100%",
+      "개편 사업&유지보수",
+      "http://www.horseleisure.co.kr/"
+    );
+    const namwonlove = new projectContent(
+      "남원 사이버 장터",
+      "17.2.21.~3.2.",
+      "design&amp;publishing, 기여도 100%",
+      "신규 사업&유지보수",
+      "http://www.namwonlove.co.kr/"
+    );
+    const dbbooth = new projectContent(
+      "DB방음부스",
+      "17.1.23.~2.13.",
+      "design&amp;publishing, 기여도 100%",
+      "신규 사업",
+      "http://www.dbbooth.co.kr/"
+    );
+    const mamashu = new projectContent(
+      "마마슈",
+      "16.12.19.~17.6.4.",
+      "design&amp;publishing, 기여도 100%",
+      "신규 사업",
+      "http://www.mamashu.co.kr/"
+    );
+    const tng = new projectContent(
+      "주식회사 T&G",
+      "16.11.21.~11.30.",
+      "design, 기여도 100%",
+      "신규 사업",
+      "https://tng.co.kr/"
+    );
+    const jbgochu = new projectContent(
+      "임실 고추앤 농산물 가공 판매(주)",
+      "16.10.5.~17.4.30.",
+      "design&amp;publishing, 기여도 100%",
+      "신규 사업&유지보수",
+      "http://www.jbgochu.com/"
+    );
+    const gomsomall = new projectContent(
+      "곰소젓갈",
+      "16.12.7.~17.2.6.",
+      "design&amp;publishing, 기여도 100%",
+      "상세페이지 등 유지보수",
+      "http://www.gomsomall.co.kr/"
+    );
+    const danpoongmall = new projectContent(
+      "정읍시 단풍미인 쇼핑몰",
+      "16.08.01.~17.06.13.",
+      "design&amp;publishing, 기여도 100%",
+      "상세페이지 등 유지보수",
+      "https://www.danpoongmall.kr/"
+    );
+    const htfood = new projectContent(
+      "김정숙 황토식품",
+      "16.8.16.~10.21.",
+      "design&amp;publishing, 기여도 100%",
+      "신규 사업&유지보수",
+      "http://www.htfood.co.kr/"
+    );
+    const jjworkingmom = new projectContent(
+      "전주시 직장맘 고충 상담소",
+      "15.12.1. ~ 15.12.7.",
+      "design&amp;publishing, 기여도 100%",
+      "신규 사업",
+      "http://www.jjworkingmom.org/main"
+    );
     const projectName = [
-      {
-        title: "비짓전주",
-        type: "신규 사업",
-        date: "20.11.2. ~ 22.5.9.",
-        role: "메인 디자인, 퍼블리싱, 기여도 100%",
-        link: "./subpage__06.html",
-      },
-      {
-        title: "담양 대나무 축제",
-        date: "20.1.23.~3.26.",
-        type: "신규 사업",
-        role: "디자인&amp;퍼블리싱 기여도 40%",
-        link: "http://www.bamboofestival.co.kr/index.do",
-      },
-      {
-        title: "전북도청",
-        date: "19.6.12.~1.5.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "5개 통합사업&유지보수(3년)",
-        link: "https://www.jeonbuk.go.kr/index.jeonbuk",
-      },
-      {
-        title: "전북도청 도지사실",
-        date: "19.9.3.~20.1.5.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "5개 통합사업&유지보수(3년)",
-        link: "https://www.jeonbuk.go.kr/governor/index.jeonbuk",
-      },
-      {
-        title: "군산대학교 학과",
-        date: "21.8.2.~10.15.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "55개 개편 사업",
-        link: "https://www.kunsan.ac.kr/knuenglish/",
-      },
-      {
-        title: "임실군 군수실",
-        date: "21.3.1.",
-        role: "design, 기여도 100%",
-        type: "7개 통합사업",
-        link: "https://www.imsil.go.kr/mayor/index.imsil",
-      },
-      {
-        title: "임실군 보건의료원",
-        date: "21.3.2.",
-        role: "design, 기여도 100%",
-        type: "7개 통합사업",
-        link: "https://www.imsil.go.kr/bogun/index.imsil",
-      },
-      {
-        title: "익산시 체육시설예약",
-        date: "20.10.20.~11.18.",
-        role: "publishing, 기여도 100%",
-        type: "콘텐츠 보완",
-        link: "https://www.iksan.go.kr/reserve/index.iksan?menuCd=DOM_000001905003005001&&cpath=%2Freserve",
-      },
-      {
-        title: "전라북도 교육청 외국어",
-        date: "20.9.1.~10.15.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "16개 통합 개편 사업",
-        link: "https://www.jbe.go.kr/eng/index.jbe",
-      },
-      {
-        title: "광주광역시 빅데이터",
-        date: "20.6.8.~10.12.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "빅데이터 신규 사업",
-        link: "https://seraphinaciel.github.io/gwangjuBigdata_2020/",
-      },
-      {
-        title: "전라남도 지원청",
-        date: "20.2.21.~4.3.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "템플릿 사업 지원",
-        link: "https://hped.jne.go.kr/index.jne",
-      },
-      {
-        title: "익산시 환경친화도시",
-        date: "준비중",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "콘텐츠 보완",
-        link: "https://www.iksan.go.kr/index.iksan?menuCd=DOM_000002015000000000",
-      },
-      {
-        title: "부안군 군수실",
-        date: "19.5.2.~5.10.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "템플릿 사업&유지보수",
-        link: "https://www.buan.go.kr/mayor/index.buan",
-      },
-      {
-        title: "순창군 블루베리 분양",
-        date: "19.7.25.~11.12.",
-        role: "design&amp;publishing, 기여도 60%",
-        type: "5개 통합사업",
-        link: "http://www.sunchang.go.kr/blueberry/index.sunchang",
-      },
-      {
-        title: "순창군 농업기술센터",
-        date: "19.6.24.~11.12.",
-        role: "design&amp;publishing, 기여도 60%",
-        type: "5개 통합사업",
-        link: "http://www.sunchang.go.kr/farm/index.sunchang",
-      },
-      {
-        title: "고창군의회 의원",
-        date: "19.7.17. ~ 9.30.",
-        role: "디자인&amp;퍼블리싱 기여도 40%",
-        type: "개편 사업",
-        link: "https://www.gochang.go.kr/council/index.gochang?menuCd=DOM_000000607001003000",
-      },
-      {
-        title: "고창군청 생물권보전지역",
-        date: "19.3.4. ~ 3.19.",
-        role: "디자인&amp;퍼블리싱 기여도 40%",
-        type: "신규 사업",
-        link: "https://www.gochang.go.kr/gcbr/index.gochang",
-      },
-      {
-        title: "고창군청 문화의 전당",
-        date: "19.7.3. ~ 8.5.",
-        role: "디자인&amp;퍼블리싱 기여도 40%",
-        type: "개편 사업",
-        link: "https://www.gochang.go.kr/art/index.gochang",
-      },
-      {
-        title: "고창군청 고인돌 박물관",
-        date: "19.7.8. ~ 7.23.",
-        role: "디자인&amp;퍼블리싱 기여도 40%",
-        type: "개편 사업",
-        link: "https://www.gochang.go.kr/gcdolmen/index.gochang",
-      },
-      {
-        title: "고창군청 육아종합지원센터",
-        date: "19.7.15. ~ 8.8.",
-        role: "디자인&amp;퍼블리싱 기여도 40%",
-        type: "개편 사업&유지보수",
-        link: "https://www.gochang.go.kr/childcare/index.gochang",
-      },
-      {
-        title: "익산시의회 외국어",
-        date: "19.3.4.~4.5.",
-        role: "content design&amp;publishing, 기여도 100%",
-        type: "개편 사업",
-        link: "https://council.iksan.go.kr/jpn/index.iksan",
-      },
-      {
-        title: "익산시 어린이 청소년 의회",
-        date: "19.2.12.~3.27.",
-        role: "content design&amp;publishing, 기여도 100%",
-        type: "개편 사업",
-        link: "https://council.iksan.go.kr/child/index.iksan",
-      },
-      {
-        title: "전라북도 농업기술원",
-        date: "18.6.1.~19.1.3.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "개편 사업&유지보수",
-        link: "https://www.jbares.go.kr/index.jbares",
-      },
-      {
-        title: "장수군 승마레저파크",
-        date: "18.1.12.~19.4.30.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "개편 사업&유지보수",
-        link: "http://www.horseleisure.co.kr/",
-        // link: "./page/subpage__00.html",
-      },
-      {
-        title: "남원 사이버 장터",
-        date: "17.2.21.~3.2.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "신규 사업&유지보수",
-        link: "http://www.namwonlove.co.kr/",
-      },
-      {
-        title: "DB방음부스",
-        date: "17.1.23.~2.13.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "신규 사업",
-        link: "http://www.dbbooth.co.kr/",
-      },
-      {
-        title: "마마슈",
-        date: "16.12.19.~17.6.4.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "신규 사업",
-        link: "http://www.mamashu.co.kr/",
-      },
-      {
-        title: "주식회사 T&G",
-        date: "16.11.21.~11.30.",
-        role: "design, 기여도 100%",
-        type: "신규 사업",
-        link: "https://tng.co.kr/",
-      },
-      {
-        title: "임실 고추앤 농산물 가공 판매(주)",
-        date: "16.10.5.~17.4.30.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "신규 사업&유지보수",
-        link: "http://www.jbgochu.com/",
-      },
-      {
-        title: "곰소젓갈",
-        date: "16.12.7.~17.2.6.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "상세페이지 등 유지보수",
-        link: "http://www.gomsomall.co.kr/",
-      },
-      {
-        title: "정읍시 단풍미인 쇼핑몰",
-        date: "16.08.01.~17.06.13.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "상세페이지 등 유지보수",
-        link: "https://www.danpoongmall.kr/",
-      },
-      {
-        title: "김정숙 황토식품",
-        date: "16.8.16.~10.21.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "신규 사업&유지보수",
-        link: "http://www.htfood.co.kr/",
-      },
-      {
-        title: "전주시 직장맘 고충 상담소",
-        date: "15.12.1. ~ 15.12.7.",
-        role: "design&amp;publishing, 기여도 100%",
-        type: "신규 사업",
-        link: "http://www.jjworkingmom.org/main",
-      },
+      visit,
+      bamboo,
+      jeonbuk,
+      jeonbukgovernor,
+      kunsan,
+      imsilmayor,
+      imsilbogun,
+      jbe,
+      gwangjuBigdata,
+      jne,
+      iksancity,
+      buanmayor,
+      sunchangblueberry,
+      sunchangfarm,
+      gochangcouncil,
+      gochanggcbr,
+      gochangart,
+      gochanggcdolmen,
+      gochangchildcare,
+      jpn,
+      child,
+      jbares,
+      horseleisure,
+      namwonlove,
+      dbbooth,
+      mamashu,
+      tng,
+      jbgochu,
+      gomsomall,
+      danpoongmall,
+      htfood,
+      jjworkingmom,
     ];
 
     const cardLimit = projectName.length;
