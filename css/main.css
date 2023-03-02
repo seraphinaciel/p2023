@@ -667,7 +667,7 @@
 @media all and (min-width: 1280px) {
   .interest ul li .landing span {
     position: absolute;
-    top: 287px;
+    top: 210px;
     left: 307px;
   }
 }
@@ -1165,6 +1165,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 1;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
