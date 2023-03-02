@@ -299,28 +299,28 @@
     );
     const bamboo = new projectContent(
       "담양 대나무 축제",
-      "20.1.23.~3.26.",
+      "20.1.23. ~ 3.26.",
       "신규 사업",
       "디자인&amp;퍼블리싱 기여도 40%",
       "http://www.bamboofestival.co.kr/index.do"
     );
     const jeonbuk = new projectContent(
       "전북도청",
-      "19.6.12.~1.5.",
+      "19.6.12. ~ 1.5.",
       "design&amp;publishing, 기여도 100%",
       "5개 통합사업&유지보수(3년)",
       "https://www.jeonbuk.go.kr/index.jeonbuk"
     );
     const jeonbukgovernor = new projectContent(
       "전북도청 도지사실",
-      "19.9.3.~20.1.5.",
+      "19.9.3. ~ 20.1.5.",
       "design&amp;publishing, 기여도 100%",
       "5개 통합사업&유지보수(3년)",
       "https://www.jeonbuk.go.kr/governor/index.jeonbuk"
     );
     const kunsan = new projectContent(
       "군산대학교 학과",
-      "21.8.2.~10.15.",
+      "21.8.2. ~ 10.15.",
       "design&amp;publishing, 기여도 100%",
       "55개 개편 사업",
       "https://www.kunsan.ac.kr/knuenglish/"
@@ -341,49 +341,43 @@
     );
     const jbe = new projectContent(
       "전라북도 교육청 외국어",
-      "20.9.1.~10.15.",
+      "20.9.1. ~ 10.15.",
       "design&amp;publishing, 기여도 100%",
       "16개 통합 개편 사업",
       "https://www.jbe.go.kr/eng/index.jbe"
     );
     const gwangjuBigdata = new projectContent(
       "광주광역시 빅데이터",
-      "20.6.8.~10.12.",
+      "20.6.8. ~ 10.12.",
       "design&amp;publishing, 기여도 100%",
       "빅데이터 신규 사업",
       "https://seraphinaciel.github.io/gwangjuBigdata_2020/"
     );
     const jne = new projectContent(
       "전라남도 지원청",
-      "20.2.21.~4.3.",
+      "20.2.21. ~ 4.3.",
       "design&amp;publishing, 기여도 100%",
       "템플릿 사업 지원",
       "https://hped.jne.go.kr/index.jne"
     );
-    const iksancity = new projectContent(
-      "익산시 환경친화도시",
-      "준비중",
-      "design&amp;publishing, 기여도 100%",
-      "콘텐츠 보완",
-      "https://www.iksan.go.kr/index.iksan?menuCd=DOM_000002015000000000"
-    );
+
     const buanmayor = new projectContent(
       "부안군 군수실",
-      "19.5.2.~5.10.",
+      "19.5.2. ~ 5.10.",
       "design&amp;publishing, 기여도 100%",
       "템플릿 사업&유지보수",
       "https://www.buan.go.kr/mayor/index.buan"
     );
     const sunchangblueberry = new projectContent(
       "순창군 블루베리 분양",
-      "19.7.25.~11.12.",
+      "19.7.25. ~ 11.12.",
       "design&amp;publishing, 기여도 60%",
       "5개 통합사업",
       "http://www.sunchang.go.kr/blueberry/index.sunchang"
     );
     const sunchangfarm = new projectContent(
       "순창군 농업기술센터",
-      "19.6.24.~11.12.",
+      "19.6.24. ~ 11.12.",
       "design&amp;publishing, 기여도 60%",
       "5개 통합사업",
       "http://www.sunchang.go.kr/farm/index.sunchang"
@@ -425,84 +419,84 @@
     );
     const jpn = new projectContent(
       "익산시의회 외국어",
-      "19.3.4.~4.5.",
+      "19.3.4. ~ 4.5.",
       "content design&amp;publishing, 기여도 100%",
       "개편 사업",
       "https://council.iksan.go.kr/jpn/index.iksan"
     );
     const child = new projectContent(
       "익산시 어린이 청소년 의회",
-      "19.2.12.~3.27.",
+      "19.2.12. ~ 3.27.",
       "content design&amp;publishing, 기여도 100%",
       "개편 사업",
       "https://council.iksan.go.kr/child/index.iksan"
     );
     const jbares = new projectContent(
       "전라북도 농업기술원",
-      "18.6.1.~19.1.3.",
+      "18.6.1. ~ 19.1.3.",
       "design&amp;publishing, 기여도 100%",
       "개편 사업&유지보수",
       "https://www.jbares.go.kr/index.jbares"
     );
     const horseleisure = new projectContent(
       "장수군 승마레저파크",
-      "18.1.12.~19.4.30.",
+      "18.1.12. ~ 19.4.30.",
       "design&amp;publishing, 기여도 100%",
       "개편 사업&유지보수",
       "http://www.horseleisure.co.kr/"
     );
     const namwonlove = new projectContent(
       "남원 사이버 장터",
-      "17.2.21.~3.2.",
+      "17.2.21. ~ 3.2.",
       "design&amp;publishing, 기여도 100%",
       "신규 사업&유지보수",
       "http://www.namwonlove.co.kr/"
     );
     const dbbooth = new projectContent(
       "DB방음부스",
-      "17.1.23.~2.13.",
+      "17.1.23. ~ 2.13.",
       "design&amp;publishing, 기여도 100%",
       "신규 사업",
       "http://www.dbbooth.co.kr/"
     );
     const mamashu = new projectContent(
       "마마슈",
-      "16.12.19.~17.6.4.",
+      "16.12.19. ~ 17.6.4.",
       "design&amp;publishing, 기여도 100%",
       "신규 사업",
       "http://www.mamashu.co.kr/"
     );
     const tng = new projectContent(
       "주식회사 T&G",
-      "16.11.21.~11.30.",
+      "16.11.21. ~ 11.30.",
       "design, 기여도 100%",
       "신규 사업",
       "https://tng.co.kr/"
     );
     const jbgochu = new projectContent(
       "임실 고추앤 농산물 가공 판매(주)",
-      "16.10.5.~17.4.30.",
+      "16.10.5. ~ 17.4.30.",
       "design&amp;publishing, 기여도 100%",
       "신규 사업&유지보수",
       "http://www.jbgochu.com/"
     );
     const gomsomall = new projectContent(
       "곰소젓갈",
-      "16.12.7.~17.2.6.",
+      "16.12.7. ~ 17.2.6.",
       "design&amp;publishing, 기여도 100%",
       "상세페이지 등 유지보수",
       "http://www.gomsomall.co.kr/"
     );
     const danpoongmall = new projectContent(
       "정읍시 단풍미인 쇼핑몰",
-      "16.08.01.~17.06.13.",
+      "16.08.01. ~ 17.06.13.",
       "design&amp;publishing, 기여도 100%",
       "상세페이지 등 유지보수",
       "https://www.danpoongmall.kr/"
     );
     const htfood = new projectContent(
       "김정숙 황토식품",
-      "16.8.16.~10.21.",
+      "16.8.16. ~ 10.21.",
       "design&amp;publishing, 기여도 100%",
       "신규 사업&유지보수",
       "http://www.htfood.co.kr/"
@@ -525,7 +519,6 @@
       jbe,
       gwangjuBigdata,
       jne,
-      iksancity,
       buanmayor,
       sunchangblueberry,
       sunchangfarm,
