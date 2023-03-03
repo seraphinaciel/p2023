@@ -939,3 +939,116 @@
 .spotSlide .item_wrap span strong {
   text-align: center;
 }
+
+/*product page*/
+.product_page {
+  position: relative;
+}
+@media all and (min-width: 768px) {
+  .product_page {
+    padding: 0 1.25rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  .product_page {
+    padding: 0 7%;
+  }
+}
+.product_page::before {
+  height: 90px;
+  content: "";
+  display: block;
+}
+.product_page .masonry {
+  -webkit-column-width: 350px;
+     -moz-column-width: 350px;
+          column-width: 350px;
+  -webkit-column-gap: 15px;
+     -moz-column-gap: 15px;
+          column-gap: 15px;
+}
+.product_page .masonry figure {
+  margin: 0 0 16px;
+  display: inline-block;
+  position: relative;
+}
+
+:modal {
+  border: none;
+  padding: 0;
+  position: fixed;
+}
+:modal::before {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+:modal form {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  background: whitesmoke;
+  padding: 1rem;
+  z-index: 1;
+}
+:modal .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+:modal .header #btnClose {
+  border-radius: 50%;
+  background: white;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+:modal .body {
+  min-height: 150px;
+}
+:modal .body #img {
+  border: 1px solid red;
+}
+:modal .body #img figcaption {
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+}
+:modal .body #img figcaption h2 {
+  font-weight: 400;
+  font-size: 1.4375rem;
+}
+@media all and (min-width: 768px) {
+  :modal .body #img figcaption h2 {
+    font-size: 1.9166666667rem;
+  }
+}
+@media all and (min-width: 1280px) {
+  :modal .body #img figcaption h2 {
+    font-size: 2.875rem;
+  }
+}
+@media all and (min-width: 2000px) {
+  :modal .body #img figcaption h2 {
+    font-size: 4.1071428571rem;
+  }
+}
+:modal .body #img figcaption em {
+  background-color: #123466;
+  color: white;
+  padding: 4px 10px;
+  display: inline-block;
+}

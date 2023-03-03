@@ -155,69 +155,7 @@
     console.log(percent);
     scrollLocation(sub_detail, percent, -300);
   }
-  const subVisual = document.querySelector(".sub_visual");
 
-  //sub navigator + progress bar + article adding id
-  const nav = document.querySelector("nav");
-  const storyCon = document.querySelectorAll(".story");
-
-  function navA() {
-    const p = document.createElement("p");
-    nav.appendChild(p);
-    for (let i = 1; i <= storyCon.length; i++) {
-      const storyNum = String(i).padStart(2, "0");
-      const a = document.createElement("a");
-      a.href = `#story${storyNum}`;
-      a.innerText = `story${storyNum}`;
-      p.appendChild(a);
-      storyCon[i - 1].id = `story${storyNum}`;
-    }
-    const progress = document.createElement("p");
-    progress.classList.add("progress");
-    progress.innerHTML = `<p class="bar" id="progress-bar"></p>`;
-    nav.appendChild(progress);
-
-    //scrolled sub navigator adding active
-    const observer = new IntersectionObserver((entries) => {
-      // http://blog.hyeyoonjung.com/2019/01/09/intersectionobserver-tutorial/
-      entries.forEach((entry) => {
-        const id = entry.target.getAttribute("id");
-        if (entry.intersectionRatio > 0) {
-          document
-            .querySelector(`main nav a[href="#${id}"]`)
-            .classList.add("active");
-        } else {
-          document
-            .querySelector(`main nav a[href="#${id}"]`)
-            .classList.remove("active");
-        }
-      });
-    });
-
-    document.querySelectorAll("article[id]").forEach((article) => {
-      observer.observe(article);
-    });
-  }
-
-  function navCreate() {
-    //sub navigator adding class sticky + progress bar %
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    const sticky = nav.offsetTop;
-
-    console.log(percent);
-    if (currentScene >= 1) {
-      nav.classList.add("sticky");
-      document.getElementById("progress-bar").style.width = scrolled + "%";
-    } else {
-      nav.classList.remove("sticky");
-    }
-  }
-  // navA();
   window,
     addEventListener("load", () => {
       /**
@@ -230,7 +168,6 @@
         "scroll",
         () => {
           setLayout();
-          // navCreate();
         },
         false
       );
@@ -239,7 +176,6 @@
         "resize",
         () => {
           setLayout();
-          // navCreate();
         },
         false
       );
