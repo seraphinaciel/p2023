@@ -1180,18 +1180,8 @@
 }
 .storyGraph .colorSign .pieName {
   font-weight: 400;
-  font-size: 0.4375rem;
+  font-size: 0.875rem;
   text-align: left;
-}
-@media all and (min-width: 768px) {
-  .storyGraph .colorSign .pieName {
-    font-size: 0.5833333333rem;
-  }
-}
-@media all and (min-width: 1280px) {
-  .storyGraph .colorSign .pieName {
-    font-size: 0.875rem;
-  }
 }
 @media all and (min-width: 2000px) {
   .storyGraph .colorSign .pieName {

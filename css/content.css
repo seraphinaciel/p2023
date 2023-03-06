@@ -960,28 +960,41 @@
   display: block;
 }
 .product_page .masonry {
-  -webkit-column-width: 350px;
-     -moz-column-width: 350px;
-          column-width: 350px;
+  -webkit-columns: 6 240px;
+     -moz-columns: 6 240px;
+          columns: 6 240px;
+  -webkit-column-fill: balance;
+     -moz-column-fill: balance;
+          column-fill: balance;
   -webkit-column-gap: 15px;
      -moz-column-gap: 15px;
           column-gap: 15px;
 }
 .product_page .masonry figure {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   display: inline-block;
   position: relative;
+  -webkit-box-shadow: 0 0px 10px 4px #ccc;
+          box-shadow: 0 0px 10px 4px #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.product_page .masonry figure figcaption {
+  display: none;
 }
 
 :modal {
   border: none;
   padding: 0;
+  background: transparent;
   position: fixed;
+  overflow: hidden;
+  cursor: auto;
 }
 :modal::before {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.86);
   content: "";
   position: fixed;
   top: 0;
@@ -989,66 +1002,72 @@
 }
 :modal form {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 2fr auto;
+  grid-template-rows: auto auto 1fr;
   position: relative;
-  background: whitesmoke;
-  padding: 1rem;
+  padding: 0 0 18px 18px;
+  width: calc(100% + 18px);
+  height: 100vh;
+  overflow-y: scroll;
   z-index: 1;
 }
-:modal .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+:modal #btnClose {
+  grid-column: 2/-1;
+  grid-row: 1/1;
   position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-:modal .header #btnClose {
+  top: 1rem;
+  right: 1rem;
   border-radius: 50%;
   background: white;
-  width: 100px;
-  height: 100px;
-  display: inline-block;
+  width: 50px;
+  height: 50px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(37, 37, 37, 0.6);
+          box-shadow: 0 0 3px 0 rgba(37, 37, 37, 0.6);
+  z-index: 1;
 }
-:modal .body {
-  min-height: 150px;
+:modal #btnClose:hover {
+  background: rgb(4, 207, 92);
+  -webkit-box-shadow: 0;
+          box-shadow: 0;
 }
-:modal .body #img {
-  border: 1px solid red;
-}
-:modal .body #img figcaption {
+:modal .dialogTitle {
+  grid-column: 1/-1;
+  grid-row: 1/1;
   text-align: center;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
+  padding: 1rem;
 }
-:modal .body #img figcaption h2 {
+:modal .dialogTitle h2 {
+  line-height: 1;
   font-weight: 400;
   font-size: 1.4375rem;
+  color: white;
 }
 @media all and (min-width: 768px) {
-  :modal .body #img figcaption h2 {
+  :modal .dialogTitle h2 {
     font-size: 1.9166666667rem;
   }
 }
 @media all and (min-width: 1280px) {
-  :modal .body #img figcaption h2 {
+  :modal .dialogTitle h2 {
     font-size: 2.875rem;
   }
 }
 @media all and (min-width: 2000px) {
-  :modal .body #img figcaption h2 {
+  :modal .dialogTitle h2 {
     font-size: 4.1071428571rem;
   }
 }
-:modal .body #img figcaption em {
-  background-color: #123466;
-  color: white;
+:modal .dialogTitle em {
+  background: white;
+  color: #123466;
   padding: 4px 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
   display: inline-block;
+}
+:modal #img {
+  min-height: 150px;
+  margin-right: -18px;
+  grid-column: 1/3;
+  grid-row: 2/-1;
 }

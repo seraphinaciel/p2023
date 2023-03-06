@@ -1,4 +1,21 @@
 (() => {
+  const localFullName = document.URL.substring(
+    document.URL.lastIndexOf("/") + 1
+  );
+
+  switch (localFullName) {
+    case "product_page.html":
+      console.log(1);
+      product_page();
+      break;
+    case "subpage__06.html":
+      console.log(2);
+      subPage();
+      break;
+  }
+})();
+
+function subPage() {
   const contentBody = document.querySelectorAll("#content > article");
 
   let yOffset = 0;
@@ -22,8 +39,6 @@
         break;
       }
     }
-
-    document.body.setAttribute("id", `sub-${currentScene}`);
 
     scrollFunc();
   }
@@ -70,6 +85,8 @@
           arr.style = "--progress:" + Math.max(0, titleMove - index * gap) + "";
         });
     }
+
+    console.log(yOffset);
   }
 
   /**
@@ -158,9 +175,6 @@
 
   window,
     addEventListener("load", () => {
-      /**
-       * init
-       */
       function init() {
         setLayout();
       }
@@ -182,4 +196,40 @@
 
       init();
     });
-})();
+}
+
+function product_page() {
+  const [dialog, btnOpen, img, btnClose, dialogTitle] = [
+    document.querySelector("dialog#myDialog"),
+    document.querySelectorAll(".btnOpen"),
+    document.querySelector("#img"),
+    document.querySelector("#btnClose"),
+    document.querySelector(".dialogTitle"),
+  ];
+
+  btnOpen.forEach((e, k) => {
+    e.addEventListener("click", function () {
+      dialog.showModal();
+      let em = this.querySelector("em");
+      let h2 = this.querySelector("h2");
+      let imgSrc = this.querySelector("img");
+      dialogTitle.innerHTML = `<em>${em.innerText}</em><h2>${h2.innerText}</h2>`;
+      img.innerHTML = `<img src="${imgSrc.src}">`;
+      document.querySelector("body").style.overflow = "hidden";
+    });
+  });
+
+  btnClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.close();
+  });
+
+  dialog.addEventListener("close", (e) => {
+    switch (dialog.returnValue) {
+      case "cancel":
+        return false;
+    }
+    e.preventDefault();
+    document.querySelector("body").style.overflow = "scroll";
+  });
+}

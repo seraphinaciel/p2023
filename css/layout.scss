@@ -187,6 +187,7 @@ footer {
     background: url("../images/thumnail/img06.jpg") center;
     background-size: cover;
   }
+
   div {
     max-width: 1280px;
     margin: 0 auto;
@@ -272,6 +273,15 @@ footer {
     & + .btn {
       order: 2;
     }
+  }
+}
+.product .sub_visual {
+  height: 100vh;
+  // background: linear-gradient(rgba(48, 77, 117, 0.7) 10%, rgba(48, 77, 117, 1));
+
+  span {
+    background: url("../images/thumnail/product.jpg") center;
+    background-size: cover;
   }
 }
 .btn {
@@ -635,146 +645,3 @@ nav {
     }
   }
 }
-
-// aside {
-//   min-height: 134px;
-//   padding: 0 1.625rem;
-//   margin: 2rem auto;
-//   display: flex;
-//   position: relative;
-//   a {
-//     width: 50%;
-//     transition: 0.3s ease-in-out;
-//     div {
-//       height: 100%;
-//       padding: 0 30px;
-//       @include bgColor(background, cMainDark, 0.8);
-//       display: flex;
-//       flex-wrap: wrap;
-//       align-content: center;
-//       color: white;
-//       transition: 0.3s ease-in-out;
-//       word-break: break-all;
-//     }
-//     i {
-//       font-size: 1.25rem;
-//       display: flex;
-//       flex-wrap: wrap;
-//       align-content: center;
-//     }
-//     span {
-//       padding: 0 10px;
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       letter-spacing: 0;
-//       @include fontSizeStyle(0.875rem);
-//       strong {
-//         display: none;
-//       }
-//     }
-//     &.prev {
-//       div {
-//         text-align: left;
-//       }
-//       &:hover {
-//         border-bottom-left-radius: 60px;
-//         overflow: hidden;
-//       }
-//     }
-//     &.next {
-//       div {
-//         text-align: right;
-//         justify-content: flex-end;
-//       }
-//       &:hover {
-//         border-bottom-right-radius: 60px;
-//         overflow: hidden;
-//       }
-//     }
-//     &.list {
-//       width: 60px;
-//       line-height: 60px;
-//       background: white;
-//       position: absolute;
-//       top: calc(50% - 30px);
-//       left: calc(50% - 30px);
-//       text-align: center;
-//       text-transform: uppercase;
-//       letter-spacing: 5px;
-//       @include fontSizeStyle(0.625rem);
-//       font-weight: 900;
-//       transition: 0.3s ease-in-out;
-//       i {
-//         @include fontSizeStyle;
-//         padding-bottom: 6px;
-//         display: block;
-//       }
-//       &:hover {
-//         @include bgColor(color, cMainDark, 1);
-//         border-radius: 50%;
-//       }
-//     }
-//     &:hover {
-//       div {
-//         @include bgColor(background, cMain, 0.94);
-//       }
-//       strong {
-//         text-decoration: underline;
-//       }
-//     }
-//     &.disabled {
-//       cursor: auto;
-//       div {
-//         background: lightgray;
-//         color: gray;
-//       }
-//       strong {
-//         text-decoration: none;
-//       }
-//       &:hover,
-//       &:hover div,
-//       &:hover strong {
-//         border-radius: 0;
-//         background: lightgray;
-//         text-decoration: none;
-//       }
-//     }
-//   }
-// }
-// @media all and (min-width: 500px) {
-//   aside {
-//     a {
-//       div {
-//         padding: 0 5vw;
-//       }
-//       i {
-//         @include fontSizeStyle(2rem);
-//       }
-//       span {
-//         padding: 0 20px;
-//         letter-spacing: 10px;
-//         strong {
-//           display: block;
-//           letter-spacing: 0;
-//           @include fontSizeStyle(1.125rem);
-//           font-weight: 600;
-//         }
-//       }
-//       &.list {
-//         width: 90px;
-//         line-height: 90px;
-//         top: calc(50% - 45px);
-//         left: calc(50% - 45px);
-//         font-size: 0.875rem;
-//       }
-//     }
-//   }
-// }
-
-// @media all and (min-width: 1000px) {
-//   aside {
-//     width: calc(60vw + 20px);
-//     padding: 0;
-//   }
-// }

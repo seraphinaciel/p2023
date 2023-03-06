@@ -26,7 +26,9 @@ $minWide: 2000px;
 @mixin fontSizeStyle($size: 1rem, $weight: 400) {
   font-weight: $weight;
 
-  @if $size >= 1rem and $size < 2rem {
+  @if $size <= 1rem {
+    font-size: $size;
+  } @else if $size > 1rem and $size < 2rem {
     font-size: $size;
     @media all and (max-width: 767px) {
       $size: 1rem;

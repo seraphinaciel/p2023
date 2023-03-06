@@ -59,7 +59,7 @@ $(document).ready(function ($) {
   }
 
   function scrollFunc() {
-    sVisual();
+    sHeader();
   }
 
   function setProperty(sectionName) {
@@ -83,7 +83,7 @@ $(document).ready(function ($) {
   /**
    * header
    */
-  function sVisual() {
+  function sHeader() {
     const sub_visual = document.querySelector("#content");
     const header = document.querySelector("header");
 

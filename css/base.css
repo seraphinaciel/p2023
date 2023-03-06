@@ -13,6 +13,7 @@ body {
   font-weight: 400;
   letter-spacing: -0.05em;
   word-break: keep-all;
+  cursor: url("../images/normal.png") 0 0, auto;
 }
 
 body,
@@ -57,6 +58,7 @@ tr {
 
 a {
   display: inline-block;
+  cursor: url("../images/hover.png") 0 0, auto;
 }
 a,
 a:visited,
