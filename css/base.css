@@ -58,7 +58,6 @@ tr {
 
 a {
   display: inline-block;
-  cursor: url("../images/hover.png") 0 0, auto;
 }
 a,
 a:visited,
@@ -68,6 +67,7 @@ a:hover {
   border: none;
   text-decoration: none;
   transition: 0.3s ease-in-out;
+  cursor: url("../images/hover.png") 0 0, auto;
 }
 ul,
 ol,
@@ -106,7 +106,7 @@ button {
   padding: 0;
   border: 0;
   background: 0;
-  cursor: pointer;
+  cursor: url("../images/hover.png") 0 0, auto;
   appearance: none;
 }
 img {
