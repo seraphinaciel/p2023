@@ -13,7 +13,8 @@ body {
   font-weight: 400;
   letter-spacing: -0.05em;
   word-break: keep-all;
-  cursor: url("../images/normal.png") 0 0, auto;
+  cursor: none;
+  overflow-x: hidden;
 }
 
 body,
@@ -67,7 +68,7 @@ a:hover {
   border: none;
   text-decoration: none;
   transition: 0.3s ease-in-out;
-  cursor: url("../images/hover.png") 0 0, auto;
+  cursor: none;
 }
 ul,
 ol,
@@ -106,7 +107,7 @@ button {
   padding: 0;
   border: 0;
   background: 0;
-  cursor: url("../images/hover.png") 0 0, auto;
+  cursor: none;
   appearance: none;
 }
 img {
@@ -203,4 +204,42 @@ hr {
   direction: ltr;
   /* -webkit-font-feature-settings: 'liga'; */
   -webkit-font-smoothing: antialiased;
+}
+.cursor {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  mix-blend-mode: difference;
+}
+.cursor-follower {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(1);
+  transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+  mix-blend-mode: difference;
+}
+.cursor.active {
+  opacity: 0.5;
+  transform: scale(0);
+}
+.cursor-follower.active {
+  opacity: 0.7;
+  transform: scale(4);
 }

@@ -91,13 +91,52 @@ $(document).ready(function ($) {
     scrollLocation(header, percent, 10);
   }
 
+  function cCursor() {
+    const cursor = document.querySelector(".cursor");
+    const follower = document.querySelector(".cursor-follower");
+    const cursortLink = document.querySelectorAll("body a");
+    const cursortBtn = document.querySelectorAll("body button");
+
+    document.addEventListener("mousemove", (e) => {
+      gsap.to(cursor, {
+        duration: 0.3,
+        left: e.pageX,
+        top: e.pageY,
+      });
+      gsap.to(follower, {
+        duration: 0.8,
+        left: e.pageX - cursor.clientWidth,
+        top: e.pageY - cursor.clientWidth,
+      });
+    });
+
+    cursortLink.forEach((elem) => {
+      elem.addEventListener("mouseenter", () => {
+        cursor.classList.add("active");
+        follower.classList.add("active");
+      });
+      elem.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active");
+        follower.classList.remove("active");
+      });
+    });
+    cursortBtn.forEach((elem) => {
+      elem.addEventListener("mouseenter", () => {
+        cursor.classList.add("active");
+        follower.classList.add("active");
+      });
+      elem.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active");
+        follower.classList.remove("active");
+      });
+    });
+  }
+
   window,
     addEventListener("load", () => {
-      /**
-       * init
-       */
       function init() {
         setLayout();
+        cCursor();
       }
       window.addEventListener(
         "scroll",
