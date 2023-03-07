@@ -960,18 +960,18 @@
   display: block;
 }
 .product_page .masonry {
-  -webkit-columns: 6 240px;
-     -moz-columns: 6 240px;
-          columns: 6 240px;
+  -webkit-columns: 5 240px;
+     -moz-columns: 5 240px;
+          columns: 5 240px;
   -webkit-column-fill: balance;
      -moz-column-fill: balance;
           column-fill: balance;
-  -webkit-column-gap: 15px;
-     -moz-column-gap: 15px;
-          column-gap: 15px;
+  -webkit-column-gap: 3em;
+     -moz-column-gap: 3em;
+          column-gap: 3em;
 }
 .product_page .masonry figure {
-  margin: 0 0 14px;
+  margin: 0 0 3em;
   display: inline-block;
   position: relative;
   -webkit-box-shadow: 0 0px 10px 4px #ccc;
