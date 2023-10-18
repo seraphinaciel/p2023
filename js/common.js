@@ -93,41 +93,30 @@ $(document).ready(function ($) {
 
   function cCursor() {
     const cursor = document.querySelector(".cursor");
-    const follower = document.querySelector(".cursor-follower");
-    const cursortLink = document.querySelectorAll("body a");
-    const cursortBtn = document.querySelectorAll("body button");
+    const cursorFollower = document.querySelector(".cursor-follower");
+    const cursorElements = document.querySelectorAll("a, button");
 
     document.addEventListener("mousemove", (e) => {
       gsap.to(cursor, {
         duration: 0.3,
-        left: e.pageX,
-        top: e.pageY,
+        left: e.clientX,
+        top: e.clientY,
       });
-      gsap.to(follower, {
+      gsap.to(cursorFollower, {
         duration: 0.8,
-        left: e.pageX - cursor.clientWidth,
-        top: e.pageY - cursor.clientWidth,
+        left: e.clientX - cursor.clientWidth,
+        top: e.clientY - cursor.clientWidth,
       });
     });
 
-    cursortLink.forEach((elem) => {
+    cursorElements.forEach((elem) => {
       elem.addEventListener("mouseenter", () => {
         cursor.classList.add("active");
-        follower.classList.add("active");
+        cursorFollower.classList.add("active");
       });
       elem.addEventListener("mouseleave", () => {
         cursor.classList.remove("active");
-        follower.classList.remove("active");
-      });
-    });
-    cursortBtn.forEach((elem) => {
-      elem.addEventListener("mouseenter", () => {
-        cursor.classList.add("active");
-        follower.classList.add("active");
-      });
-      elem.addEventListener("mouseleave", () => {
-        cursor.classList.remove("active");
-        follower.classList.remove("active");
+        cursorFollower.classList.remove("active");
       });
     });
   }
